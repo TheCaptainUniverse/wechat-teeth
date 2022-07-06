@@ -1,0 +1,21 @@
+<!--pages/pages1/blbg/blbg.wxml-->
+<view class="TT">
+  <view class="tb"></view>
+  <view class="cell" wx:for="{{blbg}}" wx:key="blbg" wx:for-index="index">
+    <view class="title">
+      <text style="margin-left: 4%; font-weight: bold;">病症描述：</text>
+      <view class="ms"><text>{{item.problem}}</text></view>
+    </view>
+    <view class="time">
+      <text style="margin-left: 4%; font-weight: bold;">提交时间：</text>
+      <view class="t"><text>{{item.time}}</text></view>
+    </view>
+    <view class="bgxq" bindtap="go" data-index='{{index}}'>
+      <text>查看报告详情>>></text>
+    </view>
+  </view>
+  <block wx:if="{{dataILu}}">
+    <i-load-more />
+      <i-load-more loading="{{ false }}" />
+  </block>
+</view>

@@ -1,0 +1,52 @@
+/* pages1/pages/ltfb/ltfb.wxss */
+.TT{
+  width: 100%;
+  height: auto;
+  background-color: white;
+}
+.title{
+  width: 100%;
+  margin-top: 1em;
+  height: 8vh;
+  display: flex;
+  background-color: rgb(222, 222, 222);
+}
+.nr{
+  margin-top: 1em;
+  background-color: rgb(222, 222, 222);
+}
+
+.fb{
+  width: 48%;
+  height: 7vh;
+  border-radius: 10px;
+  margin-left: 27%;
+  background-color: #4fc08d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 3vh;
+}
+.t1{
+  width: 100%;
+  height: 30vh;
+  margin-top: 0.6em;
+  background-color: white;
+}
+#t1{
+  width:100%;
+  height:300rpx;
+  background-color: white;
+  position: relative;
+  top:50rpx;
+}
+#t1t{
+  margin-top: -200rpx;
+}
+.cu-form-group .title {
+  min-width: calc(4em + 30rpx);
+}
+.cu-form-group{
+  margin-top: -150rpx;
+}

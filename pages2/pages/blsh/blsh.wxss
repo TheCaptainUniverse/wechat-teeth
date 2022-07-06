@@ -1,0 +1,42 @@
+/* pages2/blsh/blsh.wxss */
+.TT{
+  width: auto;
+  height: auto;
+  background-color: rgb(242, 242, 242);
+}
+.T{
+  width: 100%;
+  background-color: rgb(242, 242, 242);
+}
+.cell{
+  width: 100%;
+  height: 16vh;
+  background-color: white;
+  border-radius: 10px;
+  border-bottom: 1px solid grey;
+  display: flex;
+  align-items: center;
+}
+.cell image{
+  width: 11vh;
+  height: 11vh;
+  margin-left: 10%;
+  border-radius: 50%;
+}
+.name{
+  margin-left: 10%;
+  width: 35%;
+  overflow: hidden;
+}
+.nm{
+  font-weight: bold;
+  font-size: 16px;
+}
+.bl{
+  margin-top: 0.6em;
+  font-size: 14px;
+}
+.loadMore{
+  text-align: center;
+  background-color: rgb(16, 233, 248);
+}

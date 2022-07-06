@@ -1,0 +1,53 @@
+/* pages/pages1/sjcl/sjcl.wxss */
+.TT{
+  width: auto;
+  height: auto;
+  background-color: rgb(242, 242, 242);
+}
+.tb{
+  width: 100%;
+  height: 1em;
+  background-color: white;
+}
+.wtms{
+  width: 100%;
+  height: 40vh;
+  background-color: white;
+}
+.t1{
+  width: 100%;
+  height: 30vh;
+  margin-top: 0.6em;
+  background-color: white;
+}
+.nr{
+  width: 94%;
+  height: 30vh;
+  margin-left: 2%;
+  margin-top:0.6em;
+  overflow: hidden;
+}
+#t1{
+  width:100%;
+  height:300rpx;
+  background-color: white;
+  position: relative;
+  top:50rpx;
+}
+#t1t{
+  margin-top: -200rpx;
+}
+.cu-form-group .title {
+  min-width: calc(4em + 30rpx);
+}
+.cu-form-group{
+  margin-top: -150rpx;
+}
+.sc{
+  width: 92%;
+  margin-left: 4%;
+  border-radius: 10px;
+  position: fixed;
+  bottom: 4px;
+  background-color: #4fc08d;
+}

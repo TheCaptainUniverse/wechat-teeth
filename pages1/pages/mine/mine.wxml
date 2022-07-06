@@ -1,0 +1,124 @@
+<!--pages1/mine/mine.wxml-->
+<view class="TT">
+  <view class="dhl"></view>
+  <view class="tb">
+    <view class="phone">
+      <image src="{{avatarUrl}}"></image>
+    </view>
+    <view class="name">
+      <view class="namee"><text>{{nickName}}</text></view>
+      <view class="id"><text>用户ID:{{yhID}}</text></view>
+    </view>
+  </view>
+  <view class="ts">
+    <van-notice-bar
+      wx:if="{{xs}}"
+      left-icon="volume-o"
+      color="#1989fa"
+      background="#ecf9ff"
+      text="医生和学生请通过下方通道认证身份以完善功能。"
+    />
+  </view>
+  <view class="sf">
+    <van-cell
+      is-link
+      wx:if="{{xs}}"
+      icon="/images/sf.png"
+      title="身份认证"
+      link-type="navigateTo"
+      url="../sf/sf"
+    />
+  </view>
+  <view class="other">
+    <van-cell
+      is-link
+      icon="/images/gz1.png"
+      title="我的关注"
+      link-type="navigateTo"
+      url="../mygz/mygz"
+    />
+    <van-cell
+      is-link
+      icon="/images/gz1.png"
+      title="最近咨询"
+      link-type="navigateTo"
+      url="/chat/pages/zjlxr/zjlxr"
+    />
+    <van-cell
+      is-link
+      icon="/images/bg.png"
+      title="病理报告"
+      link-type="navigateTo"
+      url="../blbg/blbg"
+    />
+    <van-cell
+      wx:if="{{sf}}"
+      is-link
+      icon="/images/sccl.png"
+      title="上传病理材料"
+      link-type="navigateTo"
+      url="../sjcl/sjcl"
+    /><van-cell
+      wx:if="{{sf}}"
+      is-link
+      icon="/images/shjg.png"
+      title="审核结果"
+      link-type="navigateTo"
+      url="../scqk/scqk"
+    />
+    <van-cell
+      is-link
+      icon="/images/yc.png"
+      title="我的牙齿"
+      link-type="navigateTo"
+      url="../sm/sm"
+    />
+    <van-cell
+      is-link
+      icon="/images/wt.png"
+      title="常见问题"
+      link-type="navigateTo"
+      url="../wt/wt"
+    />
+  </view>
+  <navigator class="tc"  hover-class="none" target="miniProgram" open-type="exit">
+    <image src="../../../images/tc.png"></image>
+    <text class="xx"> 退出当前程序</text>
+</navigator>
+ 
+
+</view>
+<view class="box">
+<view class="cu-bar tabbar bg-white">
+    <view class="action" bindtap="swichNav1">
+      <view class="cuIcon-cu-image">
+        <image src="/images/12.png"></image>
+      </view>
+      <view class="text-2">首页</view>
+    </view>
+    <view class="action" bindtap="swichNav2">
+      <view class="cuIcon-cu-image">
+        <image src="/images/22.png"></image>
+      </view>
+      <view class="text-2">我的咨询</view>
+    </view>
+    <view class="action">
+      <view class="cuIcon-cu-image" bindtap="swichNav5">
+        <image src="/images/lt1.png"></image>
+      </view>
+      <view class="text-2">论坛</view>
+    </view>
+    <view class="action" wx:if="{{gly}}">
+      <view class="cuIcon-cu-image" bindtap="swichNav4">
+        <image src="/images/gly.png"></image>
+      </view>
+      <view class="text-2">管理员</view>
+    </view>
+    <view class="action">
+      <view class="cuIcon-cu-image" bindtap="swichNav3">
+        <image src="/images/31.png"></image>
+      </view>
+      <view class="text-1">我的</view>
+    </view>
+  </view>
+</view>

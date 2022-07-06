@@ -1,0 +1,33 @@
+/* pages/pages1/scqk/scqk.wxss */
+.TT{
+  width: auto;
+  height: 100vh;
+  background-color: rgb(242, 242, 242);
+}
+.tb{
+  height: 10vh;
+  background-color: #4fc08d;
+}
+.yynr{
+  width: 100%;
+}
+.cell{
+  width: 100%;
+  border-radius: 6px;
+  margin-top: 2px;
+  overflow: hidden;
+  border-bottom: 0.5px solid grey;
+}
+.wb{
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  font-weight:300;
+}
+.loadMore{
+  text-align: center;
+  background-color: rgb(16, 233, 248);
+}

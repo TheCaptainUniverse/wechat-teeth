@@ -1,0 +1,48 @@
+<!--pages/pages1/blxqbg/blxqbg.wxml-->
+
+<view class="TT" wx:if="{{ywxq}}">
+  <!-- <view class="kk"></view> -->
+  <view class="kb" style="border:0"></view>
+  <view class="bzms">
+    <view style="margin-left: 4%;"><text style="font-weight: bold;">我的病症描述：</text>
+    <text style="font-size: 13px;">{{problem}}</text></view>
+  </view>
+  <view class="kb"></view>
+  <view class="bltp">
+    <text  style="margin-left: 4%;font-weight: bold;">我的病例图片:</text>
+    <image bindtap="clickImg1" src="{{imgList}}"></image>
+  </view>
+  <view class="kb"></view>
+  <view class="bztp">
+    <text  style="margin-left: 4%;font-weight: bold;">示范病例图片:</text>
+    <image bindtap="clickImg2" src="{{photo}}"></image>
+  </view>
+  <view class="kb"></view>
+  <view class="kb"  style="border:0"></view>
+  <view class="ysjy">
+    <text style="margin-left: 4%;font-weight: bold;">诊断结果：</text>
+    <view class="jg">
+      <view><text style="font-size: 13px;font-weight: bold;">病例名称：</text><text style="font-size: 13px;">{{bname}}</text></view>
+      <view><text style="font-size: 13px;font-weight: bold;">病例描述：</text><text style="font-size: 13px;">{{describe1}}</text></view>
+      <view><text style="font-size: 13px;font-weight: bold;">治疗建议：</text><text style="font-size: 13px;">{{zljy}}</text></view>
+    </view>
+  </view>
+  <view class="kb"></view>
+  <view class="time">
+    <text  style="margin-left: 4%;font-weight: bold;">提交时间:</text>
+    <view class="t">
+      <text>{{time}}</text>
+    </view>
+  </view>
+  <view style="width: 100%;height: 8vh;"></view>
+  <view class="cancl">
+  <button bindtap="fh" style="width: 80%; background-color: rgba(255, 0, 0, 0.829); font-size:bold;">返回</button>
+  </view>
+</view>
+
+<view wx:if="{{wu}}" style="background-color:#58d9f0;height:1200rpx;">
+  <van-empty description="你的病症未在病例库中检测到哦" />
+<view class="cancl">
+  <button bindtap="fh" style="width: 80%; background-color: rgba(255, 0, 0, 0.829); font-size:bold;">返回</button>
+  </view>
+</view>

@@ -1,0 +1,78 @@
+/**index.wxss**/
+.TT{
+  width: auto;
+  height: auto;
+  background-color: rgb(242, 242, 242);
+}
+.tb{
+  width: 100%;
+  height: 30vh;
+}
+.tb image{
+  max-width: 100%;
+	display: inline-block;
+	position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 110%;
+}
+.gn{
+  width: 90%;
+  margin-left: 5%;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 1px 0 1px 1px rgb(236, 236, 236);
+  font-weight: bold;
+}
+.tz{
+  margin-top: 0.5em;
+}
+.rd{
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 1em;
+}
+.rdbt{
+  font-weight: bold;
+  font-size: 18px;
+}
+.rdnr{
+  width: 100%;
+  margin-top: 0.5em;
+}
+.cell{
+  width: 100%;
+  border-radius: 6px;
+  margin-top: 2px;
+  overflow: hidden;
+  border-bottom: 0.5px solid grey;
+}
+.wb{
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  font-weight:300;
+}
+.tt{
+  width: 100%;
+  height: 6vh;
+}
+.box {  
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+.box view.cu-bar {
+  margin-top: 20rpx; 
+}
+.text-1{
+  color: #1efc16;
+}
+.text-2{
+  color: #060407;
+}
+

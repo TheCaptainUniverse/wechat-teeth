@@ -1,0 +1,33 @@
+<!--pages1/pages/yljgxqym/yljgxqym.wxml-->
+<view class="T">
+  <view class="tb">
+    <image src="https://messi10zlj.xyz/tooth/toothht/public{{yytp}}"></image>
+  </view>
+  <view class="name">
+    <view style="width: 100%;height: 0.8em;"></view>
+    <text style="font-size:22px">{{yyname}}\n</text>
+    <text>好评率：<text style="color: red;">{{hpl}}%</text></text>
+  </view>
+  <view class="jj">
+    <view class="title">
+      <text>医院介绍</text>
+    </view>
+    <view class="nr">
+      <text>{{yyjs}}</text>
+    </view>
+  </view>
+  <view class="fw">
+    <view class="title"><text>服务价格</text></view>
+    <view class="fwlm" wx:for="{{fw}}" wx:key="fw"> 
+      <text>{{item.fw}}：<text style="color: red;">{{item.jg}}</text>￥</text>
+    </view>
+  </view>
+  <view class="talk">
+    <view class="title"><text>联系方式</text></view>
+    <view class="tak">
+      <text>医院地址：<text>{{yydizhi}}\n</text></text>
+      <text>咨询热线：<text>{{zixun}}</text></text>
+    </view>
+  </view>
+  <view style="width: 100%;height:1em;"></view>
+</view>

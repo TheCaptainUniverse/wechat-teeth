@@ -1,0 +1,125 @@
+/* pages/pages1/yyqk/yyqk3/yyqk3.wxss */
+.TT{
+  width: auto;
+  height: auto;
+  background-color: rgb(236, 236, 236);
+}
+.tb{
+  width: 100%;
+  height: 15vh;
+  background-color: #4fc08d;
+  display: flex;
+  justify-content: center;
+}
+.yy{
+  font-size: 18px;
+  font-weight: bold;
+  margin-top:3vh;
+}
+.tx{
+  width: 90%;
+  margin-left:30%;
+}
+.nr{
+  width: 90%;
+  height: auto;
+  margin-left:5%;
+}
+.name{
+  width: 100%;
+  height: auto;
+  background-color: white;
+  border-radius: 14px;
+}
+.nam{
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+}
+.photo{
+  width:15vh;
+  height: 15vh;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-left: 15%;
+}
+.photo image{
+  width: 100%;
+  height: 100%;
+}
+.nm{
+  width: 40%;
+  margin-left: 7%;
+}
+.nn{
+  font-size: 20px;
+  font-weight: bold;
+}
+.pf{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  margin-top: 1em;
+}
+.pp{
+  width: 100%;
+  height: 17vh;
+  border-radius: 14px;
+  overflow: hidden;
+  background-color: white;
+  margin-top: 2em;
+}
+.wz{
+  font-size: 15px;
+  text-align: center;
+  margin-top: 1em;
+}
+
+.cross_column {
+  display: flex;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+
+/* img图片样式 */
+.imagecls {
+  width: 70rpx;
+  height: 70rpx;
+}
+/*按钮样式 */
+
+.but_style {
+ background-color: #ff5959;
+  width: 150rpx;
+  height: 50rpx;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content_cls {
+  width: 70%;
+  margin-left: 15%;
+  background-color: white;
+}
+.xpl{
+  border: 1px solid #d0d0d0;
+  border-radius: 10rpx;
+  margin-left: 20rpx;
+  width: 80%;
+}
+.tjpl{
+  border: 1px solid #d0d0d0;
+  border-radius: 10rpx;
+}
+.page_row{
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #f8fcf9;
+}

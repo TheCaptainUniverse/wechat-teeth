@@ -1,0 +1,40 @@
+<!--pages1/kqrd/kqrd.wxml-->
+<view class="tb">
+</view>
+<view class="TT">
+  <view class="tb">
+  <van-search
+  value = "{{ value }}"
+  placeholder="请输入热点名称"
+  show-action
+  shape="round"
+  background="#4fc08d"
+  bindtap="tc"
+  bind:search="onSearch"
+  bind:cancel="onCancel"
+  bind:change="onChange"
+  /></view>
+  <view wx:if="{{xz}}">
+  <view style="width:100%; position: fixed;top:8vh;z-index: 1000; border-bottom: 2px solid #4fc08d;">
+    <van-dropdown-menu>
+      <van-dropdown-item style="width: 50px;" value="{{ value1 }}" title="常见疾病" options="{{ option1 }}" bindchange="cjjb" />
+      <van-dropdown-item style="margin-left: -15px;" value="{{ value2 }}" title="人群" options="{{ option2 }}" bindchange="rq" />
+      <van-dropdown-item style="margin-left: -15px;" value="{{ value3 }}" title="饮食" options="{{ option3 }}" bindchange="yshl" />
+      <van-dropdown-item style="margin-left: 0px;" value="{{ value4 }}" title="口腔用品" options="{{ option4 }}" bindchange="yp" />
+    </van-dropdown-menu>
+  </view>
+  </view>
+  <van-empty wx:if="{{kong}}" description="换个关键词试试！"/>
+  <view class="yynr">
+    <view class="cell" wx:for="{{kqrd}}" wx:key="kqrd" wx:for-index="index" wx:if="{{zcbq}}"> 
+        <van-cell bindtap="kqrd" title="{{item.title}}" data-index='{{index}}'  size="mini" value="{{item.zt}}" label="{{item.ms}}" />
+    </view>
+    <view class="cell" wx:for="{{kqrd}}" wx:key="kqrd" wx:for-index="index" wx:if="{{bq}}"> 
+        <van-cell bindtap="kqrd" title="{{item.title}}" data-index='{{index}}'  size="mini" value="{{item.xbt}}" label="{{item.ms}}" />
+    </view>
+    <block wx:if="{{dataILu}}">
+      <i-load-more />
+      <i-load-more loading="{{ false }}" />
+  </block>
+  </view>
+</view>

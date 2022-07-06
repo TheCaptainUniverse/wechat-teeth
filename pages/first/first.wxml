@@ -1,0 +1,8 @@
+<!--first/first.wxml-->
+<view class="T">
+  <view class="welcome">
+    <image src="/images/first1.png"></image>
+    <text>欢迎使用灵牙慧齿</text>
+    <van-loading type="spinner" color="#1989fa" />
+  </view>
+</view>

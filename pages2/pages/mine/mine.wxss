@@ -1,0 +1,98 @@
+/* pages1/mine/mine.wxss */
+.TT{
+  width: auto;
+  height: 100vh;
+  background-color: rgb(242, 242, 242);
+}
+.dhl{
+  width: 100%;
+  height: 12vh;
+  background-color: white;
+}
+.tb{
+  width: 100%;
+  height: 25vh;
+  display: flex;
+  align-items: center;
+  background-color: white;
+}
+.phone{
+  width: 13vh;
+  height: 13vh;
+  margin-left: 8%;
+  border-radius: 10%;
+  overflow: hidden;
+}
+.phone image{
+  width: 100%;
+  height: 100%;
+}
+.name{
+  width: 30vh;
+  height: 13vh;
+  margin-left: 5%;
+}
+.namee{
+  font-weight: bolder;
+  font-size: 18px;
+  height: 40%;
+  display: flex;
+  align-items: center;
+}
+.rz{
+  width: 3vh;
+  height: 3vh;
+  margin-left: 1vh;
+}
+.rz image{
+  width: 100%;
+  height: 100%;
+}
+.id{
+  margin-top:11px;
+  height: 40%;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+}
+.sf{
+  margin-top:0.6em;
+  font-weight: bold;
+}
+.other{
+  margin-top:0.6em;
+  font-weight: bold;
+}
+.tc{
+  height: 44px;
+  margin-top:0.6em;
+  font-weight: bold;
+  background-color: white;
+  display: flex;
+}
+.tc image{
+  margin-top:1em;
+  width: 16px;
+  height: 16px;
+  margin-left:1em;
+}
+.xx{
+  margin-top:0.8em;
+  margin-left:0.5em;
+  font-size:13.5px ;
+}
+.box {  
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+.box view.cu-bar {
+  margin-top: 20rpx; 
+}
+.text-1{
+  color: #1efc16;
+}
+.text-2{
+  color: #060407;
+}

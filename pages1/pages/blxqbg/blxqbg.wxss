@@ -1,0 +1,75 @@
+/* pages/pages1/blxqbg/blxqbg.wxss */
+.TT{
+  width: 100%;
+  height: 100%;
+  background-color: rgb(236, 236, 236);
+}
+.TT text{
+  font-size: 15px;
+}
+.tb{
+  width: 100%;
+  height: 0.5em;
+  background-color: rgb(236, 236, 236);
+}
+.time{
+  height: 8vh;
+  display: flex;
+  align-items: center;
+}
+.bzms{
+  display: flex;
+}
+.bltp{
+  display: flex;
+  margin-top:0.6em;
+}
+.bztp{
+  display: flex;
+  margin-top:0.6em;
+}
+image{
+  width: 25vh;
+  height: 25vh;
+  margin-left: 10vh;
+  border-radius: 10px;
+}
+.jg{
+  margin-left: 4%;
+}
+.t{
+  width: 48%;
+  height: auto;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  background-color: rgb(255, 220, 220);
+  color: rgb(252, 56, 56);
+  margin-left: 7vh;
+}
+.kb{
+  width: 100%;
+  height: 0.3em;
+  border-bottom: 1px solid grey;
+}
+.wb{
+  width: 100%;
+  height: 0.3em;
+  background-color: rgb(236, 236, 236);
+  text-align: center;
+}
+.kk{
+  width: 100%;
+  height: 0.6em;
+  background-color: white;
+}
+.cancl{
+  width: 100%;
+  height: 8vh;
+  position: fixed;
+  bottom:0;
+  border-radius: 10px;
+  overflow: hidden;
+}

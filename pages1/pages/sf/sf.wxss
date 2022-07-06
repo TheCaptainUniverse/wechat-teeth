@@ -1,0 +1,177 @@
+/* pages1/sf/sf.wxss */
+#total{
+  width:100%;
+  background-color: rgb(245,245,245);
+}
+#t1{
+  width:100%;
+  height:125rpx;
+  background-color: white;
+  position: relative;
+  top:0rpx;
+}
+#t2{
+  width:100%;
+  height:125rpx;
+  background-color: white;
+  position: relative;
+  top:10rpx;
+}
+#t3{
+  width:100%;
+  height:125rpx;
+  background-color: white;
+  position: relative;
+  top:20rpx;
+}
+#t4{
+  width:100%;
+  height:125rpx;
+  background-color: white;
+  position: relative;
+  top:30rpx;
+}
+#t9{
+  width:100%;
+  height:125rpx;
+  background-color: white;
+  position: relative;
+  top:40rpx;
+}
+#t5{
+  width:100%;
+  height:200rpx;
+  background-color: white;
+  position: relative;
+  top:80rpx;
+}
+#t7{
+  width:100%;
+  height:125rpx;
+  background-color: white;
+  position: relative;
+  top:60rpx;
+}
+#t8{
+  width:100%;
+  height:125rpx;
+  background-color: white;
+  position: relative;
+  top:70rpx;
+}
+#t7 text{
+  position: relative;
+  left:40rpx;
+  top:40rpx;
+  color: rgb(143, 143, 143);
+}
+#t8 text{
+  position: relative;
+  left:40rpx;
+  top:40rpx;
+  color: rgb(143, 143, 143);
+}
+#t1 text{
+position: relative;
+left:40rpx;
+top:40rpx;
+color: rgb(143, 143, 143);
+}
+#use{
+  width:400rpx;
+  height:80rpx;
+  margin-left: 200rpx;
+  position: relative;
+  bottom: 25rpx;
+}
+#t2 text{
+position: relative;
+left:40rpx;
+top:40rpx;
+color: rgb(143, 143, 143);
+}
+#pass1{
+  width:400rpx;
+  height:80rpx;
+  margin-left: 200rpx;
+  position: relative;
+  bottom: 25rpx;
+}
+#t3 text{
+position: relative;
+left:40rpx;
+top:40rpx;
+color: rgb(143, 143, 143);
+}
+#pass2{
+  width:400rpx;
+  height:80rpx;
+  margin-left: 200rpx;
+  position: relative;
+  bottom: 25rpx;
+}
+#t4 text{
+position: relative;
+left:40rpx;
+top:40rpx;
+color: rgb(143, 143, 143);
+}
+#t9 text{
+  position: relative;
+  left:40rpx;
+  top:40rpx;
+  color: rgb(143, 143, 143);
+  }
+#pass3{
+  width:400rpx;
+  height:80rpx;
+  margin-left: 200rpx;
+  position: relative;
+  bottom: 25rpx;
+}
+#pass4{
+  width:400rpx;
+  height:80rpx;
+  margin-left: 200rpx;
+  position: relative;
+  bottom: 25rpx;
+}
+#pass5{
+  width:400rpx;
+  height:80rpx;
+  margin-left: 200rpx;
+  position: relative;
+  bottom: 25rpx;
+}
+#pass6{
+  width:400rpx;
+  height:80rpx;
+  margin-left: 200rpx;
+  position: relative;
+  bottom: 25rpx;
+}
+#btn1{
+  position: relative;
+  bottom: -10rpx;
+  background-color:rgb(51, 204, 170);
+  width:100%;
+  border-radius: 50rpx;
+}
+#btn1 text{
+  color:white;
+  font-size: 39rpx;
+}
+#t6{
+  width:100%;
+  height:200rpx;
+  background-color: white;
+  position: relative;
+  top:60rpx;
+}
+.cu-form-group .title {
+  min-width: calc(4em + 30rpx);
+}
+
+#t6t{
+  margin-top: -100rpx;
+}

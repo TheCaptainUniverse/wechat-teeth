@@ -1,0 +1,39 @@
+<!--pages1/pages/ltfb/ltfb.wxml-->
+<form bindsubmit="fbxz">
+<view class="TT" >
+  <view class="tb"></view>
+  <view class="title">
+    <view style="margin-left: 4%; font-weight: bold; font-size: 18px; width: 20%; display: flex; align-items: center;"><text>标题：</text></view>
+    <view style="width: 70%; margin-top: 1.2em;"><input type="text" name="title" maxlength="20" id="title" placeholder="给你的帖子写个标题吧(不得超过20字)" value="{{title}}"></input></view>
+  </view>
+  <view class="nr">
+    <textarea style="margin-left: 4%;" maxlength="200" name="nr" id="nr" cols="200" rows="10" placeholder="你的分享(不得超过200字)"  value="{{nr}}"></textarea>
+  </view>
+    <view id="t1" class="cu-bar bg-white margin-top">
+<view id="t1t">
+		<view class="action" style="font-weight: bold;">
+			图片分享上传
+		</view>
+		<view class="action">
+			{{imgList.length}}/1
+		</view>
+  </view>
+	</view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{imgList}}" wx:key="index" bindtap="ViewImage" data-url="{{imgList[index]}}">
+				<image src='{{imgList[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<1}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
+  <view class="fb">
+    <button class="fb" form-type="submit"><text >发帖</text></button>
+</view>
+</view>
+</form>

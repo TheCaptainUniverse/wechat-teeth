@@ -1,0 +1,75 @@
+<!--pages1/mine/mine.wxml-->
+<view class="TT">
+  <view class="dhl"></view>
+  <view class="tb">
+    <view class="phone">
+      <image src="{{avatarUrl}}"></image>
+    </view>
+    <view class="name">
+      <view class="namee">
+        <text>{{nickName}}</text>
+        <view class="rz"><image src="/images/rz.png"></image></view>
+      </view>
+      <view class="id"><text>用户ID:{{yhID}}</text></view>
+    </view>
+    
+  </view>
+  <view class="other">
+    <van-cell
+      is-link
+      icon="/images/gz1.png"
+      title="最近咨询"
+      link-type="navigateTo"
+      url="/chat/pages/zjlxr/zjlxr"
+    />
+    <van-cell
+      is-link
+      icon="/images/yc.png"
+      title="我的牙齿"
+      link-type="navigateTo"
+      url="../../../pages1/pages/sm/sm"
+    />
+    <van-cell
+      is-link
+      icon="/images/wt.png"
+      title="常见问题"
+      link-type="navigateTo"
+      url="../../../pages1/pages/wt/wt"
+    />
+  </view>
+  <navigator class="tc"  hover-class="none" target="miniProgram" open-type="exit">
+    <image src="../../../images/tc.png"></image>
+    <text class="xx"> 退出当前程序</text>
+</navigator>
+ 
+
+</view>
+<view class="box">
+<view class="cu-bar tabbar bg-white">
+    <view class="action" bindtap="swichNav1">
+      <view class="cuIcon-cu-image">
+        <image src="/images/12.png"></image>
+      </view>
+      <view class="text-2">首页</view>
+    </view>
+    <view class="action" bindtap="swichNav2">
+      <view class="cuIcon-cu-image">
+        <image src="/images/sc.png"></image>
+      </view>
+      <view class="text-2">病例上传</view>
+    </view>
+
+    <view class="action">
+      <view class="cuIcon-cu-image" bindtap="swichNav4">
+        <image src="/images/lt1.png"></image>
+      </view>
+      <view class="text-2">论坛</view>
+    </view>
+    <view class="action">
+      <view class="cuIcon-cu-image" bindtap="swichNav3">
+        <image src="/images/31.png"></image>
+      </view>
+      <view class="text-1">我的</view>
+    </view>
+  </view>
+</view>

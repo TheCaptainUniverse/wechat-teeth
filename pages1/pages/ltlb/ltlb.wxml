@@ -1,0 +1,124 @@
+<!--pages1/pages/ltlb/ltlb.wxml-->
+<view class="tb"><van-search
+  value="{{ value }}"
+  label="帖子"
+  placeholder="请输入搜索关键词"
+  use-action-slot
+  show-action
+  shape="round"
+  background="#4fc08d"
+  bind:change="onChange"
+  bind:search="onSearch"
+  >
+  <view slot="action" bind:tap="onClick">搜索</view>
+</van-search>
+</view>
+<view class="TT">
+  <!-- <列表"/> -->
+  <view wx:for="{{ltlb}}" wx:key="ltlb" wx:for-index="index" class="cu-card dynamic {{isCard?'no-card':''}}">
+  <view class="cu-item shadow" bindtap="ltxq" data-index='{{index}}'>
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+        <view class="cu-avatar round lg" style="background-image:url({{item.avatarUrl}});"></view>
+        <view class="content flex-sub">
+          <view>{{item.nickName}}</view>
+          <view class="text-gray text-sm flex justify-between">
+            {{item.time}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="text-content">
+      {{item.title}}
+    </view>
+    <view class="grid flex-sub padding-lr {{isCard?'col-3 grid-square':'col-1'}}">
+      <image style="border-radius: 10px;" src="{{item.imgList}}"></image>   
+    </view>
+    <view class="text-gray text-sm text-right padding">
+      <text class="cuIcon-attentionfill margin-lr-xs"></text> {{item.gkrs}}
+      <text class="cuIcon-appreciatefill margin-lr-xs"></text> {{item.dzrs}}
+      <text class="cuIcon-messagefill margin-lr-xs"></text> {{item.plrs}}
+    </view>
+  </view>
+</view>
+<view class="kb"></view>
+</view>
+
+<view class="box">
+<view class="cu-bar tabbar bg-white">
+    <view class="action" bindtap="swichNav1">
+      <view class="cuIcon-cu-image">
+        <image src="/images/12.png"></image>
+      </view>
+      <view class="text-2">首页</view>
+    </view>
+    <view class="action" bindtap="swichNav2">
+      <view class="cuIcon-cu-image">
+        <image src="/images/22.png"></image>
+      </view>
+      <view class="text-2">我的咨询</view>
+    </view>
+   <view class="action">
+      <view class="cuIcon-cu-image" bindtap="swichNav5">
+        <image src="/images/lt.png"></image>
+      </view>
+      <view class="text-1">论坛</view>
+    </view>
+    <view class="action" wx:if="{{gly}}">
+      <view class="cuIcon-cu-image" bindtap="swichNav4">
+        <image src="/images/gly.png"></image>
+      </view>
+      <view class="text-2">管理员</view>
+    </view>
+    <view class="action">
+      <view class="cuIcon-cu-image" bindtap="swichNav3">
+        <image src="/images/32.png"></image>
+      </view>
+      <view class="text-2">我的</view>
+    </view>
+  </view>
+</view>
+
+<view class="box" wx:if="{{ys}}">
+<view class="cu-bar tabbar bg-white">
+    <view class="action" bindtap="swichNav6">
+      <view class="cuIcon-cu-image">
+        <image src="/images/12.png"></image>
+      </view>
+      <view class="text-2">首页</view>
+    </view>
+    <view class="action" bindtap="swichNav7">
+      <view class="cuIcon-cu-image">
+        <image src="/images/sc.png"></image>
+      </view>
+      <view class="text-2">病例上传</view>
+    </view>
+
+    <view class="action">
+      <view class="cuIcon-cu-image" bindtap="swichNav5">
+        <image src="/images/lt.png"></image>
+      </view>
+      <view class="text-1">论坛</view>
+    </view>
+    <view class="action">
+      <view class="cuIcon-cu-image" bindtap="swichNav8">
+        <image src="/images/32.png"></image>
+      </view>
+      <view class="text-2">我的</view>
+    </view>
+  </view>
+</view>
+
+
+<image src="../../../images/fbxz.png" style="height:100rpx;width: 100rpx;" animation="{{animationcollect}}" class="image-style" bindtap="xzfb"></image>
+<image src="../../../images/wdfb.png"  style="border-radius: 50%; height:100rpx;width: 100rpx;" animation="{{animationTranspond}}" class="image-style" bindtap="wdxx"></image>
+<image src="../../../images/tz.png" style="height:100rpx;width: 100rpx;" animation="{{animationPlus}}" class="image-plus-style" bindtap="plus"></image>
+
+<view class="btn" bindtap="gotop">
+  <text class="btn-gotop">顶部</text>
+</view>
+
+<block wx:if="{{dataILu}}">
+      <i-load-more />
+      <i-load-more loading="{{ false }}" />
+</block>

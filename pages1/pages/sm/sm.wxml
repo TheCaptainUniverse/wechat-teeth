@@ -1,0 +1,8 @@
+<!--pages1/pages/sm/sm.wxml-->
+<view class="test-bg">
+  <image src="{{tp}}" class="bg-image" mode="scaleToFill">112121</image>
+  <view class="jd">
+    <view style="width: 100%;height: 15px;border-radius: 15px;overflow: hidden;"><van-progress percentage="{{jd}}" stroke-width="15" /></view>
+    <view class="zt">我的积分：<text style="color: red;">{{jf}}</text></view>
+  </view>
+  </view>

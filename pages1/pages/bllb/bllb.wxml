@@ -1,0 +1,23 @@
+<!--pages1/pages/bllb/bllb.wxml-->
+<view class="TT">
+  <van-notice-bar
+    scrollable="{{ false }}"
+    color="#1989fa"
+    background="#ecf9ff"
+    left-icon="info-o"
+    text="您的病例结果有以下几种可能:"
+  />
+  <view class="nr">
+    <view bindtap="ck" data-index='{{index}}' class="cell" wx:for="{{knbl}}" wx:key="knbl" wx:for-index="index">
+      <text style="font-weight: bold;margin-left: 5%;">病例名称：</text>
+      <text style="margin-left: 0.4em;">{{item.bname}}</text>
+      <view style="position: fixed;right: 6%;"><van-icon size="16px" color="#1989fa" name="arrow" /></view>
+    </view>
+  </view>
+</view>
+<view wx:if="{{xx}}" style="width: 100%; height:100vh;">
+  <van-empty description="你的病症未在病例库中检测到哦" />
+<view class="cancl">
+  <button bindtap="fh" style="width: 80%; background-color: rgba(255, 0, 0, 0.829); font-size:bold;">返回</button>
+  </view>
+</view>

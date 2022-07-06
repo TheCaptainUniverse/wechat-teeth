@@ -1,0 +1,60 @@
+<!--pages/pages1/yyqk/yyqk3/yyqk3.wxml-->
+<view class="TT">
+  <view class="tb">
+    <view class="yy">
+      <text>咨询成功</text>
+    </view>
+  </view>
+<view class="nr">
+    <view class="name">
+      <view style="width: 100%;height: 1em;"></view>
+      <view class="nam">
+        <view class="photo">
+          <image src="{{avatarurl}}"></image>
+        </view>
+        <view class="nm">
+          <view class="nn"><text>{{name}}</text></view>
+        </view>
+      </view>
+      <view style="width: 100%;height: 1em;"></view>
+    </view>
+    <view class="pp">
+      <view class="wz">请对该{{name}}医生打个评分吧！！</view>
+      <view class="pf">
+        <van-rate value="{{ item }}" bind:change="rate" />
+        <view class="but_style" bindtap="qrpj">确认评价</view>
+      </view>
+    </view>
+</view>
+<!-- <view class="view_page">
+  <view class="content_cls">
+    <view class="cross_column" style="margin-top: 50rpx;">
+      <label>总体评价：</label>
+      <image class="imagecls" wx:for="{{5}}" wx:key="index" data-name="total" data-item="{{item}}" src="{{item-total+1>0?'../../../../images/pf1.png':'../../../../images/pf2.png'}}" bindtap="img_bind"></image>
+    </view>
+
+      
+
+  </view>
+</view> -->
+
+
+<view class="cu-chat">
+<view wx:for="{{pl}}" wx:key="pl" class="cu-item">
+    <view class="cu-avatar radius" style="background-image:url({{item.avatarUrl}});"></view>
+    <view class="main">
+      <view class="content shadow">
+        <text>{{item.pl}}</text>
+      </view>
+    </view>
+    <view class="date "> {{item.nickName}} {{item.time}}</view>
+  </view>
+</view>
+<view class="kb"></view>
+<form bindsubmit="pl">
+<view class='page_row'>
+  <view class="xpl"><input style="margin-top:0.2em;" type="text" name="pl" maxlength="30" id="pl" placeholder="写评论..."></input></view>
+  <button style="width:80rpx;height:80rpx;font-size:22rpx;" class="tjpl" form-type="submit">评论</button>
+</view>
+</form>
+</view>

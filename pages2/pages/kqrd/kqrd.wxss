@@ -1,0 +1,63 @@
+/* pages2/kqrd/kqrd.wxss */
+.TT{
+  margin-top: 4em;
+  width: auto;
+  height: 100vh;
+  background-color: rgb(242, 242, 242);
+}
+.tb{
+  width: 100%;
+  position: fixed;
+  top:0;
+  z-index: 1000;
+}
+.yynr{
+  width: 100%;
+  margin-top: 0.6em;
+}
+.cell{
+  width: 100%;
+  border-radius: 6px;
+  margin-top: 2px;
+  overflow: hidden;
+  border-bottom: 0.5px solid grey;
+}
+
+.loadMore{
+  text-align: center;
+  background-color: rgb(16, 233, 248);
+}
+#gs5{
+  width:500rpx;
+  height:80rpx;
+  margin-left: 50rpx;
+  position: relative;
+  bottom: -40rpx;
+}
+#gs6{
+  width:500rpx;
+  height:80rpx;
+  margin-left: 100rpx;
+  position: relative;
+  bottom: -45rpx;
+}
+#gs7{
+  width:500rpx;
+  height:80rpx;
+  margin-left: 50rpx;
+  position: relative;
+  top: 5rpx;
+}
+.yh{
+  margin-top: 70rpx;
+}
+#gs8{
+  width:500rpx;
+  height:80rpx;
+  margin-left: 45rpx;
+  position: relative;
+  top: 35rpx;
+}
+.yp{
+  margin-top: -30rpx;
+}

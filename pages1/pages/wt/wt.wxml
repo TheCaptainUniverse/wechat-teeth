@@ -1,0 +1,14 @@
+<van-collapse value="{{activeName}}" bind:change="onChange" accordion>
+  <van-collapse-item size="large" title="怎么通过小程序自诊？" bind name="1">在首页智能自诊上传病状和图片，等待系统诊断。</van-collapse-item>
+  <van-collapse-item size="large" title="如何查看自诊结果？" bind name="2">在我的页面点击病理报告查看自诊诊断结果。</van-collapse-item>
+  <van-collapse-item size="large" title="每日打卡有什么用？" name="3">首页进入每日打卡页面，观看视频2分钟即可完成打卡，在我的界面点击我的牙齿查看积分，后续开放积分商场兑换礼品。</van-collapse-item>
+  <van-collapse-item size="large" title="如何咨询医生？" name="4">首页点击名医问诊，选择你想咨询的医生进行预约，等预约通过后即可进行咨询，并在我的咨询界面可查看咨询记录。</van-collapse-item>
+  <van-collapse-item size="large" title="如何在论坛发布和管理帖子？" name="5"> 在论坛界面点击右下角小猫图案，再点击加号即可发布，点击我的帖子即可管理。</van-collapse-item>
+  <van-collapse-item size="large" title="如何获取医生身份？" name="6"> 在我的页面点击身份认证，填写相关信息及资质证明，等待管理员审核即可。</van-collapse-item>
+  <van-collapse-item size="large" title="如何关注医生？" name="7"> 在医生界面点击预约旁的关注图标即可实现关注与取关，在我的页面中点击我的关注可查看并进行预约。</van-collapse-item>
+  <van-collapse-item size="large" title="医生端如何通过患者预约申请？" name="8"> 进入小程序点击私营医师即可查看并通过患者预约申请。</van-collapse-item>
+</van-collapse>
+<view class="qq">
+  <text class="text">如有其他问题，可联系QQ：723413384</text>
+</view>
+

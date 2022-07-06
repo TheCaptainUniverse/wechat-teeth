@@ -1,0 +1,11 @@
+/* pages1/pages/wdfbtz/wdfbtz.wxss */
+.van-swipe-cell__right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 65px;
+  height: 67px;
+  font-size: 15px;
+  color: #fff;
+  background-color: #f44;
+}

@@ -1,0 +1,20 @@
+<!--pages1/pages/wdfbtz/wdfbtz.wxml-->
+<van-swipe-cell
+  id="{{item.ID}}"
+  right-width="{{ 65 }}"
+  async-close
+  bind:close="onClose"
+  wx:for="{{ltlb}}" wx:key="ltlb" wx:for-index="index"
+>
+  <van-cell-group>
+    <van-card
+    bindtap="ltxq"
+    tag="{{item.time}}"
+    data-index='{{index}}'
+    desc="{{item.nr}}"
+    title="{{item.title}}"
+    thumb="{{item.imgList}}"
+/>
+  </van-cell-group>
+  <view slot="right">删除</view>
+</van-swipe-cell>

@@ -1,0 +1,134 @@
+<!--index.wxml-->
+<view class="TT">
+  <view class="tb">
+    <image src="/images/tb.png"></image>
+  </view> 
+  <view class="gn" >
+    <van-grid clickable column-num="4" icon-size="35px">
+      <van-grid-item
+        icon="/images/myzz.png"
+        link-type="navigateTo"
+        url="../mywz/mywz"
+        text="名医问诊"
+      />
+      <van-grid-item
+        icon="/images/kqrd.png"
+        link-type="navigateTo"
+        url="../kqrd/kqrd"
+        text="慧齿百科"
+      />
+      <van-grid-item
+        icon="/images/znzz.png"
+        link-type="navigateTo"
+        url="../znzz/znzz"
+        text="智能自诊"
+      />
+      <van-grid-item
+        icon="/images/gd.png"
+        link-type="navigateTo"
+        bindtap="swichNav111"
+        wx:if="{{gd}}"
+        text="更多"
+      />
+      <van-grid-item
+        icon="/images/yljg.png"
+        link-type="navigateTo"
+        url="../yljg/yljg"
+        wx:if="{{gd1}}"
+        text="医疗机构"
+      />
+      <van-grid-item
+        icon="/images/daka.png"
+        link-type="navigateTo"
+        url="../daka/daka"
+        wx:if="{{gd1}}"
+        text="每日打卡"
+      />
+      <van-grid-item
+        icon="/images/blwzzl.png"
+        link-type="navigateTo"
+        url="../blwzzl/blwzzl"
+        wx:if="{{gd1}}"
+        text="病例资料"
+      />
+      <van-grid-item
+        icon="/images/dcwj.png"
+        link-type="navigateTo"
+        url="../dcwj/dcwj"
+        wx:if="{{gd1}}"
+        text="调查问卷"
+      />
+      <van-grid-item
+        icon="/images/rcsc.png"
+        link-type="navigateTo"
+        url="../rcsc/rcsc"
+        wx:if="{{gd1}}"
+        text="人才招聘"
+      />
+      <van-grid-item
+        icon="/images/shouhui.png"
+        link-type="navigateTo"
+        wx:if="{{gd1}}"
+        bindtap="swichNav222"
+        text="收回"
+      />
+    </van-grid>
+     
+  </view>
+  <view class="tz">
+    <van-notice-bar
+      left-icon="volume-o"
+      color="#1989fa"
+      background="#ecf9ff"
+      text="定期进行口腔健康检查，定期洗牙，远离口腔疾病。"
+    />
+  </view>
+  <view class="rd">
+    <view class="rdbt">
+    <text>每日推荐</text>
+    </view>
+    <view class="rdnr">
+      <view class="cell" wx:for="{{mrtj}}" wx:key="key" wx:for-index="index"> 
+        <van-cell bindtap="tjxx" title="{{item.title}}" data-index='{{index}}' size="mini" value="{{item.zt}}" label="{{item.ms}}" />
+      </view>
+    </view>
+  </view>
+  <view class="wb">
+    <text>牙管家 Ya Guanjia</text>
+  </view>
+  <view class="tt"></view>
+</view>
+<view class="box">
+<view class="cu-bar tabbar bg-white">
+    <view class="action" bindtap="swichNav1">
+      <view class="cuIcon-cu-image">
+        <image src="/images/11.png"></image>
+      </view>
+      <view class="text-1">首页</view>
+    </view>
+    <view class="action" bindtap="swichNav2">
+      <view class="cuIcon-cu-image">
+        <image src="/images/22.png"></image>
+      </view>
+      <view class="text-2">我的咨询</view>
+    </view>
+    <view class="action">
+      <view class="cuIcon-cu-image" bindtap="swichNav5">
+        <image src="/images/lt1.png"></image>
+      </view>
+      <view class="text-2">论坛</view>
+    </view>
+    <view class="action" wx:if="{{gly}}">
+      <view class="cuIcon-cu-image" bindtap="swichNav4">
+        <image src="/images/gly.png"></image>
+      </view>
+      <view class="text-2">管理员</view>
+    </view>
+    <view class="action">
+      <view class="cuIcon-cu-image" bindtap="swichNav3">
+        <image src="/images/32.png"></image>
+      </view>
+      <view class="text-2">我的</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,70 @@
+/* pages1/pages/ltlb/ltlb.wxss */
+.TT{
+  width: auto;
+  height: 100vh;
+  margin-top: 8vh;
+  background-color: rgb(242, 242, 242);
+}
+.tb{
+  width: 100%;
+  position: fixed;
+  top:0;
+  z-index: 1000;
+}
+.box {  
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+.box view.cu-bar {
+  margin-top: 20rpx; 
+}
+.text-1{
+  color: #1efc16;
+}
+.text-2{
+  color: #060407;
+}
+.loadMore{
+  text-align: center;
+  background-color: rgb(16, 233, 248);
+}
+.image-style {
+  position:fixed; 
+  bottom: 200rpx;
+  right: 5px;
+  opacity: 0;
+  border-radius: 10px;
+}
+.image-plus-style {
+  height: 150rpx;
+  width: 150rpx;
+  margin-left:85%;
+  width:48px; 
+  height: 48px;
+  bottom: 200rpx;
+  position:fixed; 
+  border-radius: 10px;
+}
+.btn{
+  background-color: #808080;
+  border: black;
+  margin-left:85%;
+  width:48px; 
+  height: 48px;
+  position:fixed; 
+  bottom:50px; 
+  border-radius: 50%;
+  }
+  .btn-gotop 
+  { 
+  color:white; 
+  position:absolute;
+  margin-top: 0.8rem;
+  margin-left: 0.6rem;
+  } 
+.kb{
+  height: 100rpx;
+  width: 100%;
+}
+  

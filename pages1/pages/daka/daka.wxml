@@ -1,0 +1,2 @@
+<!--pages1/pages/daka/daka.wxml-->
+<web-view src="{{src}}"></web-view>

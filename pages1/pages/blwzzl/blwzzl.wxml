@@ -1,0 +1,56 @@
+<!--pages1/pages/blwzzl/blwzzl.wxml-->
+<van-search
+  value="{{ value }}"
+  placeholder="请输入想要查找的资料"
+  show-action
+  shape="round"
+  background="#4fc08d"
+  bind:search="onSearch"
+  bind:cancel="onCancel"
+  />
+  <van-collapse value="{{ activeNames }}" bind:change="onChange">
+  <van-collapse-item title="【牙体牙髓】系列" name="1" wx:if="{{pt}}">
+      <view wx:for="{{ytys}}" wx:key="ytys" wx:for-index="index">
+    <van-cell bindtap="ytys" data-index='{{index}}' title="{{item.title}}" />
+    </view>
+  </van-collapse-item>
+  <van-collapse-item title="【拔牙麻醉】系列" name="2" wx:if="{{pt}}">
+      <view wx:for="{{bymz}}" wx:key="bymz" wx:for-index="index">
+    <van-cell bindtap="bymz" data-index='{{index}}' title="{{item.title}}" />
+    </view>
+  </van-collapse-item>
+  <van-collapse-item title="【修复美学】系列" name="3" wx:if="{{pt}}">
+      <view wx:for="{{xfmx}}" wx:key="xfmx" wx:for-index="index">
+    <van-cell bindtap="xfmx" data-index='{{index}}' title="{{item.title}}" />
+    </view>
+  </van-collapse-item>
+  <van-collapse-item title="【综合其他】系列" name="4" wx:if="{{pt}}">
+      <view wx:for="{{zhqt}}" wx:key="zhqt" wx:for-index="index">
+    <van-cell bindtap="zhqt" data-index='{{index}}' title="{{item.title}}" />
+    </view>
+  </van-collapse-item>
+  <van-collapse-item title="【病例笔记】系列" name="5" wx:if="{{pt}}">
+    <view wx:for="{{blbj}}" wx:key="blbj" wx:for-index="index">
+    <van-cell bindtap="blbj" data-index='{{index}}' title="{{item.title}}" />
+    </view>
+  </van-collapse-item>
+  <van-collapse-item title="【运营沟通】系列" name="6" wx:if="{{pt}}">
+    <view wx:for="{{yygt}}" wx:key="yygt" wx:for-index="index">
+    <van-cell bindtap="yygt" data-index='{{index}}' title="{{item.title}}" />
+    </view>
+  </van-collapse-item>
+  <van-collapse-item title="【器材设备】系列" name="7" wx:if="{{pt}}">
+    <view wx:for="{{qcsb}}" wx:key="qcsb" wx:for-index="index">
+    <van-cell bindtap="qcsb" data-index='{{index}}' title="{{item.title}}" />
+    </view>
+  </van-collapse-item>
+  <van-collapse-item title="【行业动态】系列" name="8" wx:if="{{pt}}">
+    <view wx:for="{{hydt}}" wx:key="hydt" wx:for-index="index">
+    <van-cell bindtap="hydt" data-index='{{index}}' title="{{item.title}}" />
+    </view>
+  </van-collapse-item>
+ 
+    <view wx:if="{{sfss}}" wx:for="{{ss}}" wx:key="ss" wx:for-index="index">
+    <van-cell bindtap="ss" data-index='{{index}}' title="{{item.title}}" />
+    </view>
+</van-collapse>

@@ -1,0 +1,101 @@
+{
+    "pages": [
+        "pages/first/first",
+        "pages/login/login",
+        "pages/logs/logs",
+        "pages/index/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "灵牙慧齿管家",
+        "navigationBarTextStyle": "black"
+    },
+    "subPackages": [
+        {
+            "root": "pages1",
+            "name": "pages1",
+            "pages": [
+                "pages/znzz/znzz",
+                "pages/kqrd/kqrd",
+                "pages/mywz/mywz",
+                "pages/index/index",
+                "pages/logs/logs",
+                "pages/mine/mine",
+                "pages/sf/sf",
+                "pages/yljg/yljg",
+                "pages/gzhwz/gzhwz",
+                "pages/yyqk/yyqk1/yyqk1",
+                "pages/yyqk/yyqk2/yyqk2",
+                "pages/yyqk/yyqk3/yyqk3",
+                "pages/yyqk/yyqk4/yyqk4",
+                "pages/doctor/doctor",
+                "pages/mygz/mygz",
+                "pages/blbg/blbg",
+                "pages/blxqbg/blxqbg",
+                "pages/wt/wt",
+                "pages/sjcl/sjcl",
+                "pages/scqk/scqk",
+                "pages/gly/gly",
+                "pages/blsh/blsh",
+                "pages/sfsh/sfsh",
+                "pages/blshxq/blshqx",
+                "pages/sm/sm",
+                "pages/ltlb/ltlb",
+                "pages/bllb/bllb",
+                "pages/daka/daka",
+                "pages/blwzzl/blwzzl",
+                "pages/blwzzljj/blwzzljj",
+                "pages/ltfb/ltfb",
+                "pages/ltpl/ltpl",
+                "pages/wdfbtz/wdfbtz",
+                "pages/dcwj/dcwj",
+                "pages/rcsc/rcsc",
+                "pages/rczpxq/rczpxq",
+                "pages/yljgxqym/yljgxqym"
+            ],
+            "independent": false
+        },
+        {
+            "root": "pages2",
+            "name": "pages2",
+            "pages": [
+                "pages/index/index",
+                "pages/logs/logs",
+                "pages/mine/mine",
+                "pages/kqrd/kqrd",
+                "pages/blsh/blsh",
+                "pages/blshxq/blshqx",
+                "pages/syys/syys",
+                "pages/zjlxr/zjlxr"
+            ],
+            "independent": false
+        },
+        {
+            "root": "chat",
+            "name": "chat",
+            "pages": [
+                "pages/TUI-Chat/chat",
+                "pages/zjlxr/zjlxr"
+            ],
+            "independent": false
+        }
+    ],
+    "permission": {
+        "scope.userLocation": {
+            "desc": "你的位置信息将用于小程序位置接口的效果展示"
+        }
+    },
+    "plugins": {
+        "chooseLocation": {
+            "version": "1.0.9",
+            "provider": "wx76a9a06e5b4e693e"
+        },
+        "routePlan": {
+            "version": "1.0.19",
+            "provider": "wx50b5593e81dd937a"
+        }
+    },
+    "sitemapLocation": "sitemap.json",
+    "lazyCodeLoading": "requiredComponents"
+}

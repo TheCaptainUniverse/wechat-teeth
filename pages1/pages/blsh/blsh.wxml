@@ -1,0 +1,27 @@
+<!--pages1/blsh/blsh.wxml-->
+<view class="TT">
+  <view class="wtms">
+    <view style="margin-left: 0.6em; margin-top: 1em;font-weight: bold;"><text>病例名称</text></view>
+  <view class="nr">
+    <text>口疮</text>
+  </view>
+  </view>
+  <view class="bltp">
+    <view style="height: 1em;"></view>
+      <view style="margin-left: 0.6em;font-weight: bold;"><text>上传病例图片</text></view>
+    <view class="tp">
+      <image src="/images/sc.png"></image>
+    </view>
+  </view>
+  <view class="time">
+    <text  style="margin-left: 0.6em;font-weight: bold;">上传时间：</text>
+    <view class="tt">
+      <text>2022-1-15 16:42:50</text>
+    </view>
+  </view>
+  <view class="wb"></view>
+  <view class="btn">
+    <button class="sc" style="background-color: rgb(240, 124, 124);">不合格</button>
+    <button class="sc">合格</button>
+  </view>
+</view>

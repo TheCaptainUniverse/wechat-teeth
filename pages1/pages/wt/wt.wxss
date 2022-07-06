@@ -1,0 +1,13 @@
+.qq{
+    width: 94%;
+    height: auto;
+    margin-left: 3%;
+    margin-top: 2em;
+  }
+  .text {
+    /* 字体大小 */
+    font-size: 18px;
+    /* 字体风格-粗细 */
+    font-weight: bold;
+  }
+  

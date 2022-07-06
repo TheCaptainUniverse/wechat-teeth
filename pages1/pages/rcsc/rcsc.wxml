@@ -1,0 +1,36 @@
+<!--pages/rcsc/rcsc.wxml-->
+<view class="TT">
+  <view class="tb">
+    <van-search
+    value = "{{ value }}"
+    placeholder="请输入想要查询的职位信息"
+    show-action
+    shape="round"
+    background="#4fc08d"
+    bind:search="onSearch"
+    bind:cancel="onCancel"
+    bind:change="onChange"
+    />
+  </view>
+  <view class="cel">
+    <view class="cell" wx:for="{{rcsc}}" wx:key="rcsc" wx:for-index="index"> 
+      <view style="width: 100%;height: 0.8em;"></view>
+      <view class="name" bindtap="djxq" data-index="{{index}}">
+        <view class="photo"><image class="pho" src="https://messi10zlj.xyz/tooth/toothht/public{{item.gstp}}"></image></view>
+        <view class="nm">
+          <text style="font-weight: bold;font-size: 22px;">{{item.zw}}\n</text>
+          <text style="font-size: 14px;margin-top:1em;">{{item.wz}}\n</text>
+          <text style="font-size: 14px;margin-top:1em;">{{item.gsmc}}</text>
+        </view>
+        <view class="money">
+          <text style="font-weight: bold; font-size: 14px; color: #ffac46;">{{item.xz}}\n</text>
+          <text>{{item.time}}</text>
+        </view>
+      </view>
+      <view style="width: 100%;height: 0.8em;border-bottom: 0.5px solid gray;"></view>
+      <view class="phone">
+      <text style="margin-left: 3%;">联系方式：<text style="color: rgb(235, 94, 94);">{{item.phone}}</text></text>
+      </view>
+    </view>
+  </view>
+</view>

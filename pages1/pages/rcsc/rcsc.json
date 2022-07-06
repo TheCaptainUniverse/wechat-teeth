@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "人才招聘",
+  "navigationBarBackgroundColor": "#4fc08d",
+  "usingComponents": {
+    "van-search": "@vant/weapp/search/index"
+  }
+}

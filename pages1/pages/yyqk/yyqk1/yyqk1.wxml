@@ -1,0 +1,50 @@
+<!--pages/pages1/yyqk/yyqk1/yyqk1.wxml-->
+<view class="TT">
+  <view class="tb">
+    <view class="yy">
+      <text>预约中...</text>
+    </view>
+  </view>
+  <view class="nr">
+    <view class="name">
+      <view style="width: 100%;height: 1em;"></view>
+      <view class="nam">
+        <view class="photo">
+          <image src="{{imgList}}"></image>
+        </view>
+        <view class="nm">
+          <view class="nn"><text>{{name}}</text></view>
+          <view class="work"><text>职位：{{zw}}</text></view>
+        </view>
+      </view>
+      <view style="width: 100%;height: 1em;"></view>
+      <view class="count">
+        <text style="margin-left: 5%;">好评率：<text style="color: red;">{{hpl*100}}%</text></text>
+        <text style="margin-left: 5%;">预约量：<text style="color: red;">{{yyrs}}</text></text>
+        <text style="margin-left: 5%;">好评数：<text style="color: red;">{{hps}}</text></text>
+      </view>
+      <view style="width: 100%;height: 1em;"></view>
+    </view>
+    <view class="yyn">
+      <view style="width: 100%;height: 0.6em;"></view>
+      <view class="yn">
+        <view style="width: 35%;"><text style="font-weight: bold;">所在医院：</text></view>
+        <view><text>{{hospital}}</text></view>
+      </view>
+      <view style="width: 100%;height: 1em;"></view>
+      <view class="yn">
+        <view style="width: 35%;"><text style="font-weight: bold;">医生简介：</text></view>
+        <view><text>{{jj}}</text></view>
+      </view>
+      <view style="width: 100%;height: 1em;"></view>
+      <view class="ms">
+        <view style="width: 35%;"><text style="font-weight: bold;">技能经验：</text></view>
+        <view><text>{{skill}}</text></view>
+      </view>
+      <view style="width: 100%;height: 1em;"></view>
+    </view>
+  </view>
+  <view class="cancl">
+  <button bindtap="qxyy" style="background-color: rgba(255, 0, 0, 0.829); font-size:bold;">取消预约</button>
+  </view>
+</view>

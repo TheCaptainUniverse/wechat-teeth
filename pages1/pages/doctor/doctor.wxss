@@ -1,0 +1,182 @@
+/* pages/pages1/doctor/doctor.wxss */
+.TT{
+  width: auto;
+  background-color: rgb(236, 236, 236);
+}
+.nr{
+  width: 100%;
+}
+.name{
+  width: 100%;
+  height: auto;
+  background-color: white;
+  border-radius: 14px;
+}
+.nam{
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+}
+.photo{
+  width:15vh;
+  height: 15vh;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-left: 7%;
+}
+.photo image{
+  width: 100%;
+  height: 100%;
+}
+.nm{
+  width: 60%;
+  margin-left: 7%;
+}
+.nn{
+  font-size: 20px;
+  font-weight: bold;
+}
+.work{
+  margin-top: 1em;
+  font-size: 14px;
+}
+.count{
+  width: 100%;
+  height: 4vh;
+}
+.count text{
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.yyn{
+  width: 100%;
+  background-color: white;
+  margin-top:1.2em;
+  border-radius: 10px;
+  font-size: 14px;
+}
+.yn{
+  margin-top:1em;
+  width: 90%;
+  height: auto;
+  display: flex;
+  margin-left: 5%;
+}
+.ms{
+  width: 90%;
+  height: auto;
+  margin-left: 5%;
+  display: flex;
+}
+.assess{
+  width: 100%;
+  height: auto;
+  margin-top: 1.2em;
+  background-color: white;
+  border-radius: 10px;
+}
+.talk{
+  width: 100%;
+  height: 6vh;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+.talk_nr{
+  width: 90%;
+  height: auto;
+  margin-left: 5%;
+}
+.talk_cell{
+  width:100%;
+  height: auto;
+  margin-top: 0.6em;
+  border-bottom: 1px solid grey;
+}
+.talk_name{
+  display: flex;
+  align-items: center;
+
+}
+.talk_photo{
+  width: 8vh;
+  height: 8vh;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.talk_photo image{
+  width: 100%;
+  height: 100%;
+}
+.talk_nm{
+  width: 20%;
+  height: 8vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.talk_pf{
+  width: 30%;
+  height: 8vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.talk_nrr{
+  margin-top: 0.6em;
+}
+.cancl{
+  width: 100%;
+  height: 8vh;
+  position: fixed;
+  bottom:0;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  background-color: white;
+  position: fixed;
+  bottom:0;
+}
+.gz{
+  width: 30%;  
+  height: 100%;
+  font-size:bold; 
+  color: white;
+  margin-left: 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.zy{
+  width: 8vh;
+  height: 75%;
+  margin-left: 2vh;
+}
+.xx{
+  width: 8vh;
+  height: 75%;
+}
+.gz image{
+  width: 60%;
+  height: 70%;
+}
+.gz text{
+  font-size: 10px;
+  color: #000;
+  font-weight: bold;
+}
+.limt{
+  width: 50%;
+  height: 5vh;
+  border-radius: 10px;
+  background-color: #4fc08d;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 3vh;
+  margin-top: 2vh;
+}

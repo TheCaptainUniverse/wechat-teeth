@@ -1,0 +1,59 @@
+<!--pages1/sf/sf.wxml-->
+<view id="total">
+<form bindsubmit="rz">
+<view id="t1">
+<text>姓名:</text><input type="text" name="username" id="use" placeholder="请输入你的姓名" value="{{username}}"></input>
+</view>
+<view id="t2">
+<text>手机号码:</text><input type="number" name="phone" id="pass1" placeholder="请输入你的手机号码" value="{{phone}}"></input>
+</view>
+<view id="t3">
+<text>电子邮箱:</text><input type="text" name="email" id="pass2" placeholder="请输入你的电子邮箱" value="{{email}}"></input>
+</view>
+<view id="t4">
+<text>工作单位:</text><input type="text" name="work" id="pass3" placeholder="输入您的工作单位" value="{{work}}"></input>
+</view>
+<view id="t9">
+<text>职位:</text><input type="text" name="zw" id="pass4" placeholder="输入您的职位" value="{{zw}}"></input>
+</view>
+<view id="t7">
+<text>个人简介:</text><input type="text" name="jj" id="pass5" placeholder="请输入你的个人简介" value="{{jj}}"></input>
+</view>
+<view id="t8">
+<text>技能经验:</text><input type="text" name="skill" id="pass6" placeholder="请输入你的技能经验" value="{{skill}}"></input>
+</view>
+<view id="t5">
+  <i-panel title="sf">
+    <i-radio-group current="{{sf}}" bindchange="handlesfChange">
+        <i-radio wx:for="{{sfxx}}" position="{{position}}" wx:key="key" value="{{item.name}}">
+        </i-radio>
+    </i-radio-group>
+</i-panel>
+</view>
+<view id="t6" class="cu-bar bg-white margin-top">
+<view id="t6t">
+		<view class="action">
+			认证资质图片上传
+		</view>
+		<view class="action">
+			{{imgList.length}}/1
+		</view>
+  </view>
+	</view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{imgList}}" wx:key="index" bindtap="ViewImage" data-url="{{imgList[index]}}">
+				<image src='{{imgList[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<1}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
+<button id="btn1" form-type="submit"><text>认证</text></button>
+</form>
+
+</view>

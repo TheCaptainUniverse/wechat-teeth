@@ -1,0 +1,62 @@
+/* pages2/syys/syys.wxss */
+.TT{
+  width: auto;
+  height: auto;
+  background-color: rgb(242, 242, 242);
+}
+.T{
+  width: 100%;
+  background-color: rgb(242, 242, 242);
+}
+.cell{
+  width: 100%;
+  height: 16vh;
+  background-color: white;
+  border-radius: 10px;
+  border-bottom: 1px solid grey;
+  display: flex;
+  align-items: center;
+}
+.cell image{
+  width: 11vh;
+  height: 11vh;
+  margin-left: 10%;
+  border-radius: 50%;
+}
+.name{
+  margin-left: 10%;
+  width: 35%;
+  overflow: hidden;
+}
+.nm{
+  font-weight: bold;
+  font-size: 16px;
+}
+.yy{
+  width:20%;
+  height: 30%;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 10px;
+  background-color: rgb(99, 99, 248);
+  color: white;
+  overflow: hidden;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lxr{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 8vh;
+  margin-left: 5%;
+  border-radius: 10px;
+  background-color: rgb(100, 100, 241);
+  position: fixed;
+  bottom: 2px;
+  color: white;
+  font-weight: bold;
+}

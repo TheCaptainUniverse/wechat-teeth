@@ -1,0 +1,26 @@
+<!--pages1/sfsh/sfsh.wxml-->
+<view class="TT">
+  <view class="wtms">
+    <image src="{{avatarurl}}"></image>
+    <view class="name">
+      <view class="nm">
+        <text>{{name}}</text>
+      </view>
+      <view class="sf">
+        <text>认证身份：{{sfpd}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="bltp">
+    <view style="height: 1em;"></view>
+      <view style="margin-left: 0.6em;font-weight: bold;"><text>资质材料</text></view>
+    <view class="tp">
+      <image src="{{imgList}}"></image>
+    </view>
+  </view>
+  <view class="wb"></view>
+  <view class="btn">
+    <button bindtap="jjsq" class="sc" style="background-color: rgb(240, 124, 124);">拒绝申请</button>
+    <button bindtap="tysq" class="sc">同意申请</button>
+  </view>
+</view>

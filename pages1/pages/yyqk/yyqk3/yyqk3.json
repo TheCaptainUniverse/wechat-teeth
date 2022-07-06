@@ -1,0 +1,9 @@
+{
+  "navigationBarBackgroundColor": "#4fc08d",
+  "usingComponents": {
+    "van-image": "@vant/weapp/image/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "i-load-more": "../../../../dist/load-more/index",
+    "van-rate": "@vant/weapp/rate/index"
+  }
+}

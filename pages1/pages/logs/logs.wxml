@@ -1,0 +1,59 @@
+<!--logs.wxml-->
+<view class="tb">
+</view>
+<view class="TT">
+  <van-search
+  value="{{ value }}"
+  placeholder="请输入医生姓名"
+  show-action
+  shape="round"
+  background="#4fc08d"
+  bind:search="onSearch"
+  bind:cancel="onCancel"
+  />
+  <!-- <van-empty description="暂无预约"/> -->
+  <view class="yynr">
+    <view class="cell" wx:for="{{yyjl}}" wx:key="yyjl" wx:for-index="index"> 
+        <van-cell bindtap="yyqk" title="{{item.ysname}}" data-index='{{index}}' value="{{item.zt}}" size="mini" label="{{item.time}}" />
+    </view>
+
+  </view>
+</view>
+<view class="box">
+<view class="cu-bar tabbar bg-white">
+    <view class="action" bindtap="swichNav1">
+      <view class="cuIcon-cu-image">
+        <image src="/images/12.png"></image>
+      </view>
+      <view class="text-2">首页</view>
+    </view>
+    <view class="action" bindtap="swichNav2">
+      <view class="cuIcon-cu-image">
+        <image src="/images/21.png"></image>
+      </view>
+      <view class="text-1">我的咨询</view>
+    </view>
+    <view class="action">
+      <view class="cuIcon-cu-image" bindtap="swichNav5">
+        <image src="/images/lt1.png"></image>
+      </view>
+      <view class="text-2">论坛</view>
+    </view>
+    <view class="action" wx:if="{{gly}}">
+      <view class="cuIcon-cu-image" bindtap="swichNav4">
+        <image src="/images/gly.png"></image>
+      </view>
+      <view class="text-2">管理员</view>
+    </view>
+    <view class="action">
+      <view class="cuIcon-cu-image" bindtap="swichNav3">
+        <image src="/images/32.png"></image>
+      </view>
+      <view class="text-2">我的</view>
+    </view>
+  </view>
+</view>
+<block wx:if="{{dataILu}}">
+      <i-load-more />
+      <i-load-more loading="{{ false }}" />
+  </block>

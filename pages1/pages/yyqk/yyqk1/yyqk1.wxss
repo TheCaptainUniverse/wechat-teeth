@@ -1,0 +1,95 @@
+/* pages/pages1/yyqk/yyqk1/yyqk1.wxss */
+.TT{
+  width: auto;
+  height: auto;
+  background-color: rgb(236, 236, 236);
+}
+.tb{
+  width: 100%;
+  height: 15vh;
+  background-color: #4fc08d;
+  display: flex;
+  justify-content: center;
+}
+.yy{
+  font-size: 18px;
+  font-weight: bold;
+  margin-top:3vh;
+}
+.nr{
+  width: 90%;
+  height: 50vh;
+  margin-left:5%;
+}
+.name{
+  width: 100%;
+  height: auto;
+  background-color: white;
+  border-radius: 14px;
+}
+.nam{
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+}
+.photo{
+  width:15vh;
+  height: 15vh;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-left: 7%;
+}
+.photo image{
+  width: 100%;
+  height: 100%;
+}
+.nm{
+  width: 60%;
+  margin-left: 7%;
+}
+.nn{
+  font-size: 20px;
+  font-weight: bold;
+}
+.work{
+  margin-top: 1em;
+  font-size: 14px;
+}
+.count{
+  width: 100%;
+  height: 4vh;
+}
+.count text{
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.yyn{
+  width: 100%;
+  background-color: white;
+  margin-top:1.2em;
+  border-radius: 10px;
+  font-size: 14px;
+}
+.yn{
+  margin-top:1em;
+  width: 90%;
+  height: auto;
+  display: flex;
+  margin-left: 5%;
+}
+.ms{
+  width: 90%;
+  height: auto;
+  margin-left: 5%;
+  display: flex;
+}
+.cancl{
+  width: 100%;
+  height: 8vh;
+  position: fixed;
+  bottom:0;
+  border-radius: 10px;
+  overflow: hidden;
+}
