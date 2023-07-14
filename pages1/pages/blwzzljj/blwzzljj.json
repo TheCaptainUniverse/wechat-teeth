@@ -1,3 +1,6 @@
 {
+  "navigationBarBackgroundColor": "#B0D8E4",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "病例资料",
   "usingComponents": {}
 }

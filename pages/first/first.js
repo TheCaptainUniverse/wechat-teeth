@@ -142,7 +142,7 @@ Page({
                       })
                     } else {
                       setTimeout(function () {
-                        wx.reLaunch({
+                        wx.redirectTo({
                           url: '/pages/login/login'
                         })
                       }, 1000)

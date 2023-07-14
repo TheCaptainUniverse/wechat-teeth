@@ -110,13 +110,33 @@ Page({
       let s = a.join('');
       return s;
     },  
+    checkData()
+    {
+      let that = this;
+      var name = that.data.userInfo.nickName;
+      var phone = that.data.userInfo.phone;
+      if(name == '' || phone =='')
+      {
+        wx.showToast({
+          title: '有数据未填写！',
+          icon:'error'
+        })
+        return false;
+      }
+      return true;
+    },
     submit(e) {
 
 
-       var that = this;  
+      var that = this;  
       console.log(that.data,app.globalData)
+      var check = that.checkData();
+      if(!check)
+      {
+        return;
+      }
 
-       var phone = that.data.userInfo.phone;
+      var phone = that.data.userInfo.phone;
       let isPhoneLeagel = that.isMobile(phone);
       if(!isPhoneLeagel)
       {

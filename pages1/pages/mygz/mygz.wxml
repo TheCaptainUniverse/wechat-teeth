@@ -1,6 +1,7 @@
 <!--pages/pages1/mygz/mygz.wxml-->
 <view class="TT">
-  <view class="tb">  
+  <!-- <view class="tb">   -->
+    <navigationBar wx:if="{{!showNotice}}" title="我的关注" showBack="{{true}}" showHome="{{false}}"></navigationBar>
     <van-search
       value="{{ value }}"
       placeholder="请输入搜索关键词"
@@ -10,7 +11,7 @@
       bind:search="onSearch"
       bind:cancel="onCancel"
       />
-    </view>
+    <!-- </view> -->
     <view class="T">
       <view style="width: 100%; height: 4vh;"></view>
       <view class="cell" wx:for="{{gz}}" wx:key="doctor" wx:for-index="index">

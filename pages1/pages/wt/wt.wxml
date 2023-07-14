@@ -1,3 +1,4 @@
+<navigationBar wx:if="{{!showNotice}}" title="常见问题" showBack="{{true}}" showHome="{{false}}"></navigationBar>
 <van-collapse value="{{activeName}}" bind:change="onChange" accordion>
   <van-collapse-item size="large" title="怎么通过小程序自诊？" bind name="1">在首页智能自诊上传病状和图片，等待系统诊断。</van-collapse-item>
   <van-collapse-item size="large" title="如何查看自诊结果？" bind name="2">在我的页面点击病理报告查看自诊诊断结果。</van-collapse-item>

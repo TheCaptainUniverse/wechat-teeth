@@ -1,6 +1,6 @@
-<view>
+<view class="page">
   <view class="title-container">
-    <view class="title">欢迎使用</view>
+    <view class="title">欢迎使用灵牙慧齿小程序</view>
   </view>
   <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
     <image class="avatar" src="{{avatarUrl}}"></image>
@@ -8,9 +8,10 @@
   <form bindsubmit="formSubmit">
     <input type="nickname" class="input-box" placeholder="请输入昵称" required bindinput="inputNickname" maxlength="20"></input>
     <input type="number" class="input-box" name="phone" placeholder="请输入电话号码" required bindinput="inputPhone" maxlength="11"></input>
-  <button class='bottom' type='primary' lang="zh_CN" catchtap="submit">
-        授权登录
+  <button class='bottom' lang="zh_CN" catchtap="submit">
+        注册并登录
   </button>
+  <navigator class="popup-close-btn" open-type="exit" target="miniProgram">关闭</navigator>
 </form>
 
 </view>

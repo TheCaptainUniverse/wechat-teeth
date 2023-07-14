@@ -302,9 +302,9 @@ onSearch(e){
   var that = this;
   console.log(e.detail)
   wx.request({
-    url: 'https://messi10zlj.xyz/tooth/zlss.php',
+    url: API+'/content/findArticleByTitleLike',
     data: {
-      cxzl:e.detail,
+      title:e.detail,
     },
     header: {
       'content-type': 'application/x-www-form-urlencoded'

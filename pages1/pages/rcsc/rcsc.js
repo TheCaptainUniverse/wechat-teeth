@@ -45,12 +45,6 @@ Page({
           },
           success: function (res) {
             console.log(res.data)
-            if(res.data==0){
-                wx.showToast({
-                  title: '未查询到信息',
-                  icon:'loading', 
-                })
-            }
             var rcsca = that.data.rcsc;
             if (res.data.length > 0) {
               if (that.data.page == 1) {
@@ -64,10 +58,9 @@ Page({
                   dataILu: false,
                 })
                 console.log(that.data.rcsc)
-                console.log(that.data.rcsc[0].gstp)
               } else {
                 that.setData({
-                  rcsc: rcsca.concat(rcscs),
+                    rcsc: rcsca.concat(rcscs),
                   hasMore: true,
                   dataILu: true,
                   page: that.data.page + 1
@@ -82,6 +75,46 @@ Page({
           fail: function (res) {
             
           },
+          // success: function (res) {
+          //   console.log(res.data)
+          //   if(res.data==0){
+          //       wx.showToast({
+          //         title: '未查询到信息',
+          //         icon:'error', 
+          //       })
+          //   }
+          //   var rcsca = that.data.rcsc;
+          //   if (res.data.length > 0) {
+          //     if (that.data.page == 1) {
+          //       rcsca = []
+          //     }
+          //     var rcscs = res.data;
+          //     console.log(rcscs)
+          //     if (rcscs.length < that.data.pagesize) {
+          //       that.setData({
+          //           rcsc: rcsca.concat(rcscs),
+          //         hasMore: false,
+          //         dataILu: false,
+          //       })
+          //       console.log(that.data.rcsc)
+          //       console.log(that.data.rcsc[0].gstp)
+          //     } else {
+          //       that.setData({
+          //         rcsc: rcsca.concat(rcscs),
+          //         hasMore: true,
+          //         dataILu: true,
+          //         page: that.data.page + 1
+          //       })
+          //     }
+          //   }else{
+          //     that.setData({
+          //       dataILu: false,
+          //     })
+          //   }
+          // },
+          // fail: function (res) {
+            
+          // },
           complete: function (res) {
           
           },

@@ -1,48 +1,40 @@
 <!--pages1/znzz/znzz.wxml-->
 <view class="TT">
-  <view class="tb"></view>
+  <navigationBar wx:if="{{!showNotice}}" title="智能自诊" showBack="{{true}}" showHome="{{false}}">
+
+  </navigationBar>
   <view class="wtms">
-    <view style="margin-left: 0.6em;font-weight: bold; font-size: 18px;"><text>问题描述</text></view>
-    <view style="margin-left: 0.6em;margin-top: 0.6em; font-size: 14px;"><text>请将病症、发病时间等情况描述在下面文本框中：</text></view>
-  <view class="nr">
-    <van-cell-group>
-      <van-field
-        value="{{ value }}"
-        size="large"
-        maxlength="300"
-        placeholder="请输入病症"
-        show-word-limit="true"
-        bind:change="onChange"
-        type="textarea"
-        autosize
-        border="{{ false }}"
-      />
-    </van-cell-group>
-  </view>
+    <view style="margin-left: 0.6em;font-weight: bold; font-size: 20px;margin-top: 10rpx;"><text>问题描述</text></view>
+    <view style="margin-left: 0.6em;margin-top: 0.6em; font-size: 17px;"><text>请将病症、发病时间等情况描述在下面文本框中</text></view>
+    <view class="nr">
+      <van-cell-group>
+        <van-field value="{{ value }}" size="large" maxlength="300" placeholder="请输入病症" show-word-limit="true" bind:change="onChange" type="textarea" autosize border="{{ false }}" />
+      </van-cell-group>
+    </view>
   </view>
   <view id="t1" class="cu-bar bg-white margin-top">
-<view id="t1t">
-		<view class="action" style="font-weight: bold;">
-			病症图片上传
-		</view>
-		<view class="action">
-			{{imgList.length}}/1
-		</view>
+    <view id="t1t">
+      <view class="action" style="font-weight: bold;">
+        病症图片上传
+      </view>
+      <view class="action">
+        {{imgList.length}}/1
+      </view>
+    </view>
   </view>
-	</view>
-	<view class="cu-form-group">
-		<view class="grid col-4 grid-square flex-sub">
-			<view class="bg-img" wx:for="{{imgList}}" wx:key="index" bindtap="ViewImage" data-url="{{imgList[index]}}">
-				<image src='{{imgList[index]}}' mode='aspectFill'></image>
-				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
-					<text class="cuIcon-close"></text>
-				</view>
-			</view>
-			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<1}}">
-				<text class="cuIcon-cameraadd"></text>
-			</view>
-		</view>
-	</view>
-   <view class="sc" bindtap="sc" ><button style="background-color:#B0D8E4;">上传诊断</button></view> 
+  <view class="cu-form-group">
+    <view class="grid col-4 grid-square flex-sub">
+      <view class="bg-img" wx:for="{{imgList}}" wx:key="index" bindtap="ViewImage" data-url="{{imgList[index]}}">
+        <image src='{{imgList[index]}}' mode='aspectFill'></image>
+        <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+          <text class="cuIcon-close"></text>
+        </view>
+      </view>
+      <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<1}}">
+        <text class="cuIcon-cameraadd"></text>
+      </view>
+    </view>
+  </view>
+  <view class="sc" bindtap="sc"><button style="background-color:#B0D8E4;">上传诊断</button></view>
 </view>
 <van-dialog id="van-dialog" />

@@ -1,4 +1,5 @@
 <!--pages/pages1/blbg/blbg.wxml-->
+<navigationBar wx:if="{{!showNotice}}" title="病理报告" showBack="{{true}}" showHome="{{false}}"></navigationBar>
 <view class="TT">
   <view class="tb"></view>
   <view class="cell" wx:for="{{blbg}}" wx:key="blbg" wx:for-index="index">

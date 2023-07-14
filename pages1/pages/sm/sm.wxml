@@ -1,4 +1,5 @@
 <!--pages1/pages/sm/sm.wxml-->
+<navigationBar wx:if="{{!showNotice}}" title="我的牙齿" showBack="{{true}}" showHome="{{false}}"></navigationBar>
 <view class="test-bg">
   <image src="{{tp}}" class="bg-image" mode="scaleToFill">112121</image>
   <view class="jd">

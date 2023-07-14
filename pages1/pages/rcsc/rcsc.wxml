@@ -1,6 +1,7 @@
 <!--pages/rcsc/rcsc.wxml-->
+
 <view class="TT">
-  <view class="tb">
+  <navigationBar wx:if="{{!showNotice}}" title="医疗机构" showBack="{{true}}" showHome="{{false}}"></navigationBar>
     <van-search
     value = "{{ value }}"
     placeholder="请输入想要查询的职位信息"
@@ -11,7 +12,6 @@
     bind:cancel="onCancel"
     bind:change="onChange"
     />
-  </view>
   <view class="cel">
     <view class="cell" wx:for="{{rcsc}}" wx:key="rcsc" wx:for-index="index"> 
       <view style="width: 100%;height: 0.8em;"></view>

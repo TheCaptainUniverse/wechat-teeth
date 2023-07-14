@@ -1,3 +1,4 @@
+<navigationBar wx:if="{{!showNotice}}" title="医疗机构" showBack="{{true}}" showHome="{{false}}"></navigationBar>
 <view class="index-top">
   <view class="{{index <= curring && curring != 0?'top-blue':'top-currin'}} {{index > 0 && curring < 2?'top-fint':'top-ping'}} {{2 == curring?'top-nux':''}} {{2 < curring?'top-name':''}}" wx:for="{{8}}" wx:key="index">
     <view class="{{index <= curring?'top-buing':'top-bloc'}}">

@@ -1,5 +1,6 @@
 <!--pages1/pages/yljgxqym/yljgxqym.wxml-->
 <view class="T">
+  <navigationBar wx:if="{{!showNotice}}" title="调查问卷" showBack="{{true}}" showHome="{{false}}"></navigationBar>
   <view class="tb">
     <image src="{{avatarUrl}}"></image>
   </view>

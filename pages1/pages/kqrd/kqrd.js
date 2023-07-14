@@ -16,7 +16,7 @@ Page({
     hasMore:true,
     pagesize:10,
     dataILu : false,
-    xz:false,
+    xz:true,
     dxnr:'',
     option1: [
       { text: '龋病', value: '龋病' },
