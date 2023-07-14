@@ -4,7 +4,7 @@
   placeholder="请输入想要查找的资料"
   show-action
   shape="round"
-  background="#4fc08d"
+  background="#B0D8E4"
   bind:search="onSearch"
   bind:cancel="onCancel"
   />

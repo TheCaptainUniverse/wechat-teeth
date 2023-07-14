@@ -1,6 +1,7 @@
 import logger from '../../../utils/logger';
 // eslint-disable-next-line no-undef
-const app = getApp();
+var app = getApp();
+const API = app.globalData.requestHeader;
 // eslint-disable-next-line no-undef
 Page({
 
@@ -23,6 +24,7 @@ Page({
       tim: null,
     },
     unreadCount: 0,
+    id:''
   },
 
   /**
@@ -30,6 +32,9 @@ Page({
    */
   onLoad(options) {
     var that = this;
+    that.setData({
+      id:options.id
+    })
     const { config } = that.data;
     config.sdkAppID = app.globalData.SDKAppID;
     config.userID = app.globalData.userInfo.userID;
@@ -60,9 +65,12 @@ Page({
         isShow: conversation.type === 'GROUP',
       });
       wx.request({
-        url: 'https://messi10zlj.xyz/tooth/zhuanh.php',
+        //@GetMapping("/findEmpowerInfoById")
+        method:'GET',
+        url:API+'/verification/findEmpowerInfoById',
+        // url: 'https://messi10zlj.xyz/tooth/zhuanh.php',
         data: {
-          conversationName:that.data.conversationName,
+          id:that.data.id,
         },
         header: {
           'content-type': 'application/x-www-form-urlencoded'
@@ -71,7 +79,7 @@ Page({
           console.log(res.data)
           
           that.setData({
-            conversationName: res.data[0].nickName,
+            conversationName: res.data.name,
           });
         }
       }) 

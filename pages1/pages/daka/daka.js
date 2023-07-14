@@ -1,5 +1,6 @@
 // pages1/pages/daka/daka.js
-const app = getApp()
+const app = getApp();
+const API = app.globalData.requestHeader;
 var timerIndex; // 计时器
 var intIndexTime = 0
 Page({
@@ -8,8 +9,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    src:'',
-    ID:'',
+    videoUrl:'',
+    id:'',
     intIndexTime:0,
   },
 
@@ -24,20 +25,23 @@ Page({
       mask:true,//是否显示透明蒙层，防止触摸穿透，默认：false  
    })
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/daka.php',
+      //@GetMapping("/findClockTaskById")
+      method:'GET',
+      url:API+'/content/findClockTaskById',
+      // url: 'https://messi10zlj.xyz/tooth/daka.php',
       data: {
-        ID:1,
+        id:1,
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
       console.log(res.data)
-      console.log(res.data[0].src)
-      if(res.data[0].src!=''){
+      console.log(res.data.videoUrl)
+      if(res.data.videoUrl!=''){
         
         that.setData({
-          src:res.data[0].src,
+          videoUrl:res.data.videoUrl,
         })
       }else{
       } 
@@ -57,12 +61,15 @@ Page({
       })
       that.countTime();
   }, 1000);
-    if(240<=intIndexTime){
+    if(10<=intIndexTime){
       wx.request({
-        url: 'https://messi10zlj.xyz/tooth/zjjf.php',
+        //@PostMapping("/updateAndInsertClockByOpenidAndName")
+        method:'POST',
+        url:API+'/user/updateAndInsertClockByOpenidAndName',
+        // url: 'https://messi10zlj.xyz/tooth/zjjf.php',
         data: {
           openid:app.globalData.openid,
-          nickName:app.globalData.nickName,
+          name:app.globalData.name,
         },
         header: {
           'content-type': 'application/x-www-form-urlencoded'

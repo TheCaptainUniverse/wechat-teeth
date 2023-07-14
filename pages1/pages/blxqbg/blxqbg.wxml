@@ -10,7 +10,7 @@
   <view class="kb"></view>
   <view class="bltp">
     <text  style="margin-left: 4%;font-weight: bold;">我的病例图片:</text>
-    <image bindtap="clickImg1" src="{{imgList}}"></image>
+    <image bindtap="clickImg1" src="{{imgUrl}}"></image>
   </view>
   <view class="kb"></view>
   <view class="bztp">
@@ -23,8 +23,8 @@
     <text style="margin-left: 4%;font-weight: bold;">诊断结果：</text>
     <view class="jg">
       <view><text style="font-size: 13px;font-weight: bold;">病例名称：</text><text style="font-size: 13px;">{{bname}}</text></view>
-      <view><text style="font-size: 13px;font-weight: bold;">病例描述：</text><text style="font-size: 13px;">{{describe1}}</text></view>
-      <view><text style="font-size: 13px;font-weight: bold;">治疗建议：</text><text style="font-size: 13px;">{{zljy}}</text></view>
+      <view><text style="font-size: 13px;font-weight: bold;">病例描述：</text><text style="font-size: 13px;">{{describe}}</text></view>
+      <view><text style="font-size: 13px;font-weight: bold;">治疗建议：</text><text style="font-size: 13px;">{{advice}}</text></view>
     </view>
   </view>
   <view class="kb"></view>

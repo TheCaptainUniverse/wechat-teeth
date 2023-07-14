@@ -1,5 +1,6 @@
 // pages/pages1/blbg/blbg.js
 var app = getApp();
+const API = app.globalData.requestHeader;
 Page({
 
   /**
@@ -41,7 +42,10 @@ fyjz:function(){
   var that = this;
  
   wx.request({
-    url: 'https://messi10zlj.xyz/tooth/blbgsj.php',	
+    //@GetMapping("/findDiseaseReport")
+    method:'GET',
+    url:API+'/medicalService/findDiseaseReport',
+    // url: 'https://messi10zlj.xyz/tooth/blbgsj.php',	
     data: {
       openid: app.globalData.openid,
       page: that.data.page,
@@ -95,9 +99,9 @@ fyjz:function(){
       index:e.currentTarget.dataset
     })
     console.log(that.data.index)
-    console.log(that.data.blbg[that.data.index.index].ID)
+    console.log(that.data.blbg[that.data.index.index].entity.id)
     wx.navigateTo({
-      url: '../bllb/bllb?ID='+that.data.blbg[that.data.index.index].ID
+      url: '../bllb/bllb?id='+that.data.blbg[that.data.index.index].entity.id
     })
   },
   /**

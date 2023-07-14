@@ -1,41 +1,39 @@
 // pages/pages1/gzhwz/gzhwz.js
 const app = getApp()
+const API = app.globalData.requestHeader
 var timerIndex; // 计时器
 var intIndexTime = 0
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-    src:'',
-    ID:'',
+    url:'',
+    id:'',
     intIndexTime:0,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    console.log(options.ID)
+  onLoad: function (options) 
+  {
+    console.log(options.id)
     var that = this;
     that.setData({
-      ID:options.ID,
+      id:options.id,
     })
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/gghwz.php',
+      method:'GET',
+      url:API+'/content/findScienceUrlById',
+      // url: 'https://messi10zlj.xyz/tooth/gghwz.php',
       data: {
-        ID:that.data.ID,
+        id:that.data.id,
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
       console.log(res.data)
-      console.log(res.data[0].src)
-      if(res.data[0].src!=''){
+      console.log(res.data.url)
+      if(res.data.url!=''){
         that.setData({
-          src:res.data[0].src,
+          url:res.data.url,
         })
       }else{
       } 
@@ -57,9 +55,12 @@ Page({
   }, 1000);
     if(10<=intIndexTime){
       wx.request({
-        url: 'https://messi10zlj.xyz/tooth/zjjf.php',
+        method:'POST',
+        url:API+'/user/updateAndInsertClockByOpenidAndName',
+        // url: 'https://messi10zlj.xyz/tooth/zjjf.php',
         data: {
           openid:app.globalData.openid,
+          name:app.globalData.name
         },
         header: {
           'content-type': 'application/x-www-form-urlencoded'

@@ -4,7 +4,7 @@
   height: 100vh;
   padding: 0;
   margin:0;
-  background-color: rgb(236, 236, 236);
+  background-color: #E6F4F1;
 }
 .welcome{
   width: 90%;
@@ -15,13 +15,14 @@
   align-items: center;
 }
 .welcome image{
-  width: 6em;
-  height: 5em;
+  width: 3em;
+  height: 3em;
 }
 .welcome text{
-  font-size: 23px;
+  margin-left: 20rpx;
+  font-size: 25px;
   font-weight: bold;
-  background: linear-gradient(to right, red, blue);        
+  background: linear-gradient(to right, #4EBCF7, #FE6A64);        
   -webkit-background-clip: text;        
   color: transparent;
 }
@@ -29,4 +30,61 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.van-loading
+{
+  margin-left: 20rpx;
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30rpx;
+}
+
+.popup-texts
+{
+  margin-top: 50rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30rpx;
+}
+
+.popup-text {
+  font-weight:bold;
+  font-size: larger;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30rpx;
+}
+
+.popup-close-btn {
+  width: 250rpx;
+  height: 90rpx;
+  border-radius: 45rpx;
+  background-color: #FE6A64;
+  color: #fff;
+  font-size: 32rpx;
+  line-height: 90rpx;
+  text-align: center;
+}
+
+.popup-contact-btn {
+  width: 250rpx;
+  height: 90rpx;
+  border-radius: 45rpx;
+  background-color: #4EBCF7;
+  color: #fff;
+  font-size: 32rpx;
+  line-height: 90rpx;
+  text-align: center;
 }

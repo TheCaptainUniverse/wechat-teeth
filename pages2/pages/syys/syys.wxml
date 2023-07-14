@@ -2,7 +2,7 @@
 <view class="TT">
   <view class="T">
     <view class="cell" wx:for="{{yykb}}" wx:key="yykb" wx:for-index="index" data-index='{{index}}' bindtap="xkb">
-      <image src="{{item.avatarurl}}"></image>
+      <image src="{{item.imgUrl}}"></image>
       <view class="name">
         <view class="nm">
           <text>{{item.name}}</text>

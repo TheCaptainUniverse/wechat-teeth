@@ -1,5 +1,6 @@
 // pages1/pages/wdfbtz/wdfbtz.js
 var app = getApp();
+const API = app.globalData.requestHeader;
 Page({
 
   /**
@@ -29,7 +30,7 @@ Page({
               wx.request({
                 url: 'https://messi10zlj.xyz/tooth/sctz.php',
                 data: {
-                  ID:event.currentTarget.id,
+                  id:event.currentTarget.id,
                 },
                 header: {
                   'content-type': 'application/x-www-form-urlencoded'
@@ -85,7 +86,10 @@ Page({
     var that = this;
     console.log(app.globalData.openid)
 	  wx.request({
-      url: 'https://messi10zlj.xyz/tooth/wdqbtz.php',	
+      // @GetMapping("/findFormItemByOpenid")
+      method:'GET',
+      url:API+'/content/findFormItemByOpenid',
+      // url: 'https://messi10zlj.xyz/tooth/wdqbtz.php',	
       data: {
         page: that.data.page,
         count: that.data.pagesize,
@@ -140,9 +144,9 @@ Page({
     })
     console.log(that.data.index)
     console.log(that.data.ltlb[that.data.index.index])
-    console.log(that.data.ltlb[that.data.index.index].ID)
+    console.log(that.data.ltlb[that.data.index.index].entity.id)
     wx.navigateTo({
-      url: '../ltpl/ltpl?ID='+that.data.ltlb[that.data.index.index].ID+'&avatarUrl='+that.data.ltlb[that.data.index.index].avatarUrl+'&imgList='+that.data.ltlb[that.data.index.index].imgList+'&nickName='+that.data.ltlb[that.data.index.index].nickName+'&nr='+that.data.ltlb[that.data.index.index].nr+'&title='+that.data.ltlb[that.data.index.index].title+'&time='+that.data.ltlb[that.data.index.index].time
+      url: '../ltpl/ltpl?id='+that.data.ltlb[that.data.index.index].entity.id+'&avatarUrl='+that.data.ltlb[that.data.index.index].entity.imgUrl+'&picUrl='+that.data.ltlb[that.data.index.index].entity.picUrl+'&nickName='+that.data.ltlb[that.data.index.index].entity.nickName+'&connect='+that.data.ltlb[that.data.index.index].entity.connect+'&title='+that.data.ltlb[that.data.index.index].entity.title+'&time='+that.data.ltlb[that.data.index.index].timeFix
      })
   },
   /**

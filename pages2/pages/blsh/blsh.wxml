@@ -2,10 +2,10 @@
 <view class="TT">
   <view class="T">
     <view class="cell" wx:for="{{sh}}" wx:key="sh" wx:for-index="index" data-index='{{index}}' bindtap="shqk">
-      <image src="{{item.avatarurl}}"></image>
+      <image src="{{item.avatarUrl}}"></image>
       <view class="name">
         <view class="nm">
-          <text>{{item.xsname}}</text>
+          <text>{{item.name}}</text>
         </view>
         <view class="bl">
           <text>{{item.bname}}</text>

@@ -1,4 +1,5 @@
 var app = getApp();
+const API = app.globalData.requestHeader;
 Page({
   data: {
     active: 0,
@@ -42,7 +43,10 @@ Page({
     var that = this;
    
 	  wx.request({
-      url: 'https://messi10zlj.xyz/tooth/yyjl.php',	
+      //@GetMapping("/getAppointmentByOpenidAndPageAndCount")
+      method:'GET',
+      url:API+'/appointment/getAppointmentByOpenidAndPageAndCount',
+      // url: 'https://messi10zlj.xyz/tooth/yyjl.php',	
       data: {
         openid: app.globalData.openid,
         page: that.data.page,
@@ -95,23 +99,23 @@ Page({
       index:e.currentTarget.dataset
     })
     console.log(that.data.index)
-    console.log(that.data.yyjl[that.data.index.index].ID)
-    console.log(that.data.yyjl[that.data.index.index].zt)
-    if(that.data.yyjl[that.data.index.index].zt=='正在预约'){
+    console.log(that.data.yyjl[that.data.index.index].entity.id)
+    console.log(that.data.yyjl[that.data.index.index].statusFix)
+    if(that.data.yyjl[that.data.index.index].statusFix=='正在预约'){
       wx.navigateTo({
-        url: '../yyqk/yyqk1/yyqk1?ID='+that.data.yyjl[that.data.index.index].ID
+        url: '../yyqk/yyqk1/yyqk1?id='+that.data.yyjl[that.data.index.index].entity.id
        })
-    }else if(that.data.yyjl[that.data.index.index].zt=='预约成功'){
+    }else if(that.data.yyjl[that.data.index.index].statusFix=='预约成功'){
       wx.navigateTo({
-        url: '../yyqk/yyqk2/yyqk2?ID='+that.data.yyjl[that.data.index.index].ID
+        url: '../yyqk/yyqk2/yyqk2?id='+that.data.yyjl[that.data.index.index].entity.id
        })
-    }else if(that.data.yyjl[that.data.index.index].zt=='咨询成功'){
+    }else if(that.data.yyjl[that.data.index.index].statusFix=='咨询成功'){
       wx.navigateTo({
-        url: '../yyqk/yyqk3/yyqk3?ID='+that.data.yyjl[that.data.index.index].ID
+        url: '../yyqk/yyqk3/yyqk3?id='+that.data.yyjl[that.data.index.index].entity.id
        })
-    }else if(that.data.yyjl[that.data.index.index].zt=='取消预约'){
+    }else if(that.data.yyjl[that.data.index.index].statusFix=='取消预约'){
       wx.navigateTo({
-        url: '../yyqk/yyqk4/yyqk4?ID='+that.data.yyjl[that.data.index.index].ID
+        url: '../yyqk/yyqk4/yyqk4?id='+that.data.yyjl[that.data.index.index].entity.id
        })
     }
 },
@@ -119,9 +123,12 @@ Page({
     var that = this;
     console.log(e.detail)
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/zxss.php',
+      //@GetMapping("/findAppointmentByDoctorNameAndOpenid")
+      method:'GET',
+      url:API+'/appointment/findAppointmentByDoctorNameLikeAndOpenid',
+      // url: 'https://messi10zlj.xyz/tooth/zxss.php',
       data: {
-        czxx:e.detail,
+        doctorName:e.detail,
         openid:app.globalData.openid,
       },
       header: {
@@ -130,12 +137,10 @@ Page({
       success: function (res) {
       console.log(res.data)
       that.setData({
-        yyjl:res.data,
+        yyjl: res.data,
         hasMore: false,
         dataILu : false,
       })
-      
-       
       }
 
     })

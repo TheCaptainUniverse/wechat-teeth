@@ -1,12 +1,13 @@
 // pages/pages1/yyqk/yyqk4/yyqk4.js
 var app = getApp();
+const API = app.globalData.requestHeader;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    imgList:'',
+    doctorImgUrl:'',
     name:'',
     skill:'',
     hospital:'',
@@ -19,9 +20,11 @@ Page({
     var that=this;
     console.log(options.ID);
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/yyqk.php',
+      method:'GET',
+      url:API+'/appointment/getAppointmentById',
+      // url: 'https://messi10zlj.xyz/tooth/yyqk.php',
       data: {
-        ID: options.ID,
+        id: options.id,
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -29,16 +32,15 @@ Page({
       success: function (res) {
       console.log(res.data)
       that.setData({
-        imgList:res.data[0].imgList,
-        name:res.data[0].ysname,
-        skill:res.data[0].skill,
-        hospital:res.data[0].hospital,
-        ID:res.data[0].ID,
-        hpl:res.data[0].hpl,
-        jj:res.data[0].jj,
-        zw:res.data[0].zw,
-        hps:res.data[0].hps,
-        yyrs:res.data[0].yyrs,
+        doctorImgUrl:res.data.doctorImgUrl,
+        name:res.data.ysname,
+        skill:res.data.skill,
+        hospital:res.data.hospital,
+        positiveReviewRate:res.data.positiveReviewRate,
+        introduction:res.data.introduction,
+        position:res.data.position,
+        positiveReviewNumber:res.data.positiveReviewNumber,
+        appointmentCount:res.data.appointmentCount,
       })
       }
 
@@ -60,9 +62,12 @@ Page({
       success (res) {
         if (res.confirm) {
           wx.request({
-            url: 'https://messi10zlj.xyz/tooth/cxyy.php',
+            //@PostMapping("/updateAppointmentStatusById")
+            method:'POST',
+            url:API+'/appointment/updateAppointmentStatusByIdAndStatus',
             data: {
-              ID:that.data.ID,
+              id: that.options.id,
+              status:1
             },
             header: {
               'content-type': 'application/x-www-form-urlencoded'

@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "医生简介",
-  "navigationBarBackgroundColor": "#4fc08d",
+  "navigationBarBackgroundColor": "#B0D8E4",
   "usingComponents": {
     "van-rate": "@vant/weapp/rate/index"
   }

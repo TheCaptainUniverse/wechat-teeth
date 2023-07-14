@@ -1,5 +1,6 @@
 // pages1/pages/ltfb/ltfb.js
-var app = getApp();
+var app=getApp();
+const API = app.globalData.requestHeader;
 Page({
 
   /**
@@ -65,22 +66,24 @@ Page({
       success (res) {
         if (res.confirm) {
           wx.uploadFile({
-            url: 'https://messi10zlj.xyz/tooth/fbtz.php',
+            // url: 'https://messi10zlj.xyz/tooth/fbtz.php',
+            url:API+'/content/insertFormItem',
             filePath: that.data.imgList[0],
-            name: 'file',
+            name: 'image',
             formData: {
               openid:app.globalData.openid,
-              avatarUrl:app.globalData.avatarUrl,
-              nickName:app.globalData.nickName,
+              imgUrl:app.globalData.avatarUrl,
+              nickName:app.globalData.name,
               title:e.detail.value.title,
-              nr:e.detail.value.nr,
+              content:e.detail.value.nr,
             },
             header: {
               "Content-Type": "multipart/form-data"
             },
             success: function (res) {
               console.log(res.data);
-              wx.showToast({
+              if(res.data == 1)
+              {wx.showToast({
                 title: '上传成功',
                 icon: 'success',
                 duration: 1000,
@@ -93,7 +96,17 @@ Page({
                     })
                   }, 1000) //延迟时间
                 },
-              });
+              });}
+              else
+              {
+                wx.hideToast();
+              wx.showModal({
+                title: '错误提示',
+                content: '上传图片失败',
+                showCancel: false,
+                success: function (res) { }
+              })
+              }
               //服务器返回格式: { "Catalog": "testFolder", "FileName": "1.jpg", "Url": "https://test.com/1.jpg" }
               console.log(res.data);
             },

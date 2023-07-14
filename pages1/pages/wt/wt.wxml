@@ -9,6 +9,6 @@
   <van-collapse-item size="large" title="医生端如何通过患者预约申请？" name="8"> 进入小程序点击私营医师即可查看并通过患者预约申请。</van-collapse-item>
 </van-collapse>
 <view class="qq">
-  <text class="text">如有其他问题，可联系QQ：723413384</text>
+  <text class="text">如有其他问题，可联系QQ：2585359760</text>
 </view>
 

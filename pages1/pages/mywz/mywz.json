@@ -1,6 +1,5 @@
 {
-  "navigationBarBackgroundColor": "#4fc08d",
-  "navigationBarTitleText": "医生列表",
+  "navigationStyle": "custom",
   "usingComponents": {
     "van-search": "@vant/weapp/search/index",
     "van-card": "@vant/weapp/card/index",

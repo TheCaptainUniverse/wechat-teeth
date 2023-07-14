@@ -1,20 +1,22 @@
 <!--pages1/mywz/mywz.wxml-->
 <view class="TT">
-  <view class="tb"><van-search
+  <navigationBar wx:if="{{!showNotice}}" title="首页" showBack="{{true}}" showHome="{{false}}">
+  </navigationBar>
+  <van-search
   value="{{ value }}"
   placeholder="请输入搜索关键词"
   show-action
   shape="round"
-  background="#4fc08d"
+  background="#B0D8E4"
   bind:search="onSearch"
   bind:cancel="onCancel"
-  /></view>
+  />
   <view class="T">
   <view style="width: 100%; height: 4vh;"></view>
     <view class="cell" wx:for="{{doctor}}" wx:key="doctor" wx:for-index="index" data-index='{{index}}' bindtap="ysxq">
     <view style="width: 100%;height: 0.6em;"></view>
       <view class="cel">
-        <image src="{{item.imgList}}"></image>
+        <image src="{{item.imgUrl}}"></image>
         <view class="name">
           <view class="nm">
             <text>{{item.name}}</text>
@@ -23,7 +25,7 @@
             <text>所在诊所/医院:{{item.hospital}}</text>
           </view>
           <view class="jj">
-            <text>简介:{{item.jj}}</text>
+            <text>简介:{{item.introduction}}</text>
           </view>
         </view>
         <view class="pf">
@@ -32,22 +34,22 @@
                 readonly 
                 allow-half
                 gutter="{{0}}"
-                value="{{item.pf}}"
+                value="{{item.score}}"
                 size="{{ 15 }}"
                 void-icon="star"
                 void-color="#a8a5a5"
                 bind:change="onRate"
               />
               <view style="width: 100%;height: 0.2em;"></view>
-              <text>综合评价：{{item.pf}}分</text>
+              <text>综合评价：{{item.score}}分</text>
             </view>
         </view>
       </view>
       <view style="width: 100%;height: 0.6em;"></view>
       <view class="count">
-        <text style="margin-left: 10%;">好评率：<text style="color: red;">{{item.hpl*100}}%</text></text>
-        <text style="margin-left: 10%;">预约量：<text style="color: red;">{{item.yyrs}}</text></text>
-        <text style="margin-left: 10%;">好评数：<text style="color: red;">{{item.hps}}</text></text>
+        <text style="margin-left: 10%;">好评率：<text style="color: red;">{{item.positiveReviewRate*100}}%</text></text>
+        <text style="margin-left: 10%;">预约量：<text style="color: red;">{{item.appointmentCount}}</text></text>
+        <text style="margin-left: 10%;">好评数：<text style="color: red;">{{item.positiveReviewNumber}}</text></text>
       </view>
       <view style="width: 100%;height: 0.6em;"></view>
     </view>

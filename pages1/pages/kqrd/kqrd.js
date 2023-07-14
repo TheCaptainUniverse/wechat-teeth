@@ -1,5 +1,6 @@
 // pages1/kqrd/kqrd.js
 var app = getApp();
+const API = app.globalData.requestHeader;
 Page({
 
   /**
@@ -117,7 +118,10 @@ Page({
     var that = this;
    
 	  wx.request({
-      url: 'https://messi10zlj.xyz/tooth/kqrd.php',	
+      //@GetMapping("/findScienceByPageAndCount")
+      method:'GET',
+      url:API+'/content/findScienceByPageAndCount',
+      // url: 'https://messi10zlj.xyz/tooth/kqrd.php',	
       data: {
         page: that.data.page,
         count: that.data.pagesize 
@@ -169,9 +173,9 @@ Page({
       index:e.currentTarget.dataset
     })
     console.log(that.data.index)
-    console.log(that.data.kqrd[that.data.index.index].ID)
+    console.log(that.data.kqrd[that.data.index.index].id)
     wx.navigateTo({
-      url: '../gzhwz/gzhwz?ID='+that.data.kqrd[that.data.index.index].ID
+      url: '../gzhwz/gzhwz?id='+that.data.kqrd[that.data.index.index].id
     })
 },
 radioChange: function (e) {
@@ -197,17 +201,19 @@ onCancel(e){
       xz:false,
     })
     console.log(e.detail)
-    console.log(e.detail.value)
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/kqrdss.php',
+      //@GetMapping("/findScienceByData")
+      method:'GET',
+      url:API+'/content/findScienceByData',
+      // url: 'https://messi10zlj.xyz/tooth/kqrdss.php',
       data: {
-        czxx:e.detail,
+        data:e.detail,
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
-      console.log(res.data)
+      console.log(res)
       
       if(res.data==0){
         that.setData({
@@ -218,8 +224,8 @@ onCancel(e){
         })
         
       }else{
-        console.log(res.data[0].pd)
-        if(res.data[0].pd==22){
+        console.log(res.data[0].judge)
+        if(res.data[0].judge==22){
           that.setData({
             zcbq:false,
             bq:true,
@@ -228,7 +234,7 @@ onCancel(e){
           hasMore: false,
           dataILu : false,
           })
-        }else if(res.data[0].pd==33){
+        }else if(res.data[0].judge==33){
           that.setData({
             zcbq:true,
             bq:false,

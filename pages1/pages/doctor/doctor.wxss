@@ -172,7 +172,7 @@
   width: 50%;
   height: 5vh;
   border-radius: 10px;
-  background-color: #4fc08d;
+  background-color: #B0D8E4;
   font-weight: bold;
   display: flex;
   justify-content: center;

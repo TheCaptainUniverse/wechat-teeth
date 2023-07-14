@@ -1,5 +1,6 @@
 // pages2/kqrd/kqrd.js
 var app = getApp();
+const API = app.globalData.requestHeader;
 Page({
 
   /**
@@ -119,11 +120,14 @@ Page({
     var that = this;
    
 	  wx.request({
-      url: 'https://messi10zlj.xyz/tooth/kqrd.php',	
-      data: {
-        page: that.data.page,
-        count: that.data.pagesize 
-      },
+     //@GetMapping("/findScienceByPageAndCount")
+     method:'GET',
+     url:API+'/content/findScienceByPageAndCount',
+     // url: 'https://messi10zlj.xyz/tooth/kqrd.php',	
+     data: {
+       page: that.data.page,
+       count: that.data.pagesize 
+     },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
@@ -171,9 +175,9 @@ Page({
       index:e.currentTarget.dataset
     })
     console.log(that.data.index)
-    console.log(that.data.kqrd[that.data.index.index].ID)
+    console.log(that.data.kqrd[that.data.index.index].id)
     wx.navigateTo({
-      url: '../../../pages1/pages/gzhwz/gzhwz?ID='+that.data.kqrd[that.data.index.index].ID
+      url: '../../../pages1/pages/gzhwz/gzhwz?id='+that.data.kqrd[that.data.index.index].id
     })
 },
 onCancel(e){
@@ -189,9 +193,12 @@ onCancel(e){
     })
     console.log(e.detail)
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/kqrdss.php',
+      //@GetMapping("/findScienceByData")
+      method:'GET',
+      url:API+'/content/findScienceByData',
+      // url: 'https://messi10zlj.xyz/tooth/kqrdss.php',
       data: {
-        czxx:e.detail,
+        data:e.detail,
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'

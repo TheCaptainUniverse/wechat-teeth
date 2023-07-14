@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: row;
   position: fixed;
-  bottom: 0;
+  bottom: 10rpx;
   width: 100%;
   background-color: #f8fcf9;
 }
@@ -29,6 +29,6 @@
   margin-left: 80%;
 }
 .dz image{
-  width: 80rpx;
-  height: 80rpx;
+  width: 70rpx;
+  height: 70rpx;
 }

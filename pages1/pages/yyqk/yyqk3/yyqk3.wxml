@@ -10,7 +10,7 @@
       <view style="width: 100%;height: 1em;"></view>
       <view class="nam">
         <view class="photo">
-          <image src="{{avatarurl}}"></image>
+          <image src="{{doctorImgUrl}}"></image>
         </view>
         <view class="nm">
           <view class="nn"><text>{{name}}</text></view>
@@ -41,13 +41,13 @@
 
 <view class="cu-chat">
 <view wx:for="{{pl}}" wx:key="pl" class="cu-item">
-    <view class="cu-avatar radius" style="background-image:url({{item.avatarUrl}});"></view>
+    <view class="cu-avatar radius" style="background-image:url({{item.entity.avatarUrl}});"></view>
     <view class="main">
       <view class="content shadow">
-        <text>{{item.pl}}</text>
+        <text>{{item.entity.comment}}</text>
       </view>
     </view>
-    <view class="date "> {{item.nickName}} {{item.time}}</view>
+    <view class="date "> {{item.entity.name}} {{item.timeFix}}</view>
   </view>
 </view>
 <view class="kb"></view>

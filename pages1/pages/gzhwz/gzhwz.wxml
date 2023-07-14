@@ -1,2 +1,2 @@
 <!--pages/pages1/gzhwz/gzhwz.wxml-->
-<web-view src="{{src}}"></web-view>
+<web-view src="{{url}}"></web-view>

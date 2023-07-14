@@ -6,7 +6,7 @@
 }
 .tb{
   height: 10vh;
-  background-color: #4fc08d;
+  background-color: #B0D8E4;
 }
 .yynr{
   width: 100%;

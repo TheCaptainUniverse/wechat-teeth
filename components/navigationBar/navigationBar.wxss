@@ -1,0 +1,43 @@
+/* navigationBar.wxss */
+.navigation-container {
+  border-radius: 10rpx;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+  top: 0;
+  left: 0;
+}
+.navigation-bar-default {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.navigation-buttons {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  border-radius: 15px;
+  background-color: transparent;
+}
+.nav-img-back{
+  height: 25px;
+  width: 25px;
+}
+.nav-img-home{
+  height: 25px;
+  width: 25px;
+  margin-left: 25rpx;
+}
+.navigation-title {
+  position: absolute;
+  left: 104px;
+  right: 104px;
+  text-align: center;
+  font-size:large;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

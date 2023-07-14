@@ -1,5 +1,5 @@
 {
-  "navigationBarBackgroundColor": "#4fc08d",
+  "navigationBarBackgroundColor": "#B0D8E4",
   "navigationBarTitleText": "病理资料",
   "usingComponents": {
     "van-index-bar": "@vant/weapp/index-bar/index",

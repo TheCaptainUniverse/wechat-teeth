@@ -1,5 +1,5 @@
 {
-  "navigationBarBackgroundColor": "#4fc08d",
+  "navigationBarBackgroundColor": "#B0D8E4",
   "navigationBarTitleText": "常见问题",
   "usingComponents": {
     "van-collapse": "@vant/weapp/collapse/index",

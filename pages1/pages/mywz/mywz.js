@@ -1,5 +1,6 @@
 // pages1/mywz/mywz.js
 var app = getApp();
+const API = app.globalData.requestHeader;
 Page({
 
   /**
@@ -26,9 +27,9 @@ Page({
     })
     console.log(that.data.index)
     console.log(that.data.doctor)
-    console.log(that.data.doctor[that.data.index.index].ID)
+    console.log(that.data.doctor[that.data.index.index].id)
     wx.navigateTo({
-      url: '../doctor/doctor?ID='+that.data.doctor[that.data.index.index].ID
+      url: '../doctor/doctor?id='+that.data.doctor[that.data.index.index].id
      })
   },
   /**
@@ -44,13 +45,14 @@ Page({
     var that = this;
     console.log(app.globalData.txcity)
     wx.request({
-      
-      url: 'https://messi10zlj.xyz/tooth/ysxq.php',	
+      //@GetMapping("/findDoctorByCityAndPageAndCount")
+      method:'GET',
+      url:API+'/medicalService/findDoctorByCityAndPageAndCount',
+      // url: 'https://messi10zlj.xyz/tooth/ysxq.php',	
       data: {
         page: that.data.page,
         count: that.data.pagesize,
-        openid:app.globalData.openid,
-        city:app.globalData.txcity,
+        city:app.globalData.txcity
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -96,12 +98,13 @@ Page({
     var that = this;
     console.log(app.globalData.txcity)
     wx.request({
-      
-      url: 'https://messi10zlj.xyz/tooth/ysxq1.php',	
+      method:'GET',
+      url:API+'/medicalService/findDoctorByPageAndCount',
+      // url: 'https://messi10zlj.xyz/tooth/ysxq1.php',	
       data: {
         page: that.data.page,
-        count: that.data.pagesize,
-        openid:app.globalData.openid,
+        count: that.data.pagesize
+        // openid:app.globalData.openid,
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -153,9 +156,12 @@ Page({
     var that = this;
     console.log(e.detail)
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/doctorlb.php',
+      //@GetMapping("/findDoctorsByNameOrHospital")
+      method:'GET',
+      url:API+'/medicalService/findDoctorsByNameOrHospital',
+      // url: 'https://messi10zlj.xyz/tooth/doctorlb.php',
       data: {
-        czxx:e.detail,
+        data:e.detail,
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -205,6 +211,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    console.log(this.data.hasMore);
     console.log(this.data.fyqk);
     if (this.data.hasMore&&this.data.fyqk==0) {
       this.fyjz('加载更多数据')

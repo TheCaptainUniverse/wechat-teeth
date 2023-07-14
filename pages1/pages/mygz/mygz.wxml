@@ -6,7 +6,7 @@
       placeholder="请输入搜索关键词"
       show-action
       shape="round"
-      background="#4fc08d"
+      background="#B0D8E4"
       bind:search="onSearch"
       bind:cancel="onCancel"
       />
@@ -15,16 +15,16 @@
       <view style="width: 100%; height: 4vh;"></view>
       <view class="cell" wx:for="{{gz}}" wx:key="doctor" wx:for-index="index">
         <view class="cel">
-          <image class="iii" src="{{item.imgList}}"></image>
+          <image class="iii" src="{{item.imgUrl}}"></image>
           <view class="name">
             <view class="nm">
-              <text>{{item.ysname}}</text>
+              <text>{{item.doctorName}}</text>
             </view>
             <view class="yy">
               <text>所在诊所/医院:{{item.hospital}}</text>
             </view>
             <view class="jj">
-              <text>简介:{{item.jj}}</text>
+              <text>简介:{{item.introduction}}</text>
             </view>
           </view>
           <view class="bt">
@@ -39,9 +39,9 @@
         </view>
         <view style="width: 100%;height: 0.6em;"></view>
         <view class="count">
-          <text style="margin-left: 10%;">好评率：<text style="color: red;">{{item.hpl*100}}%</text></text>
-          <text style="margin-left: 10%;">预约量：<text style="color: red;">{{item.yyrs}}</text></text>
-          <text style="margin-left: 10%;">评价数：<text style="color: red;">{{item.hps}}</text></text>
+          <text style="margin-left: 10%;">好评率：<text style="color: red;">{{item.positiveReviewRate*100}}%</text></text>
+          <text style="margin-left: 10%;">预约量：<text style="color: red;">{{item.appointmentCount}}</text></text>
+          <text style="margin-left: 10%;">好评数：<text style="color: red;">{{item.positiveReviewNumber}}</text></text>
          </view>
          <view style="width: 100%;height: 0.6em;"></view>
       </view>

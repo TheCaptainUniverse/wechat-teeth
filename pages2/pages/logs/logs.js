@@ -1,9 +1,11 @@
-var app = getApp();
+var app=getApp();
+const API = app.globalData.requestHeader;
 Page({
   data: {
     imgList:'',
     br:'',
     bname:'',
+    zljy:''
   },
   ChooseImage() {
     wx.chooseImage({
@@ -79,21 +81,28 @@ Page({
       content: '是否上传病例材料',
       success (res) {
         if (res.confirm) {
+          console.log(app.globalData.openid)
+          console.log(that.data.nr)
+          console.log(that.data.bname)
+          console.log(app.globalData.openid)
+          console.log(that.data.zljy)
           wx.uploadFile({
-            url: 'https://messi10zlj.xyz/tooth/yssccheck.php',
+            // url: 'https://messi10zlj.xyz/tooth/yssccheck.php',
+            url:API+'/medicalService/insertPicDisease',
             filePath: that.data.imgList[0],
-            name: 'file',
+            name: 'image',
             formData: {
               openid:app.globalData.openid,
-              nr:that.data.nr,
+              describe:that.data.nr,
               bname:that.data.bname,
-              zljy:that.data.zljy,
+              advice:that.data.zljy,
             },
             header: {
               "Content-Type": "multipart/form-data"
             },
             success: function (res) {
-              wx.showToast({
+              if(res.data == 1)
+              {wx.showToast({
                 title: '上传成功',
                 icon: 'success',
                 duration: 1000,
@@ -107,6 +116,17 @@ Page({
                   }, 1000) //延迟时间
                 },
               });
+            }
+            else
+            {
+              wx.hideToast();
+              wx.showModal({
+                title: '错误提示',
+                content: '上传图片失败',
+                showCancel: false,
+                success: function (res) { }
+              })
+            }
              
               //服务器返回格式: { "Catalog": "testFolder", "FileName": "1.jpg", "Url": "https://test.com/1.jpg" }
               console.log(res.data);

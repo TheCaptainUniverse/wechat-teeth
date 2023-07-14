@@ -1,17 +1,21 @@
 <!--pages1/pages/ltlb/ltlb.wxml-->
-<view class="tb"><van-search
+
+<view class="tb">
+  <navigationBar title="论坛" showBack="{{false}}" showHome="{{false}}"></navigationBar>
+<van-search
   value="{{ value }}"
   label="帖子"
   placeholder="请输入搜索关键词"
   use-action-slot
   show-action
   shape="round"
-  background="#4fc08d"
+  background="#B0D8E4"
   bind:change="onChange"
   bind:search="onSearch"
   >
   <view slot="action" bind:tap="onClick">搜索</view>
 </van-search>
+
 </view>
 <view class="TT">
   <!-- <列表"/> -->
@@ -19,25 +23,25 @@
   <view class="cu-item shadow" bindtap="ltxq" data-index='{{index}}'>
     <view class="cu-list menu-avatar">
       <view class="cu-item">
-        <view class="cu-avatar round lg" style="background-image:url({{item.avatarUrl}});"></view>
+        <view class="cu-avatar round lg" style="background-image:url({{item.entity.imgUrl}});"></view>
         <view class="content flex-sub">
-          <view>{{item.nickName}}</view>
+          <view>{{item.entity.nickName}}</view>
           <view class="text-gray text-sm flex justify-between">
-            {{item.time}}
+            {{item.timeFix}}
           </view>
         </view>
       </view>
     </view>
     <view class="text-content">
-      {{item.title}}
+      {{item.entity.title}}
     </view>
     <view class="grid flex-sub padding-lr {{isCard?'col-3 grid-square':'col-1'}}">
-      <image style="border-radius: 10px;" src="{{item.imgList}}"></image>   
+      <image style="border-radius: 10px;" src="{{item.entity.picUrl}}"></image>   
     </view>
     <view class="text-gray text-sm text-right padding">
-      <text class="cuIcon-attentionfill margin-lr-xs"></text> {{item.gkrs}}
-      <text class="cuIcon-appreciatefill margin-lr-xs"></text> {{item.dzrs}}
-      <text class="cuIcon-messagefill margin-lr-xs"></text> {{item.plrs}}
+      <text class="cuIcon-attentionfill margin-lr-xs"></text> {{item.entity.viewerNumber}}
+      <text class="cuIcon-appreciatefill margin-lr-xs"></text> {{item.entity.likerNumber}}
+      <text class="cuIcon-messagefill margin-lr-xs"></text> {{item.entity.commentNumber}}
     </view>
   </view>
 </view>
@@ -110,11 +114,11 @@
 </view>
 
 
-<image src="../../../images/fbxz.png" style="height:100rpx;width: 100rpx;" animation="{{animationcollect}}" class="image-style" bindtap="xzfb"></image>
-<image src="../../../images/wdfb.png"  style="border-radius: 50%; height:100rpx;width: 100rpx;" animation="{{animationTranspond}}" class="image-style" bindtap="wdxx"></image>
-<image src="../../../images/tz.png" style="height:100rpx;width: 100rpx;" animation="{{animationPlus}}" class="image-plus-style" bindtap="plus"></image>
+<image src="../../../images/fbxz.png" style="height:80rpx;width: 80rpx;" animation="{{animationcollect}}" class="image-style" bindtap="xzfb"></image>
+<image src="../../../images/wdfb.png"  style="border-radius: 50%; height:80rpx;width: 80rpx;" animation="{{animationTranspond}}" class="image-style" bindtap="wdxx"></image>
+<image src="../../../images/tz.png" style="height:80rpx;width: 80rpx;margin-bottom: 50rpx;" animation="{{animationPlus}}" class="image-plus-style" bindtap="plus"></image>
 
-<view class="btn" bindtap="gotop">
+<view class="btn" bindtap="gotop" style="height:85rpx;width: 85rpx;margin-bottom: 50rpx;">
   <text class="btn-gotop">顶部</text>
 </view>
 

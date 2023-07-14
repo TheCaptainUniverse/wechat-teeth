@@ -3,6 +3,22 @@
   <view class="welcome">
     <image src="/images/first1.png"></image>
     <text>欢迎使用灵牙慧齿</text>
-    <van-loading type="spinner" color="#1989fa" />
+    <van-loading wx:if="{{loading}}" color="#1989fa" />
   </view>
 </view>
+<van-popup show="{{ !loading }}" round position="bottom" custom-style="height: 30%">
+  <view class="popup-content">
+  <view class="popup-texts">
+    <text class="popup-text">很遗憾，加载失败！</text>
+    <text class="popup-text">请检查网络或联系我们，</text>
+    <text class="popup-text">我们会第一时间解决您的问题！</text>
+  </view>
+  <view class="popup-buttons">
+  
+  <navigator class="popup-close-btn" open-type="exit" target="miniProgram">关闭</navigator>
+  <view style="width: 10px;"></view>
+  <button open-type="contact" class="popup-contact-btn">联系客服</button>
+</view>
+
+  </view>
+</van-popup>

@@ -7,10 +7,10 @@
     </view>
     <view class="name">
       <view class="namee">
-        <text>{{nickName}}</text>
+        <text>{{name}}</text>
         <view class="rz"><image src="/images/rz.png"></image></view>
       </view>
-      <view class="id"><text>用户ID:{{yhID}}</text></view>
+      <view class="id"><text>用户ID:{{uid}}</text></view>
     </view>
     
   </view>

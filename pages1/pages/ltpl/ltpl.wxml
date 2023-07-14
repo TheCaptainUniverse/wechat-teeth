@@ -1,5 +1,5 @@
 <!--pages1/pages/ltpl/ltpl.wxml-->
-<view style="font-size:40px;font-weight:bold; margin-left:5%;">{{title}}</view>
+<view style="font-size:30px;font-weight:bold; margin-left:5%;">{{title}}</view>
 <view class="cu-card dynamic {{isCard?'no-card':''}}">
   <view class="cu-item shadow">
     <view class="cu-list menu-avatar">
@@ -14,16 +14,16 @@
       </view>
     </view>
     <view class="text-content">
-      {{nr}}
+      {{content}}
     </view>
     <view class="grid flex-sub padding-lr {{isCard?'col-3 grid-square':'col-1'}}">
-      <image src="{{imgList}}"></image>
+      <image class="like" src="{{picUrl}}"></image>
     </view>
   </view>
 </view>
 <view class="dz">
 <image src="{{dz}}" bindtap="dz"></image>
-<text>{{wz}}</text>
+<!-- <text>{{wz}}</text> -->
 </view>
 <van-divider
   customStyle="color: #1989fa; border-color: #1989fa; font-size: 18px;"
@@ -31,20 +31,20 @@
 
 <view class="cu-chat">
 <view wx:for="{{pl}}" wx:key="pl" class="cu-item">
-    <view class="cu-avatar radius" style="background-image:url({{item.avatarUrl}});"></view>
+    <view class="cu-avatar radius" style="background-image:url({{item.entity.avatarUrl}});"></view>
     <view class="main">
       <view class="content shadow">
-        <text>{{item.pl}}</text>
+        <text>{{item.entity.comment}}</text>
       </view>
     </view>
-    <view class="date "> {{item.nickName}} {{item.time}}</view>
+    <view class="date "> {{item.entity.nickName}} {{item.timeFix}}</view>
   </view>
 </view>
 <view class="kb"></view>
 <form bindsubmit="pl">
 <view class='page_row'>
-  <view class="xpl"><input style="margin-top:0.2em;" type="text" name="pl" maxlength="30" id="pl" placeholder="写评论..."></input></view>
-  <button style="width:80rpx;height:80rpx;font-size:22rpx;" class="tjpl" form-type="submit">评论</button>
+  <view class="xpl" ><input style="margin-top:0.2em;" type="text" name="pl" maxlength="30" placeholder="写评论..."></input></view>
+  <button style="height:80rpx;font-size:22rpx;" class="tjpl" form-type="submit">评论</button>
 </view>
 </form>
 

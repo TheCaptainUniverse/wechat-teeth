@@ -1,0 +1,18 @@
+<!--navigationBar.wxml-->
+<view class="navigation-container" style="height: {{navigationBarAndStatusBarHeight}}; background-color: {{backgroundColor}};">
+  <!--空白来占位状态栏-->
+  <view style="{{'height: ' + statusBarHeight}}"></view>
+  <!--自定义导航栏-->
+  <view wx:if="{{navigationBarType == 'default'}}" class="navigation-bar-default" style="{{'height:' + navigationBarHeight}}">
+    <view class="navigation-buttons" style="{{'height:' + menuButtonHeight}}">
+      <image wx:if="{{showBack}}" class="nav-img-back" src='/images/back.svg' bindtap="onBack"/>
+      <image wx:if="{{showHome}}" class="nav-img-home" src='/images/home.svg' bindtap="onHome"/>
+    </view>
+    <view wx:if="{{showTitle}}" class="navigation-title" style="line-height: + {{navigationBarHeight}};color: {{textColor}};">{{title}}</view>
+  </view>
+  <view wx:else="{{navigationBarType == 'notice'}}" class="navigation-bar-notice" style="{{noticeBarStyle}}">
+    <van-notice-bar color="{{textColor}}" background="{{backgroundColor}}" left-icon="info-o" scrollable text="{{noticeText}}" />
+  </view>
+</view>
+<!--空白占位fixed空出的位置-->
+<view style="{{'height: ' + navigationBarAndStatusBarHeight}}"></view>

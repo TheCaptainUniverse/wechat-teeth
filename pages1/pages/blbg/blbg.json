@@ -1,5 +1,5 @@
 {
-  "navigationBarBackgroundColor": "#4fc08d",
+  "navigationBarBackgroundColor": "#B0D8E4",
   "navigationBarTitleText": "病理报告",
   "usingComponents": {
     "i-load-more": "../../../dist/load-more/index"

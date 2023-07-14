@@ -21,7 +21,7 @@
   height: 7vh;
   border-radius: 10px;
   margin-left: 27%;
-  background-color: #4fc08d;
+  background-color: #B0D8E4;
   display: flex;
   justify-content: center;
   align-items: center;

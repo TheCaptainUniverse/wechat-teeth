@@ -1,91 +1,135 @@
 /* pages1/mine/mine.wxss */
-.TT{
+page {
+  background: -webkit-linear-gradient(top, #B0D8E4, white);
+}
+
+.TT {
   width: auto;
   height: 100vh;
-  background-color: rgb(242, 242, 242);
+  /* background-color: rgb(242, 242, 242); */
 }
-.dhl{
+
+/* .dhl{
   width: 100%;
   height: 12vh;
   background-color: white;
-}
-.tb{
-  width: 100%;
-  height: 25vh;
+} */
+.tb {
+  width: 96%;
+  margin-left: 2%;
+  margin-right: 2%;
+  height: 23vh;
   display: flex;
   align-items: center;
-  background-color: white;
+  background: -webkit-linear-gradient(left, #E6F4F1, white);
+  /* background-color: #E6F4F1; */
+  border-radius: 20rpx;
 }
-.phone{
+
+.phone {
   width: 13vh;
   height: 13vh;
   margin-left: 8%;
   border-radius: 10%;
   overflow: hidden;
 }
-.phone image{
+
+.phone image {
   width: 100%;
   height: 100%;
 }
-.name{
+
+.name {
   width: 30vh;
   height: 13vh;
   margin-left: 5%;
 }
-.namee{
+
+.namee {
   font-weight: bolder;
   font-size: 18px;
   height: 40%;
   display: flex;
   align-items: center;
 }
-.id{
-  margin-top:11px;
+
+.phonee {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.id {
   height: 40%;
   font-size: 13px;
   display: flex;
   align-items: center;
 }
-.sf{
-  margin-top:0.6em;
+
+.sf {
+  width: 96%;
+  margin-left: 2%;
+  margin-right: 2%;
+  border-radius: 20rpx;
+  margin-bottom: 0.6em;
   font-weight: bold;
 }
-.other{
-  margin-top:0.6em;
+
+.other {
+  width: 96%;
+  margin-left: 2%;
+  margin-right: 2%;
+  border-radius: 20rpx;
+  margin-top: 0.6em;
   font-weight: bold;
 }
-.tc{
+
+.tc {
+  width: 96%;
+  margin-left: 2%;
+  margin-right: 2%;
+  border-radius: 20rpx;
   height: 44px;
-  margin-top:0.6em;
+  margin-top: 0.6em;
   font-weight: bold;
   background-color: white;
   display: flex;
 }
-.tc image{
-  margin-top:1em;
+
+.ts {
+  width: 96%;
+  margin-left: 2%;
+  margin-right: 2%;
+  border-radius: 20rpx;
+  margin-top: 10rpx;
+}
+
+.tc image {
+  margin-top: 1em;
   width: 16px;
   height: 16px;
-  margin-left:1em;
+  margin-left: 1em;
 }
-.xx{
-  margin-top:0.8em;
-  margin-left:0.5em;
-  font-size:13.5px ;
+
+.xx {
+  margin-top: 0.8em;
+  margin-left: 0.5em;
+  font-size: 13.5px;
 }
-.box {  
+
+.box {
   width: 100%;
   position: fixed;
   bottom: 0;
 }
 
 .box view.cu-bar {
-  margin-top: 20rpx; 
+  margin-top: 20rpx;
 }
-.text-1{
-  color: #1efc16;
+
+.text-1 {
+  color: #1C9BDC;
 }
-.text-2{
+
+.text-2 {
   color: #060407;
 }
-
-

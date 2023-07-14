@@ -1,15 +1,19 @@
 import logger from '../../../utils/logger';
 const app = getApp();
+const API = app.globalData.requestHeader;
 Page({
   data: {
     dj:'black',
     index:'',
+    gly:'',
     mrtj: [{
-      ID:'',
+      id:'',
       title:'',
-      xx:'',
-      ms:'',
-      zt:'',
+      information:'',
+      description:'',
+      ageGroup:'',
+      url:'',
+      lable:''
     }],
     gd:true,
     gd1:false,
@@ -17,7 +21,12 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/mrtj.php',
+      method:'GET',
+      // url: 'https://messi10zlj.xyz/tooth/mrtj.php',
+      url:API+'/content/findLastScience',
+      data:{
+        number : 5
+      },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
@@ -28,6 +37,10 @@ Page({
       })
        console.log(that.data.mrtj)
        
+      },
+      fail: function(res)
+      {
+        console.log(res)
       }
 
     })
@@ -49,9 +62,9 @@ Page({
       index:e.currentTarget.dataset
     })
     console.log(that.data.index)
-    console.log(that.data.mrtj[that.data.index.index].ID)
+    console.log(that.data.mrtj[that.data.index.index].id)
     wx.navigateTo({
-      url: '../../../pages1/pages/gzhwz/gzhwz?ID='+that.data.mrtj[that.data.index.index].ID
+      url: '../../../pages1/pages/gzhwz/gzhwz?id='+that.data.mrtj[that.data.index.index].id
      })
 },
 swichNav1() {

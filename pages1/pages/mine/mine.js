@@ -7,11 +7,12 @@ Page({
    */
   data: {
     avatarUrl:'',
-    nickName:'',
-    yhID:'',
-    sf:'',
+    name:'',
+    uid:'',
+    identity:'',
     xs:'',
     gly:'',
+    phone:''
   },
   swichNav1() {
     wx.redirectTo({
@@ -44,7 +45,7 @@ Page({
   onLoad: function (options) {
     console.log(app.globalData.avatarUrl);
     var that = this;
-    if(app.globalData.sf==3){
+    if(app.globalData.identity==3){
       that.setData({
        gly:true
       })
@@ -55,23 +56,24 @@ Page({
      }
     that.setData({
       avatarUrl:app.globalData.avatarUrl,
-      nickName:app.globalData.nickName,
-      yhID:app.globalData.yhID,
-      sf:app.globalData.sf,
+      name:app.globalData.name,
+      uid:app.globalData.uid,
+      identity:app.globalData.identity,
+      phone:app.globalData.phone
     })
-    if(that.data.sf==1||that.data.sf==2){
+    if(that.data.identity==1||that.data.identity==2){
       that.setData({
-        sf:true,
+        identity:true,
         xs:false,
       })
-    }else if(that.data.sf==3){
+    }else if(that.data.identity==3){
       that.setData({
-        sf:false,
+        identity:false,
         xs:false,
       })
     }else{
       that.setData({
-        sf:false,
+        identity:false,
         xs:true,
       })
     }

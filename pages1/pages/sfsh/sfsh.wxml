@@ -1,13 +1,13 @@
 <!--pages1/sfsh/sfsh.wxml-->
 <view class="TT">
   <view class="wtms">
-    <image src="{{avatarurl}}"></image>
+    <image src="{{avatarUrl}}"></image>
     <view class="name">
       <view class="nm">
         <text>{{name}}</text>
       </view>
       <view class="sf">
-        <text>认证身份：{{sfpd}}</text>
+        <text>认证身份：{{identity}}</text>
       </view>
     </view>
   </view>
@@ -15,7 +15,7 @@
     <view style="height: 1em;"></view>
       <view style="margin-left: 0.6em;font-weight: bold;"><text>资质材料</text></view>
     <view class="tp">
-      <image src="{{imgList}}"></image>
+      <image src="{{imgUrl}}"></image>
     </view>
   </view>
   <view class="wb"></view>

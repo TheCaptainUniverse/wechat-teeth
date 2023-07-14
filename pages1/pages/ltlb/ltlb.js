@@ -1,5 +1,6 @@
 // pages1/pages/ltlb/ltlb.js
-const app = getApp();
+var app = getApp();
+const API = app.globalData.requestHeader;
 Page({
   data: {
     active: 0,
@@ -21,7 +22,7 @@ Page({
   },
   onLoad: function (options) {
     var that = this;
-    if(app.globalData.sf==3){
+    if(app.globalData.identity==3){
       that.setData({
        gly:true
       })
@@ -30,7 +31,7 @@ Page({
          gly:false
         })
      }
-     if(app.globalData.sf==2){
+     if(app.globalData.identity==2){
       that.setData({
        ys:true
       })
@@ -40,12 +41,15 @@ Page({
         })
      }
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/rsdjz.php',
+      //@PostMapping("/updateCommentAndLikeInfoAndViewerNumber")
+      method:'POST',
+      url:API+'/content/updateCommentAndLikeInfoAndViewerNumber',
+      // url: 'https://messi10zlj.xyz/tooth/rsdjz.php',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
-      console.log(res.data)
+      console.log(res)
       that.fyjz();
       }
     })
@@ -68,7 +72,10 @@ Page({
     var that = this;
    
 	  wx.request({
-      url: 'https://messi10zlj.xyz/tooth/ltlb.php',	
+      //@GetMapping("/findForumItemByPageAndCount")
+      method:'GET',
+      url:API+'/content/findForumItemByPageAndCount',
+      // url: 'https://messi10zlj.xyz/tooth/ltlb.php',	
       data: {
         page: that.data.page,
         count: that.data.pagesize 
@@ -122,12 +129,15 @@ Page({
     })
     console.log(that.data.index)
     console.log(that.data.ltlb[that.data.index.index])
-    console.log(that.data.ltlb[that.data.index.index].ID)
+    console.log(that.data.ltlb[that.data.index.index].entity.id)
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/gk.php',
+      //@PostMapping("/insertViewNumberByOpenidAndJudge")
+      method:'POST',
+      url:API+'/content/insertViewNumberByOpenidAndJudge',
+      // url: 'https://messi10zlj.xyz/tooth/gk.php',
       data: {
         openid:app.globalData.openid,
-        pd:that.data.ltlb[that.data.index.index].ID,
+        judge:that.data.ltlb[that.data.index.index].entity.id,
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -136,8 +146,9 @@ Page({
       console.log(res.data)
       }
     })
+    console.log(that.data.ltlb[that.data.index.index].entity)
     wx.navigateTo({
-      url: '../ltpl/ltpl?ID='+that.data.ltlb[that.data.index.index].ID+'&avatarUrl='+that.data.ltlb[that.data.index.index].avatarUrl+'&imgList='+that.data.ltlb[that.data.index.index].imgList+'&nickName='+that.data.ltlb[that.data.index.index].nickName+'&nr='+that.data.ltlb[that.data.index.index].nr+'&title='+that.data.ltlb[that.data.index.index].title+'&time='+that.data.ltlb[that.data.index.index].time
+      url: '../ltpl/ltpl?id='+that.data.ltlb[that.data.index.index].entity.id+'&avatarUrl='+that.data.ltlb[that.data.index.index].entity.imgUrl+'&picUrl='+that.data.ltlb[that.data.index.index].entity.picUrl+'&nickName='+that.data.ltlb[that.data.index.index].entity.nickName+'&content='+that.data.ltlb[that.data.index.index].entity.content+'&title='+that.data.ltlb[that.data.index.index].entity.title+'&time='+that.data.ltlb[that.data.index.index].timeFix
      })
   },
   onChange(e) {
@@ -162,7 +173,9 @@ Page({
     console.log(that.data.pagesize )
     console.log(that.data.page)
 	  wx.request({
-      url: 'https://messi10zlj.xyz/tooth/ltlbss.php',	
+      //@GetMapping("/findForumItemByTitleAndPageAndCount")
+      method:'GET',
+      url:API+'/content/findForumItemByTitleAndPageAndCount',
       data: {
         page: that.data.page,
         count: that.data.pagesize,
@@ -196,7 +209,13 @@ Page({
             })
           }
         }else{
+          wx.showToast({
+            title: '没有内容哦',
+            icon: 'error'
+          });
           that.setData({
+            ltlb: '',
+            hasMore: false,
             dataILu: false,
           })
         }
@@ -215,6 +234,7 @@ Page({
     this.fyjz();
   },
   swichNav1() {
+    console.log("非医生身份返回首页");
     wx.redirectTo({
       url: '../index/index',
     })
@@ -240,6 +260,7 @@ Page({
     })
   },
   swichNav6() {
+    console.log("医生身份返回首页")
     wx.redirectTo({
       url: '../../../pages2/pages/index/index',
     })

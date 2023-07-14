@@ -1,16 +1,18 @@
 // pages/pages1/yyqk/yyqk1/yyqk1.js
+var app = getApp();
+const API = app.globalData.requestHeader;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    imgList:'',
-    name:'',
+    doctorImgUrl:'',
+    doctorName:'',
     skill:'',
     hospital:'',
-    jj:'',
-    ID:'',
+    introduction:'',
+    id:'',
   },
 
   /**
@@ -18,14 +20,17 @@ Page({
    */
   onLoad: function (options) {
     var that=this;
-    console.log(options.ID);
+    console.log(options.id);
     that.setData({
-      ID:options.ID,
+      id:options.id,
     })
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/yyqk.php',
+      //@GetMapping("/getAppointmentById")
+      method:'GET',
+      url:API+'/appointment/getAppointmentById',
+      // url: 'https://messi10zlj.xyz/tooth/yyqk.php',
       data: {
-        ID: options.ID,
+        id: options.id,
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -33,15 +38,15 @@ Page({
       success: function (res) {
       console.log(res.data)
       that.setData({
-        imgList:res.data[0].imgList,
-        name:res.data[0].ysname,
-        skill:res.data[0].skill,
-        hospital:res.data[0].hospital,
-        hpl:res.data[0].hpl,
-        jj:res.data[0].jj,
-        zw:res.data[0].zw,
-        hps:res.data[0].hps,
-        yyrs:res.data[0].yyrs,
+        doctorImgUrl:res.data.doctorImgUrl,
+        name:res.data.ysname,
+        skill:res.data.skill,
+        hospital:res.data.hospital,
+        positiveReviewRate:res.data.positiveReviewRate,
+        introduction:res.data.introduction,
+        position:res.data.position,
+        positiveReviewNumber:res.data.positiveReviewNumber,
+        appointmentCount:res.data.appointmentCount,
       })
       
       }
@@ -50,16 +55,20 @@ Page({
   },
   qxyy(){
     var that = this;
-    console.log(that.data.ID)
+    console.log(that.data.id)
     wx.showModal({
       title: '提示',
       content: '是否取消预约',
       success (res) {
         if (res.confirm) {
           wx.request({
-            url: 'https://messi10zlj.xyz/tooth/qxyy.php',
+            //@PostMapping("/updateAppointmentStatusByIdAndStatus")
+            method:'POST',
+            url:API+'/appointment/updateAppointmentStatusByIdAndStatus',
+            // url: 'https://messi10zlj.xyz/tooth/qxyy.php',
             data: {
-              ID: that.data.ID,
+              id: that.data.id,
+              status:4
             },
             header: {
               'content-type': 'application/x-www-form-urlencoded'

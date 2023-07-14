@@ -1,2 +1,2 @@
 <!--pages1/pages/blwzzljj/blwzzljj.wxml-->
-<web-view src="{{wzlj}}"></web-view>
+<web-view src="{{articleUrl}}"></web-view>

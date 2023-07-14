@@ -1,5 +1,6 @@
 // pages1/pages/gly/gly.js
-var app = getApp();
+const app = getApp()
+const API = app.globalData.requestHeader
 import Toast from '../../../miniprogram_npm/@vant/weapp/toast/toast';
 Page({
 
@@ -54,7 +55,7 @@ Page({
       }
 
   });
-    if(app.globalData.sf==3){
+    if(app.globalData.identity==3){
       that.setData({
        gly:true
       })
@@ -92,7 +93,10 @@ bindChange: function( e ) {
 fyjz1:function(){
   var that = this;
   wx.request({
-    url: 'https://messi10zlj.xyz/tooth/shnehesf.php',	
+    //@GetMapping("/findEmpowerInfoIdentityJudgeZeroAndIdentityNotZeroAndThree")
+    method:'GET',
+    url:API+'/verification/findEmpowerInfoIdentityJudgeZeroAndIdentityNotZeroAndThree',
+    // url: 'https://messi10zlj.xyz/tooth/shnehesf.php',	
     data: {
       page: that.data.page,
       count: that.data.pagesize 
@@ -119,7 +123,13 @@ fyjz1:function(){
 fyjz2:function(){
   var that = this;
 	  wx.request({
-      url: 'https://messi10zlj.xyz/tooth/shnehe.php',	
+      //@GetMapping("/findStudentUploadReportByStatus")
+      method:'GET',
+      url:API+'/medicalService/findStudentUploadReportByStatus',
+      data:{
+        status:0
+      },
+      // url: 'https://messi10zlj.xyz/tooth/shnehe.php',	
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
@@ -145,9 +155,9 @@ fyjz2:function(){
       index:e.currentTarget.dataset
     })
     console.log(that.data.index)
-    console.log(that.data.sfsh[that.data.index.index].ID)
+    console.log(that.data.sfsh[that.data.index.index].id)
     wx.navigateTo({
-      url: '../sfsh/sfsh?ID='+that.data.sfsh[that.data.index.index].ID
+      url: '../sfsh/sfsh?id='+that.data.sfsh[that.data.index.index].id
     })
   },
   shqk(e){
@@ -157,9 +167,9 @@ fyjz2:function(){
       index:e.currentTarget.dataset
     })
     console.log(that.data.index)
-    console.log(that.data.sh[that.data.index.index].ID)
+    console.log(that.data.sh[that.data.index.index].id)
     wx.navigateTo({
-      url: '../blshxq/blshqx?ID='+that.data.sh[that.data.index.index].ID
+      url: '../blshxq/blshqx?id='+that.data.sh[that.data.index.index].id
     })
   },
 
@@ -210,14 +220,17 @@ fyjz2:function(){
               })
             }
               wx.request({
-              url: 'https://messi10zlj.xyz/tooth/sckqrd.php',
+                //@PostMapping("/insertScience")
+                method:'POST',
+                url:API+'/content/insertScience',
+              // url: 'https://messi10zlj.xyz/tooth/sckqrd.php',
               data: {
-                lj:e.detail.value.lj,
+                url:e.detail.value.lj,
                 title:e.detail.value.title,
-                xxxx:e.detail.value.xxxx,
-                ms:e.detail.value.ms,
-                zt:that.data.zt,
-                xbt:that.data.xbt,
+                information:e.detail.value.xxxx,
+                description:e.detail.value.ms,
+                ageGroupChinese:that.data.zt,
+                label:that.data.xbt,
               },
               header: {
                 'content-type': 'application/x-www-form-urlencoded'

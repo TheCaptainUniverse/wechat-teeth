@@ -44,7 +44,7 @@
 			</view>
 		</view>
 	</view>
-   <view class="sc" bindtap="sc" ><button style="background-color:#4fc08d;">上传病例</button></view> 
+   <view class="sc" bindtap="sc" ><button style="background-color:#B0D8E4;">上传病例</button></view> 
 </view>
 
 <view class="box">

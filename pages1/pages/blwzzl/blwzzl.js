@@ -1,4 +1,6 @@
 // pages1/pages/blwzzl/blwzzl.js
+const app = getApp();
+const API = app.globalData.requestHeader;
 Page({
 
   /**
@@ -30,7 +32,13 @@ Page({
     var that = this;
     //1
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/ytys.php',
+      // @GetMapping("/findArticleByType")
+      method:'GET',
+      url:API+'/content/findArticleByType',
+      data:{
+        type:1
+      },
+      // url: 'https://messi10zlj.xyz/tooth/ytys.php',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
@@ -44,7 +52,11 @@ Page({
     })
     //2
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/bymz.php',
+      method:'GET',
+      url:API+'/content/findArticleByType',
+      data:{
+        type:2
+      },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
@@ -58,7 +70,11 @@ Page({
     })
     //3
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/xfmx.php',
+      method:'GET',
+      url:API+'/content/findArticleByType',
+      data:{
+        type:3
+      },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
@@ -72,7 +88,11 @@ Page({
     })
     //4
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/zhqt.php',
+      method:'GET',
+      url:API+'/content/findArticleByType',
+      data:{
+        type:4
+      },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
@@ -86,7 +106,11 @@ Page({
     })
     //5
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/blbj.php',
+      method:'GET',
+      url:API+'/content/findArticleByType',
+      data:{
+        type:5
+      },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
@@ -100,7 +124,11 @@ Page({
     })
     //6
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/yygt.php',
+      method:'GET',
+      url:API+'/content/findArticleByType',
+      data:{
+        type:6
+      },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
@@ -114,7 +142,11 @@ Page({
     })
     //7
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/qcsb.php',
+      method:'GET',
+      url:API+'/content/findArticleByType',
+      data:{
+        type:7
+      },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
@@ -128,7 +160,11 @@ Page({
     })
     //8
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/hydt.php',
+      method:'GET',
+      url:API+'/content/findArticleByType',
+      data:{
+        type:8
+      },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
@@ -150,10 +186,10 @@ Page({
       index:e.currentTarget.dataset
     })
     console.log(that.data.index)
-    console.log(that.data.ytys[that.data.index.index].ID)
+    console.log(that.data.ytys[that.data.index.index].id)
     
     wx.navigateTo({
-      url: '../blwzzljj/blwzzljj?ID='+that.data.ytys[that.data.index.index].ID
+      url: '../blwzzljj/blwzzljj?id='+that.data.ytys[that.data.index.index].id
      })
      
 },
@@ -165,10 +201,10 @@ bymz(e) {
     index:e.currentTarget.dataset
   })
   console.log(that.data.index)
-  console.log(that.data.bymz[that.data.index.index].ID)
+  console.log(that.data.bymz[that.data.index.index].id)
   
   wx.navigateTo({
-    url: '../blwzzljj/blwzzljj?ID='+that.data.bymz[that.data.index.index].ID
+    url: '../blwzzljj/blwzzljj?id='+that.data.bymz[that.data.index.index].id
    })
    
 },
@@ -180,10 +216,10 @@ xfmx(e) {
     index:e.currentTarget.dataset
   })
   console.log(that.data.index)
-  console.log(that.data.xfmx[that.data.index.index].ID)
+  console.log(that.data.xfmx[that.data.index.index].id)
   
   wx.navigateTo({
-    url: '../blwzzljj/blwzzljj?ID='+that.data.xfmx[that.data.index.index].ID
+    url: '../blwzzljj/blwzzljj?id='+that.data.xfmx[that.data.index.index].id
    })
    
 },
@@ -195,10 +231,10 @@ zhqt(e) {
     index:e.currentTarget.dataset
   })
   console.log(that.data.index)
-  console.log(that.data.zhqt[that.data.index.index].ID)
+  console.log(that.data.zhqt[that.data.index.index].id)
   
   wx.navigateTo({
-    url: '../blwzzljj/blwzzljj?ID='+that.data.zhqt[that.data.index.index].ID
+    url: '../blwzzljj/blwzzljj?id='+that.data.zhqt[that.data.index.index].id
    })
    
 },
@@ -210,10 +246,10 @@ blbj(e) {
     index:e.currentTarget.dataset
   })
   console.log(that.data.index)
-  console.log(that.data.blbj[that.data.index.index].ID)
+  console.log(that.data.blbj[that.data.index.index].id)
   
   wx.navigateTo({
-    url: '../blwzzljj/blwzzljj?ID='+that.data.blbj[that.data.index.index].ID
+    url: '../blwzzljj/blwzzljj?id='+that.data.blbj[that.data.index.index].id
    })
    
 },
@@ -225,10 +261,10 @@ yygt(e) {
     index:e.currentTarget.dataset
   })
   console.log(that.data.index)
-  console.log(that.data.yygt[that.data.index.index].ID)
+  console.log(that.data.yygt[that.data.index.index].id)
   
   wx.navigateTo({
-    url: '../blwzzljj/blwzzljj?ID='+that.data.yygt[that.data.index.index].ID
+    url: '../blwzzljj/blwzzljj?id='+that.data.yygt[that.data.index.index].id
    })
    
 },
@@ -240,10 +276,10 @@ qcsb(e) {
     index:e.currentTarget.dataset
   })
   console.log(that.data.index)
-  console.log(that.data.qcsb[that.data.index.index].ID)
+  console.log(that.data.qcsb[that.data.index.index].id)
   
   wx.navigateTo({
-    url: '../blwzzljj/blwzzljj?ID='+that.data.qcsb[that.data.index.index].ID
+    url: '../blwzzljj/blwzzljj?id='+that.data.qcsb[that.data.index.index].id
    })
    
 },
@@ -255,10 +291,10 @@ hydt(e) {
     index:e.currentTarget.dataset
   })
   console.log(that.data.index)
-  console.log(that.data.hydt[that.data.index.index].ID)
+  console.log(that.data.hydt[that.data.index.index].id)
   
   wx.navigateTo({
-    url: '../blwzzljj/blwzzljj?ID='+that.data.hydt[that.data.index.index].ID
+    url: '../blwzzljj/blwzzljj?id='+that.data.hydt[that.data.index.index].id
    })
    
 },
@@ -290,10 +326,10 @@ ss(e) {
     index:e.currentTarget.dataset
   })
   console.log(that.data.index)
-  console.log(that.data.ss[that.data.index.index].ID)
+  console.log(that.data.ss[that.data.index.index].id)
   
   wx.navigateTo({
-    url: '../blwzzljj/blwzzljj?ID='+that.data.ss[that.data.index.index].ID
+    url: '../blwzzljj/blwzzljj?id='+that.data.ss[that.data.index.index].id
    })
    
 },

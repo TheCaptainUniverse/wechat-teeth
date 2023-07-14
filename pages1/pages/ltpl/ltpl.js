@@ -1,35 +1,39 @@
 // pages1/pages/ltpl/ltpl.js
 var app = getApp();
+const API = app.globalData.requestHeader;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    ID:'',
+    id:'',
     title:'',
-    nr:'',
+    content:'',
     nickName:'',
     avatarUrl:'',
     time:'',
-    imgList:'',
-    pl:'',
+    pciUrl:'',
+    comment:'',
     page:1,
     hasMore:true,
     pagesize:10,
     dataILu : false,
     dz:"../../../images/dz.png",
     x:0,
-    wz:'点赞',
+    wz:'赞',
   },
   dz(){
     var that = this;
     if(that.data.x==0){
       wx.request({
-        url: 'https://messi10zlj.xyz/tooth/dz.php',
+        //@PostMapping("/insertLikeByOpenidAndInvitation")
+        method:'POST',
+        url:API+'/content/insertLikeByOpenidAndInvitation',
+        // url: 'https://messi10zlj.xyz/tooth/dz.php',
         data: {
           openid:app.globalData.openid,
-          pd:that.data.ID,
+          invitation:that.data.id,
         },
         header: {
           'content-type': 'application/x-www-form-urlencoded'
@@ -45,10 +49,14 @@ Page({
       })
     }else if(that.data.x==1){
       wx.request({
-        url: 'https://messi10zlj.xyz/tooth/qxdz.php',
+        //deleteLikeInfoByOpenidAndJudge
+
+      method:'POST',
+      url:API+'/content/deleteLikeInfoByOpenidAndJudge',
+        // url: 'https://messi10zlj.xyz/tooth/qxdz.php',
         data: {
           openid:app.globalData.openid,
-          pd:that.data.ID,
+          invitation:that.data.id,
         },
         header: {
           'content-type': 'application/x-www-form-urlencoded'
@@ -69,22 +77,25 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
-    console.log(options.ID)
+    console.log(options.id)
     var that = this;
     that.setData({
-      ID:options.ID,
+      id:options.id,
       title:options.title,
-      nr:options.nr,
+      content:options.content,
       nickName:options.nickName,
       avatarUrl:options.avatarUrl,
       time:options.time,
-      imgList:options.imgList,
+      picUrl:options.picUrl,
     })
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/ckdz.php',
+      // @PostMapping("/checkLikeByOpenidAndInvitation")
+      method:'POST',
+      url:API+'/content/checkLikeByOpenidAndInvitation',
+      // url: 'https://messi10zlj.xyz/tooth/ckdz.php',
       data: {
         openid:app.globalData.openid,
-        pd:that.data.ID,
+        invitation:that.data.id,
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -112,18 +123,21 @@ Page({
     var that = this;
    
 	  wx.request({
-      url: 'https://messi10zlj.xyz/tooth/pl.php',	
+      //@GetMapping("/findCommentByJudgeAndPageAndCount")
+      method:'GET',
+      url:API+'/content/findCommentByJudgeAndPageAndCount',
+      // url: 'https://messi10zlj.xyz/tooth/pl.php',	
       data: {
         page: that.data.page,
         count: that.data.pagesize,
-        pd:that.data.ID,
+        judge:that.data.id,
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
         console.log(res.data)
-        var pla = that.data.pl;
+        var pla = that.data.comment;
         if (res.data.length > 0) {
           if (that.data.page == 1) {
             pla = []
@@ -135,7 +149,7 @@ Page({
               hasMore: false,
               dataILu: false,
             })
-            console.log(that.data.pl)
+            console.log(that.data.comment)
           } else {
             that.setData({
               pl: pla.concat(pls),
@@ -161,21 +175,25 @@ Page({
   pl: function (e) {
     var that = this;
     console.log(e.detail.value.pl)
-    console.log(app.globalData.nickName)
+    console.log(app.globalData.name)
     console.log(app.globalData.avatarUrl)
-    console.log(that.data.ID)
+    console.log(that.data.id)
     wx.showModal({
       title: '提示',
       content: '是否评论',
       success (res) {
         if (res.confirm) {
+          console.log(e.detail.value)
           wx.request({
-            url: 'https://messi10zlj.xyz/tooth/xpl.php',
+            //@PostMapping("/insertComment")
+            method:'POST',
+            url:API+'/content/insertComment',
+            // url: 'https://messi10zlj.xyz/tooth/xpl.php',
             data: {
-              pd:that.data.ID,
-              nickName:app.globalData.nickName,
+              judge:that.data.id,
+              nickName:app.globalData.name,
               avatarUrl:app.globalData.avatarUrl,
-              pl:e.detail.value.pl,
+              comment:e.detail.value.pl
             },
             header: {
               'content-type': 'application/x-www-form-urlencoded'
@@ -188,7 +206,7 @@ Page({
               duration: 1000,
               mask: true,
               success: function() {
-                that.data.pl = '';
+                that.data.comment = '';
                 that.fyjz();
               },
             });

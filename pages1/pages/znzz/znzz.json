@@ -1,5 +1,5 @@
 {
-  "navigationBarBackgroundColor": "#4fc08d",
+  "navigationBarBackgroundColor": "#B0D8E4",
   "navigationBarTitleText": "智能自诊",
   "usingComponents": {
     "van-field": "@vant/weapp/field/index",

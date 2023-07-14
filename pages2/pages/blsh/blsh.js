@@ -1,5 +1,6 @@
 // pages2/blsh/blsh.js
-var app = getApp();
+const app = getApp();
+const API = app.globalData.requestHeader;
 Page({
 
   /**
@@ -27,10 +28,14 @@ Page({
   fyjz:function(){
     var that = this;
 	  wx.request({
-      url: 'https://messi10zlj.xyz/tooth/shnehe.php',	
+      //@GetMapping("/findStudentUploadReportByStatus")
+      method:'GET',
+      url:API+'/medicalService/findStudentUploadReportByStatus',
+      // url: 'https://messi10zlj.xyz/tooth/shnehe.php',	
       data: {
-        page: that.data.page,
-        count: that.data.pagesize 
+        // page: that.data.page,
+        // count: that.data.pagesize,
+        status:0
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -61,7 +66,18 @@ Page({
         }else{
           that.setData({
             dataILu: false,
+          }),
+          wx.showToast({
+            title: '没有病例',
+            icon:'error',
+            duration:2000
+          }),
+          
+          setTimeout(function() {
+          wx.navigateBack({
+          delta: 1
           })
+          }, 2000);
         }
       },
       fail: function (res) {
@@ -79,9 +95,9 @@ Page({
       index:e.currentTarget.dataset
     })
     console.log(that.data.index)
-    console.log(that.data.sh[that.data.index.index].ID)
+    console.log(that.data.sh[that.data.index.index].id)
     wx.navigateTo({
-      url: '../blshxq/blshqx?ID='+that.data.sh[that.data.index.index].ID
+      url: '../blshxq/blshqx?id='+that.data.sh[that.data.index.index].id
     })
   },
   /**

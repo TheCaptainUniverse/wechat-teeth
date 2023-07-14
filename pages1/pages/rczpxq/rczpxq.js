@@ -1,27 +1,29 @@
 // pages1/pages/rczpxq/rczpxq.js
+const app = getApp();
+const API = app.globalData.requestHeader;
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        ID:'',
-        gstp:'',
-        gsmz:'',
-        xinzi:'',
-        gsjs:'',
-        zpyq:'',
-        lxfs:'',
-        dizhi:'',
+        id:'',
+        picture:'',
+        name:'',
+        salary:'',
+        description:'',
+        requirement:'',
+        phone:'',
+        address:'',
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        console.log(options.ID)
+        console.log(options.id)
         this.setData({
-            ID:options.ID,
+            id:options.id,
         })
     },
 
@@ -37,27 +39,28 @@ Page({
      */
     onShow: function () {
         var that = this;
+        console.log(that.data.id)
         wx.request({
-            url: 'https://messi10zlj.xyz/tooth/rczpxq.php',	
+          method:'GET',
+          url:API+'/user/findRecruitmentById',	
             data: {
-                ID:that.data.ID,
+                id:that.data.id,
             },
             header: {
               'content-type': 'application/x-www-form-urlencoded'
             },
             success: function (res) {
-              console.log(res.data)
+              console.log(res)
               that.setData({
-                gstp:res.data[0].gstp,
-                gsmz:res.data[0].gsmz,
-                xinzi:res.data[0].xinzi,
-                gsjs:res.data[0].gsjs,
-                zpyq:res.data[0].zpyq,
-                lxfs:res.data[0].lxfs,
-                dizhi:res.data[0].dizhi,
+                picture:res.data.picture,
+                name:res.data.name,
+                salary:res.data.salary,
+                description:res.data.description,
+                requirement:res.data.requirement,
+                phone:res.data.phone,
+                address:res.data.address,
               })
-            },
-           
+            }
           })
     },
 

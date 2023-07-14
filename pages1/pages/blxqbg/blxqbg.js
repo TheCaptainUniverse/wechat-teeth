@@ -1,66 +1,66 @@
 // pages/pages1/blxqbg/blxqbg.js
+var app = getApp();
+const API = app.globalData.requestHeader;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    ID:'',
+    reportId:'',
     photo:'',
-    describe1:'',
+    describe:'',
     problem:'',
     ywxq:'',
     wu:'',
+    caseId:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.ID)
-    console.log(options.zjID)
+    console.log(options.reportId)
+    console.log(options.caseId)
     var that = this;
     that.setData({
-      ID:options.ID,
-      zjID:options.zjID,
-    })
+      reportId:options.reportId,
+      caseId:options.caseId,
+    }),
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/blxqbg1.php',
+      method:'GET',
+      url:API+'/medicalService/findDiseaseReportAndCaseByIds',
+      // url: 'https://messi10zlj.xyz/tooth/blxqbg1.php',
       data: {
-        ID:that.data.ID,
-        zjID:that.data.zjID,
+        reportId:that.data.reportId,
+        caseId:that.data.caseId,
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
-      console.log(res.data)
+      console.log(res)
       if(res.data!=0){
         that.setData({
-          photo:res.data[0].photo,
-          describe1:res.data[0].describe1,
-          problem:res.data[0].problem,
-          time:res.data[0].time,
-          imgList:res.data[0].imgList,
-          bname:res.data[0].bname,
-          zljy:res.data[0].zljy,
+          photo:res.data.photo,
+          describe:res.data.describe,
+          problem:res.data.problem,
+          time:res.data.time,
+          imgUrl:res.data.imgUrl,
+          bname:res.data.bname,
+          advice:res.data.advice,
           ywxq:true,
           wu:false,
         })
         console.log(that.data.photo)
-        console.log(that.data.imgList)
+        console.log(that.data.imgUrl)
       }else{
         that.setData({
           ywxq:false,
           wu:true,
         })
       }
-      
-      
-      
-       
       }
-
     })
   },
   fh(){
@@ -69,7 +69,7 @@ Page({
     })
   },
   clickImg1: function(e){
-    var imgUrl = this.data.imgList;
+    var imgUrl = this.data.imgUrl;
     wx.previewImage({
       urls: [imgUrl],
       current:'',
@@ -104,52 +104,4 @@ Page({
       }
     })
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

@@ -1,4 +1,6 @@
 // pages/rcsc/rcsc.js
+const app = getApp();
+const API = app.globalData.requestHeader;
 Page({
    data: {
     value:"",
@@ -29,11 +31,14 @@ Page({
         that.data.ltlb = '';
         that.data.page = 1;
           wx.request({
-          url: 'https://messi10zlj.xyz/tooth/rcscss.php',	
+            //@GetMapping("/findRecruitmentByPositionLikeAndPageAndCount")
+            method:'GET',
+            url:API+'/user/findRecruitmentByPositionLikeAndPageAndCount',
+          // url: 'https://messi10zlj.xyz/tooth/rcscss.php',	
           data: {
             page: that.data.page,
             count: that.data.pagesize,
-            zw:value,
+            position:value,
           },
           header: {
             'content-type': 'application/x-www-form-urlencoded'
@@ -99,7 +104,10 @@ Page({
         var that = this;
        
           wx.request({
-          url: 'https://messi10zlj.xyz/tooth/rcsc.php',	
+            //@GetMapping("/findRecruitmentByPageAndCount")
+            method:'GET',
+            url:API+'/user/findRecruitmentByPageAndCount',
+          // url: 'https://messi10zlj.xyz/tooth/rcsc.php',	
           data: {
             page: that.data.page,
             count: that.data.pagesize 
@@ -151,9 +159,9 @@ Page({
           index:e.currentTarget.dataset,
         })
         console.log(that.data.index)
-        console.log(that.data.rcsc[that.data.index.index].ID)
+        console.log(that.data.rcsc[that.data.index.index].entity.id)
         wx.navigateTo({
-          url: '../rczpxq/rczpxq?ID='+that.data.rcsc[that.data.index.index].ID
+          url: '../rczpxq/rczpxq?id='+that.data.rcsc[that.data.index.index].entity.id
         })
       },
   });

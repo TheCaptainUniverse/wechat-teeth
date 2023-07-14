@@ -1,19 +1,19 @@
 <!--pages2/blshxq/blshqx.wxml-->
 <view class="TT">
   <view class="wtms">
-    <view style="margin-left: 0.6em; margin-top: 1em;font-weight: bold;"><text>病例名称:{{name}}</text></view>
+    <view style="margin-left: 0.6em; margin-top: 1em;font-weight: bold;"><text>病例名称:{{bname}}</text></view>
   <view class="nr">
-    <text>病例描述:{{nr}}</text>
+    <text>病例描述:{{content}}</text>
   </view>
   <view class="nr">
-    <text>治疗建议:{{zljy}}</text>
+    <text>治疗建议:{{advice}}</text>
   </view>
   </view>
   <view class="bltp">
     <view style="height: 1em;"></view>
       <view style="margin-left: 0.6em;font-weight: bold;"><text>上传病例图片</text></view>
     <view class="tp">
-      <image src="{{imgList}}"></image>
+      <image src="{{imgUrl}}"></image>
     </view>
   </view>
   <view class="btn">

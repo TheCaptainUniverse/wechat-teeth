@@ -1,20 +1,19 @@
 <!--logs.wxml-->
-<view class="tb">
-</view>
+<navigationBar title="我的咨询" showBack="{{false}}" showHome="{{false}}"></navigationBar>
 <view class="TT">
   <van-search
   value="{{ value }}"
   placeholder="请输入医生姓名"
   show-action
   shape="round"
-  background="#4fc08d"
+  background="#B0D8E4"
   bind:search="onSearch"
   bind:cancel="onCancel"
   />
   <!-- <van-empty description="暂无预约"/> -->
   <view class="yynr">
     <view class="cell" wx:for="{{yyjl}}" wx:key="yyjl" wx:for-index="index"> 
-        <van-cell bindtap="yyqk" title="{{item.ysname}}" data-index='{{index}}' value="{{item.zt}}" size="mini" label="{{item.time}}" />
+        <van-cell bindtap="yyqk" title="{{item.entity.doctorName}}" data-index='{{index}}' value="{{item.statusFix}}" size="mini" label="{{item.timeFix}}" />
     </view>
 
   </view>

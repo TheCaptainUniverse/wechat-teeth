@@ -5,14 +5,14 @@
   placeholder="请输入热点名称"
   show-action
   shape="round"
-  background="#4fc08d"
+  background="#B0D8E4"
   bindtap="tc"
   bind:search="onSearch"
   bind:cancel="onCancel"
   bind:change="onChange"
   /></view>
   <view wx:if="{{xz}}">
-  <view style="width:100%; position: fixed;top:8vh;z-index: 1000; border-bottom: 2px solid #4fc08d;">
+  <view style="width:100%; position: fixed;top:8vh;z-index: 1000; border-bottom: 2px solid #B0D8E4;">
     <van-dropdown-menu>
       <van-dropdown-item style="width: 50px;" value="{{ value1 }}" title="常见疾病" options="{{ option1 }}" bindchange="cjjb" />
       <van-dropdown-item style="margin-left: -15px;" value="{{ value2 }}" title="人群" options="{{ option2 }}" bindchange="rq" />
@@ -24,7 +24,7 @@
   <van-empty wx:if="{{kong}}" description="换个关键词试试！"/>
   <view class="yynr">
     <view class="cell" wx:for="{{kqrd}}" wx:key="kqrd" wx:for-index="index"> 
-        <van-cell bindtap="kqrd" title="{{item.title}}" data-index='{{index}}'  size="mini" value="{{item.zt}}" label="{{item.ms}}" />
+        <van-cell bindtap="kqrd" title="{{item.title}}" data-index='{{index}}'  size="mini" value="{{item.ageGroup}}" label="{{item.description}}" />
     </view>
     <block wx:if="{{dataILu}}">
     <view class="loadMore">正在加载中...</view>

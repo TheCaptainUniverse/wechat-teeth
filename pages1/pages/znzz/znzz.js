@@ -1,5 +1,6 @@
 import Dialog from '../../../miniprogram_npm/@vant/weapp/dialog/dialog';
 var app = getApp();
+const API = app.globalData.requestHeader;
 Page({
   data: {
     imgList:'',
@@ -52,32 +53,36 @@ Page({
     var that = this;
     console.log(e.detail)
     that.setData({
-      nr:e.detail
+      problem:e.detail
     })
   },
   sc(){
     var that = this;
     console.log(app.globalData.openid)
     console.log(that.data.imgList)
-    console.log(that.data.nr)
+    console.log(that.data.problem)
     wx.showModal({
       title: '提示',
       content: '是否上传诊断',
       success (res) {
         if (res.confirm) {
           wx.uploadFile({
-            url: 'https://messi10zlj.xyz/tooth/screport.php',
+            //insertDiseaseReport
+            url:API+'/medicalService/insertDiseaseReport',
+            // url: 'https://messi10zlj.xyz/tooth/screport.php',
             filePath: that.data.imgList[0],
-            name: 'file',
+            name: 'image',
             formData: {
               openid:app.globalData.openid,
-              nr:that.data.nr,
+              problem:that.data.problem,
             },
             header: {
               "Content-Type": "multipart/form-data"
             },
             success: function (res) {
-              Dialog.alert({
+              console.log(res)
+              if(res.data == "上传成功")
+             { Dialog.alert({
                 message: '上传成功,请在我的病例报告中查看',
                 theme: 'round-button',
               }).then(() => {
@@ -85,22 +90,8 @@ Page({
                           delta: 1
                 })
               });
-              // wx.showToast({
-              //   title: '上传成功,在我的病例报告中查看',
-              //   icon: 'success',
-              //   duration: 1000,
-              //   mask: true,
-              //   success: function() {
-              //     setTimeout(function() {
-              //       //要延时执行的代码
-              //       wx.navigateBack({
-              //         delta: 1
-              //       })
-              //     }, 1000) //延迟时间
-              //   },
-              // });
-              //服务器返回格式: { "Catalog": "testFolder", "FileName": "1.jpg", "Url": "https://test.com/1.jpg" }
-              console.log(res.data);
+            }
+            console.log(res.data);
             },
             fail: function (res) {
               wx.hideToast();

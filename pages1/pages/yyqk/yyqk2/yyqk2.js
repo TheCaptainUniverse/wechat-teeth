@@ -1,20 +1,23 @@
 // pages/pages1/yyqk/yyqk2/yyqk2.js
+var app = getApp();
+const API = app.globalData.requestHeader;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    imgList:'',
+    doctorImgUrl:'',
     name:'',
     skill:'',
     hospital:'',
+    introduction:'',
+    id:'',
     userID: '',
+    doctorOpenid:'',
     searchUser: {},
     userInfo: {
     },
-    ysopenid:'',
-    ID:'',
   },
 
   /**
@@ -22,11 +25,13 @@ Page({
    */
   onLoad: function (options) {
     var that=this;
-    console.log(options.ID);
+    console.log(options.id);
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/yyqk.php',
+      method:'GET',
+      url:API+'/appointment/getAppointmentById',
+      // url: 'https://messi10zlj.xyz/tooth/yyqk.php',
       data: {
-        ID: options.ID,
+        id: options.id,
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -34,17 +39,17 @@ Page({
       success: function (res) {
       console.log(res.data)
       that.setData({
-        imgList:res.data[0].imgList,
-        name:res.data[0].ysname,
-        skill:res.data[0].skill,
-        hospital:res.data[0].hospital,
-        ysopenid:res.data[0].ysopenid,
-        ID:res.data[0].ID,
-        hpl:res.data[0].hpl,
-        jj:res.data[0].jj,
-        zw:res.data[0].zw,
-        hps:res.data[0].hps,
-        yyrs:res.data[0].yyrs,
+        doctorImgUrl:res.data.doctorImgUrl,
+        name:res.data.ysname,
+        skill:res.data.skill,
+        hospital:res.data.hospital,
+        positiveReviewRate:res.data.positiveReviewRate,
+        introduction:res.data.introduction,
+        position:res.data.position,
+        positiveReviewNumber:res.data.positiveReviewNumber,
+        appointmentCount:res.data.appointmentCount,
+        id:res.data.id,
+        doctorOpenid:res.data.doctorOpenid,
       })
       }
 
@@ -53,21 +58,31 @@ Page({
   zx(){
     var that = this;
    
-    console.log(that.data.ysopenid)
+    console.log(that.data.doctorOpenid)
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/ljlt.php',
+      //@GetMapping("/findEmpowerInfoByOpenId")
+      method:'GET',
+      url:API+'/verification/findEmpowerInfoByOpenId',
+      // url: 'https://messi10zlj.xyz/tooth/ljlt.php',
       data: {
-        openid:that.data.ysopenid,
+        openid:that.data.doctorOpenid,
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
-      console.log(res.data)
+      console.log(res)
+      that.setData({
+        userID:res.data.uid
+      })
       wx.request({
-        url: 'https://messi10zlj.xyz/tooth/qwzx.php',
+        //@PostMapping("/updateAppointmentStatusByIdAndStatus")
+        method:'POST',
+        url:API+'/appointment/updateAppointmentStatusByIdAndStatus',
+        // url: 'https://messi10zlj.xyz/tooth/qwzx.php',
         data: {
-          ID:that.data.ID,
+          id:that.data.id,
+          status:3
         },
         header: {
           'content-type': 'application/x-www-form-urlencoded'
@@ -78,13 +93,14 @@ Page({
       })    
 
       that.setData({
-        userID: res.data[0].ID,
+        // userID: options.uid,
         searchUser: {},
       });
 
       wx.$TUIKit.getUserProfile({
         userIDList: [that.data.userID],
       }).then((imRes) => {
+        console.log(imRes)
         if (imRes.data.length > 0) {
           that.setData({
             searchUser: imRes.data[0],
@@ -96,6 +112,7 @@ Page({
             searchUser: that.data.searchUser,
           });
           console.log(that.data.searchUser)
+          console.log(that.data.id)
 
 
           if (that.data.searchUser.isChoose) {
@@ -103,7 +120,7 @@ Page({
               conversationID: `C2C${that.data.searchUser.userID}`,
             };
             wx.navigateTo({
-              url: `/chat/pages/TUI-Chat/chat?conversationInfomation=${JSON.stringify(payloadData)}`,
+              url: `/chat/pages/TUI-Chat/chat?conversationInfomation=${JSON.stringify(payloadData)}&id=${that.data.id}`
             });
           } else {
             wx.showToast({

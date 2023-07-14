@@ -39,8 +39,8 @@ Page({
     var that = this;
     that.setData({
       avatarUrl:app.globalData.avatarUrl,
-      nickName:app.globalData.nickName,
-      yhID:app.globalData.yhID,
+      name:app.globalData.name,
+      uid:app.globalData.uid,
     })
   },
 

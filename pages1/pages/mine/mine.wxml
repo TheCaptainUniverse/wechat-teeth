@@ -1,21 +1,22 @@
 <!--pages1/mine/mine.wxml-->
 <view class="TT">
-  <view class="dhl"></view>
+  <!-- <view class="dhl"></view> -->
+  <navigationBar title="我的" showBack="{{false}}" showHome="{{false}}"></navigationBar>
   <view class="tb">
     <view class="phone">
       <image src="{{avatarUrl}}"></image>
     </view>
     <view class="name">
-      <view class="namee"><text>{{nickName}}</text></view>
-      <view class="id"><text>用户ID:{{yhID}}</text></view>
+      <view class="namee">姓名:<text>{{name}}</text></view>
+      <view class="phonee">电话:<text>{{phone}}</text></view>
+      <view class="id">用户ID:<text>{{uid}}</text></view>
     </view>
   </view>
   <view class="ts">
     <van-notice-bar
       wx:if="{{xs}}"
-      left-icon="volume-o"
       color="#1989fa"
-      background="#ecf9ff"
+    background="#ecf9ff"
       text="医生和学生请通过下方通道认证身份以完善功能。"
     />
   </view>

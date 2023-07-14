@@ -1,6 +1,7 @@
 // pages/pages1/mygz/mygz.js
 
 var app = getApp();
+const API = app.globalData.requestHeader;
 Page({
 
   /**
@@ -33,7 +34,10 @@ Page({
     var that = this;
   
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/mygz.php',	
+      ///@GetMapping("/findSubscribeByOpenidAndPageAndCount")
+      method:'GET',
+      url:API+'/user/findSubscribeByOpenidAndPageAndCount',
+      // url: 'https://messi10zlj.xyz/tooth/mygz.php',	
       data: {
         openid: app.globalData.openid,
         page: that.data.page,
@@ -94,10 +98,13 @@ Page({
       success (res) {
         if (res.confirm) {
           wx.request({
-            url: 'https://messi10zlj.xyz/tooth/qxdoctor.php',
-            data: {
-              openid:that.data.gz[that.data.index.index].openid2
-            },
+            method:'POST',
+              url:API+'/user/deleteSubscribeByOpenidAndDoctorOpenid',
+              // url: 'https://messi10zlj.xyz/tooth/qxdoctor.php',
+              data: {
+                openid:app.globalData.openid,
+                doctorOpenid:that.data.gz[that.data.index.index].doctorOpenid
+              },
             header: {
               'content-type': 'application/x-www-form-urlencoded'
             },
@@ -124,27 +131,31 @@ Page({
     console.log(that.data.index)
     console.log(that.data.gz)
     console.log(that.data.gz[0].ID)
+    console.log(that.data.gz[that.data.index.index])
     wx.showModal({
       title: '提示',
       content: '是否预约',
       success (res) {
         if (res.confirm) {
           wx.request({
-            url: 'https://messi10zlj.xyz/tooth/yyue.php',
+            //@PostMapping("/checkAppointmentAndInsert")
+            method:'POST',
+            url:API+'/appointment/checkAppointmentAndInsert',
+            // url: 'https://messi10zlj.xyz/tooth/yyue.php',
             data: {
-              openid1:that.data.gz[0].openid2,
-              openid2:that.data.gz[0].openid1,
-              skill:that.data.gz[0].skill,
-              hospital:that.data.gz[0].hospital,
-              imgList:that.data.gz[0].imgList,
-              name:that.data.gz[0].ysname,
-              avatarurl:app.globalData.avatarUrl,
-              xsname:app.globalData.nickName,
-              jj:that.data.gz[0].jj,
-              zw:that.data.gz[0].zw,
-              hpl:that.data.gz[0].hpl,
-              hps:that.data.gz[0].hps,
-              yyrs:that.data.gz[0].yyrs,
+              doctorOpenid:that.data.gz[that.data.index.index].doctorOpenid,
+              openid:app.globalData.openid,
+              skill:that.data.gz[that.data.index.index].skill,
+              hospital:that.data.gz[that.data.index.index].hospital,
+              doctorImgUrl:that.data.gz[that.data.index.index].imgUrl,
+              name:app.globalData.name,
+              imgUrl:app.globalData.avatarUrl,
+              doctorName:that.data.gz[that.data.index.index].doctorName,
+              introduction:that.data.gz[that.data.index.index].introduction,
+              position:that.data.gz[that.data.index.index].position,
+              positiveReviewRate:that.data.gz[that.data.index.index].positiveReviewRate,
+              positiveReviewNumber:that.data.gz[that.data.index.index].positiveReviewNumber,
+              appointmentCount:that.data.gz[that.data.index.index].appointmentCount,
             },
             header: {
               'content-type': 'application/x-www-form-urlencoded'

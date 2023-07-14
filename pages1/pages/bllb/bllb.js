@@ -1,4 +1,6 @@
 // pages1/pages/bllb/bllb.js
+var app = getApp();
+const API = app.globalData.requestHeader;
 Page({
 
   /**
@@ -17,27 +19,33 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.ID)
+    console.log(options.id)
     var that = this;
     that.setData({
-      ID:options.ID
+      id:options.id
     })
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/blxqbg.php',
+      //@GetMapping("/findDiseaseReportProblemsById")
+      method:'GET',
+      url:API+'/medicalService/findDiseaseReportProblemsById',
+      // url: 'https://messi10zlj.xyz/tooth/blxqbg.php',
       data: {
-        ID:that.data.ID
+        id:that.data.id
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
-      console.log(res.data)
+      console.log(res)
       if(res.data!=0&&res.data!=null){
         wx.request({
-          url: 'https://messi10zlj.xyz/tooth/gjc.php',
+// @GetMapping("/findDiseasesByIdAndKeyword")
+          method:'GET',
+          url:API+'/medicalService/findDiseasesByIdAndKeyword',
+          // url: 'https://messi10zlj.xyz/tooth/gjc.php',
           data: {
-            gjc:res.data,
-            ID:that.data.ID
+            keyword:res.data,
+            id:that.data.id
           },
           header: {
             'content-type': 'application/x-www-form-urlencoded'
@@ -73,9 +81,9 @@ Page({
       index:e.currentTarget.dataset
     })
     console.log(that.data.index)
-    console.log(that.data.knbl[that.data.index.index].ID)
+    console.log(that.data.knbl[that.data.index.index].id)
     wx.navigateTo({
-      url: '../blxqbg/blxqbg?ID='+that.data.knbl[that.data.index.index].ID+'&zjID='+that.data.ID
+      url: '../blxqbg/blxqbg?caseId='+that.data.knbl[that.data.index.index].id+'&reportId='+that.data.id
     })
   },
   /**

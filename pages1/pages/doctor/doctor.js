@@ -1,5 +1,6 @@
 // pages/pages1/doctor/doctor.js
 var app = getApp();
+const API = app.globalData.requestHeader;
 Page({
 
   /**
@@ -8,18 +9,18 @@ Page({
   data: {
     gz:'',
     gztp:'',
-    ID:'',
-    imgList:'',
+    id:'',
+    imgUrl:'',
     hospital:'',
     name:'',
     skill:'',
-    ysopenid:'',
-    jj:'',
-    yspj:'',
-    zw:'',
-    hpl:'',
-    hps:'',
-    yyrs:'',
+    doctorOpenid:'',
+    introduction:'',
+    tags:'',
+    position:'',
+    positiveReviewRate:'',
+    positiveReviewNumber:'',
+    appointmentCount:'',
   },
 
   /**
@@ -27,15 +28,18 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    console.log(options.ID)
+    console.log(options.id)
     that.setData({
-      ID:options.ID
+      id:options.id
     })
     console.log(app.globalData.openid)
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/ys.php',
+      //@PostMapping("/checkSubscribeByIdAndOpenid")
+      method:'POST',
+      url:API+'/user/checkSubscribeByIdAndOpenid',
+      // url: 'https://messi10zlj.xyz/tooth/ys.php',
       data: {
-        ID:options.ID,
+        id:options.id,
         openid:app.globalData.openid,
       },
       header: {
@@ -57,30 +61,33 @@ Page({
       }
     })
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/ysxx.php',
+      // @GetMapping("/findDoctorById")
+      method:'GET',
+      url:API+'/medicalService/findDoctorById',
+      // url: 'https://messi10zlj.xyz/tooth/ysxx.php',
       data: {
-        ID:options.ID,
+        id:options.id,
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
         console.log(res.data)
-        console.log(res.data[0].hospital)
-        console.log(res.data[0].imgList)
+        console.log(res.data.hospital)
+        console.log(res.data.imgUrl)
         that.setData({
-          imgList:res.data[0].imgList,
-          hospital:res.data[0].hospital,
-          name:res.data[0].name,
-          skill:res.data[0].skill,
-          ysopenid:res.data[0].openid,
-          hps:res.data[0].hps,
-          hpl:res.data[0].hpl,
-          yyrs:res.data[0].yyrs,
-          jj:res.data[0].jj,
-          zw:res.data[0].zw,
+          imgUrl:res.data.imgUrl,
+          hospital:res.data.hospital,
+          name:res.data.name,
+          skill:res.data.skill,
+          doctorOpenid:res.data.openid,
+          positiveReviewNumber:res.data.positiveReviewNumber,
+          positiveReviewRate:res.data.positiveReviewRate,
+          appointmentCount:res.data.appointmentCount,
+          introduction:res.data.introduction,
+          position:res.data.position,
         })
-        console.log(that.data.ysopenid)
+        console.log(that.data.doctorOpenid)
         that.pl();
       }
     })   
@@ -89,21 +96,25 @@ Page({
   },
   pl(){
     var that = this;
-    console.log(that.data.ysopenid)
+    console.log(that.data.doctorOpenid)
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/yspjpl.php',
+
+      // @GetMapping("/findDoctorScoreByOpenid")
+      method:'GET',
+      url:API+'/medicalService/findDoctorScoreByOpenid',
+      // url: 'https://messi10zlj.xyz/tooth/yspjpl.php',
       data: {
-        openid:that.data.ysopenid,
+        openid:that.data.doctorOpenid,
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
-      console.log(res.data)
+      console.log(res)
       that.setData({
-        yspj:res.data
+        tags:res.data
       })
-       console.log(that.data.yspj)
+       console.log(that.data.tags)
        
       }
 
@@ -126,10 +137,13 @@ Page({
       content: '是否关注',
       success (res) {
         if (res.confirm) {
+          // /@PostMapping("/insertSubscribeByIdAndOpenid")
           wx.request({
-            url: 'https://messi10zlj.xyz/tooth/doctor.php',
+            method:'POST',
+            url:API+'/user/insertSubscribeByIdAndOpenid',
+            // url: 'https://messi10zlj.xyz/tooth/doctor.php',
             data: {
-              ID:that.data.ID,
+              id:that.data.id,
               openid:app.globalData.openid
             },
             header: {
@@ -158,10 +172,15 @@ Page({
         content: '是否取消关注',
         success (res) {
           if (res.confirm) {
+            //@GetMapping("/findSubscribeByOpenid")
+
             wx.request({
-              url: 'https://messi10zlj.xyz/tooth/qxdoctor.php',
+              method:'POST',
+              url:API+'/user/deleteSubscribeByOpenidAndDoctorOpenid',
+              // url: 'https://messi10zlj.xyz/tooth/qxdoctor.php',
               data: {
-                openid:that.data.ysopenid
+                openid:app.globalData.openid,
+                doctorOpenid:that.data.doctorOpenid
               },
               header: {
                 'content-type': 'application/x-www-form-urlencoded'
@@ -186,10 +205,10 @@ Page({
   },
   yyue(){
     var that = this;
-    console.log(that.data.ysopenid)
+    console.log(that.data.doctorOpenid)
     console.log(that.data.skill)
     console.log(that.data.hospital)
-    console.log(that.data.imgList)
+    console.log(that.data.imgUrl)
     console.log(that.data.name)
     console.log(app.globalData.openid)
     wx.showModal({
@@ -198,21 +217,24 @@ Page({
       success (res) {
         if (res.confirm) {
           wx.request({
-            url: 'https://messi10zlj.xyz/tooth/yyue.php',
+            //@PostMapping("/checkAppointmentAndInsert")
+            method:'POST',
+            url:API+'/appointment/checkAppointmentAndInsert',
+            // url: 'https://messi10zlj.xyz/tooth/yyue.php',
             data: {
-              openid1:that.data.ysopenid,
-              openid2:app.globalData.openid,
+              doctorOpenid:that.data.doctorOpenid,
+              openid:app.globalData.openid,
               skill:that.data.skill,
               hospital:that.data.hospital,
-              imgList:that.data.imgList,
-              name:that.data.name,
-              avatarurl:app.globalData.avatarUrl,
-              xsname:app.globalData.nickName,
-              jj:that.data.jj,
-              zw:that.data.zw,
-              hpl:that.data.hpl,
-              hps:that.data.hps,
-              yyrs:that.data.yyrs,
+              doctorImgUrl:that.data.imgUrl,
+              name:app.globalData.name,
+              imgUrl:app.globalData.avatarUrl,
+              doctorName:that.data.name,
+              introduction:that.data.introduction,
+              position:that.data.position,
+              positiveReviewRate:that.data.positiveReviewRate,
+              positiveReviewNumber:that.data.positiveReviewNumber,
+              appointmentCount:that.data.appointmentCount,
             },
             header: {
               'content-type': 'application/x-www-form-urlencoded'

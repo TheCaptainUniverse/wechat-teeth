@@ -4,11 +4,11 @@
   <view class="cell" wx:for="{{blbg}}" wx:key="blbg" wx:for-index="index">
     <view class="title">
       <text style="margin-left: 4%; font-weight: bold;">病症描述：</text>
-      <view class="ms"><text>{{item.problem}}</text></view>
+      <view class="ms"><text>{{item.entity.problem}}</text></view>
     </view>
     <view class="time">
       <text style="margin-left: 4%; font-weight: bold;">提交时间：</text>
-      <view class="t"><text>{{item.time}}</text></view>
+      <view class="t"><text>{{item.timeFix}}</text></view>
     </view>
     <view class="bgxq" bindtap="go" data-index='{{index}}'>
       <text>查看报告详情>>></text>

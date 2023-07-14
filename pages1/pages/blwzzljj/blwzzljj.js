@@ -1,37 +1,42 @@
 // pages1/pages/blwzzljj/blwzzljj.js
+const app = getApp();
+const API = app.globalData.requestHeader;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    wzlj:'',
-    ID:'',
+    articleUrl:'',
+    id:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.ID)
+    console.log(options.id)
     var that = this;
     that.setData({
-      ID:options.ID,
+      id:options.id,
     })
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/blwzzljj.php',
+// @GetMapping("/findArticleById")
+      method:'GET',
+      url:API+'/content/findArticleById',
+      // url: 'https://messi10zlj.xyz/tooth/blwzzljj.php',
       data: {
-        ID:that.data.ID,
+        id:that.data.id,
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
       console.log(res.data)
-      console.log(res.data[0].wzlj)
-      if(res.data[0].wzlj!=''){
+      console.log(res.data.articleUrl)
+      if(res.data.articleUrl!=''){
         that.setData({
-          wzlj:res.data[0].wzlj,
+          articleUrl:res.data.articleUrl,
         })
       }else{
       } 

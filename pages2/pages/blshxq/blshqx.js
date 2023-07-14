@@ -1,41 +1,46 @@
 // pages2/blshxq/blshqx.js
-var app = getApp();
+const app = getApp();
+const API = app.globalData.requestHeader;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    ID:'',
+    id:'',
     name:'',
-    nr:'',
-    imgList:'',
+    content:'',
+    imgUrl:'',
+    advice:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.ID)
+    console.log(options.id)
     var that = this;
     that.setData({
-      ID:options.ID,
+      id:options.id,
     })
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/blshxq.php',
+      //@GetMapping("/findStudentUploadReportById")
+      method:'GET',
+      url:API+'/medicalService/findStudentUploadReportById',
+      // url: 'https://messi10zlj.xyz/tooth/blshxq.php',
       data: {
-        ID:that.data.ID,
+        id:that.data.id,
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
-      console.log(res.data)
+      console.log(res)
       that.setData({
-        name:res.data[0].name,
-        nr:res.data[0].nr,
-        imgList:res.data[0].imgList,
-        zljy:res.data[0].zljy,
+        name:res.data.name,
+        content:res.data.content,
+        imgUrl:res.data.imgUrl,
+        advice:res.data.advice,
       })
       }
     })
@@ -48,9 +53,13 @@ Page({
       success (res) {
         if (res.confirm) {
           wx.request({
-            url: 'https://messi10zlj.xyz/tooth/bhg.php',
+            //@PostMapping("/studentUploadReportById")
+            method:'POST',
+            url:API+'/medicalService/updateStudentUploadReportByIdAndStatus',
+            // url: 'https://messi10zlj.xyz/tooth/bhg.php',
             data: {
-              ID:that.data.ID,
+              id:that.data.id,
+              status:2
             },
             header: {
               'content-type': 'application/x-www-form-urlencoded'
@@ -79,7 +88,7 @@ Page({
           wx.request({
             url: 'https://messi10zlj.xyz/tooth/hg.php',
             data: {
-              ID:that.data.ID,
+              id:that.data.id,
             },
             header: {
               'content-type': 'application/x-www-form-urlencoded'

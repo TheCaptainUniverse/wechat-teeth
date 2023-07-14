@@ -1,14 +1,16 @@
-<view wx:if="{{!canIUse}}">
-    <view class='header'>
-        <image src='/images/login1.jpg'></image>
-    </view>
- 
-    <view class='content'>
-        <view>申请获取以下权限</view>
-        <text>获得你的公开信息(昵称，头像等)</text>
-    </view>
- 
-    <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" catchtap="bindGetUserInfo">
+<view>
+  <view class="title-container">
+    <view class="title">欢迎使用</view>
+  </view>
+  <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+    <image class="avatar" src="{{avatarUrl}}"></image>
+  </button> 
+  <form bindsubmit="formSubmit">
+    <input type="nickname" class="input-box" placeholder="请输入昵称" required bindinput="inputNickname" maxlength="20"></input>
+    <input type="number" class="input-box" name="phone" placeholder="请输入电话号码" required bindinput="inputPhone" maxlength="11"></input>
+  <button class='bottom' type='primary' lang="zh_CN" catchtap="submit">
         授权登录
-    </button>
+  </button>
+</form>
+
 </view>

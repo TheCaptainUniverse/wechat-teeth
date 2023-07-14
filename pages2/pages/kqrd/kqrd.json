@@ -1,7 +1,7 @@
 {
   "navigationBarTitleText": "慧齿百科",
   "enablePullDownRefresh": true,
-  "navigationBarBackgroundColor": "#4fc08d",
+  "navigationBarBackgroundColor": "#B0D8E4",
   "usingComponents": {
     "van-search": "@vant/weapp/search/index",
     "van-empty": "@vant/weapp/empty/index",

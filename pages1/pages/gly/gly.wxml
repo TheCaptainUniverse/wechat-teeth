@@ -10,13 +10,13 @@
 <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
   <swiper-item>
     <view class="cell" wx:for="{{sfsh}}" wx:key="sfsh" wx:for-index="index" data-index='{{index}}' bindtap="sfshqk">
-      <image src="{{item.avatarurl}}"></image>
+      <image src="{{item.avatarUrl}}"></image>
       <view class="name">
         <view class="nm">
-          <text>{{item.nickName}}</text>
+          <text>{{item.name}}</text>
         </view>
         <view class="bl">
-          <text>认证身份：{{item.sfpd}}</text>
+          <text>认证身份：{{item.identity}}</text>
         </view>
       </view>
     </view>
@@ -29,10 +29,10 @@
   <swiper-item>
 
     <view class="cell" wx:for="{{sh}}" wx:key="sh" wx:for-index="index" data-index='{{index}}' bindtap="shqk">
-      <image src="{{item.avatarurl}}"></image>
+      <image src="{{item.avatarUrl}}"></image>
       <view class="name">
         <view class="nm">
-          <text>{{item.xsname}}</text>
+          <text>{{item.name}}</text>
         </view>
         <view class="bl">
           <text>{{item.bname}}</text>

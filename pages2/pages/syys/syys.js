@@ -1,5 +1,6 @@
 // pages2/syys/syys.js
-var app = getApp();
+const app = getApp();
+const API = app.globalData.requestHeader;
 Page({
 
   /**
@@ -26,11 +27,15 @@ Page({
   fyjz:function(){
     var that = this;
 	  wx.request({
-      url: 'https://messi10zlj.xyz/tooth/yykbsq.php',	
+      //@GetMapping("/getAppointmentByOpenidAndStatusAndPageAndCount")
+      method:'GET',
+      url:API+'/appointment/getAppointmentByOpenidAndStatusAndPageAndCount',
+      // url: 'https://messi10zlj.xyz/tooth/yykbsq.php',	
       data: {
         openid:app.globalData.openid,
         page: that.data.page,
-        count: that.data.pagesize 
+        count: that.data.pagesize ,
+        status:1
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -79,16 +84,20 @@ Page({
       index:e.currentTarget.dataset
     })
     console.log(that.data.index)
-    console.log(that.data.yykb[that.data.index.index].ID)
+    console.log(that.data.yykb[that.data.index.index].id)
     wx.showModal({
       title: '提示',
       content: '是否通过预约申请',
       success (res) {
         if (res.confirm) {
           wx.request({
-            url: 'https://messi10zlj.xyz/tooth/tgyyue.php',
+            //@PostMapping("/updateAppointmentStatusByIdAndStatus")
+            method:'POST',
+            url:API+'/appointment/updateAppointmentStatusByIdAndStatus',
+            // url: 'https://messi10zlj.xyz/tooth/tgyyue.php',
             data: {
-              ID:that.data.yykb[that.data.index.index].ID,
+              id:that.data.yykb[that.data.index.index].id,
+              status:2
             },
             header: {
               'content-type': 'application/x-www-form-urlencoded'
@@ -111,44 +120,6 @@ Page({
       url: '/chat/pages/zjlxr/zjlxr',
     })
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
   onReachBottom: function () {
     if (this.data.hasMore) {
       this.fyjz('加载更多数据')
@@ -161,11 +132,4 @@ Page({
       })
     }
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

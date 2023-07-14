@@ -3,14 +3,15 @@
   <view class="wtms">
     <view style="margin-left: 0.6em; margin-top: 1em;font-weight: bold;"><text>病例名称:{{name}}</text></view>
   <view class="nr">
-    <text>{{nr}}</text>
+    <text>问题：{{problem}}\n\n</text>
+    <text>建议：{{advice}}</text>
   </view>
   </view>
   <view class="bltp">
     <view style="height: 1em;"></view>
       <view style="margin-left: 0.6em;font-weight: bold;"><text>上传病例图片</text></view>
     <view class="tp">
-      <image src="{{imgList}}"></image>
+      <image src="{{imgUrl}}"></image>
     </view>
   </view>
   <view class="btn">

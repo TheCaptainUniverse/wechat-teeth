@@ -1,30 +1,35 @@
 // pages2/blshxq/blshqx.js
-var app = getApp();
+const app = getApp()
+const API = app.globalData.requestHeader
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    ID:'',
+    id:'',
     name:'',
-    nr:'',
-    imgList:'',
+    problem:'',
+    imgUrl:'',
+    advice:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.ID)
+    console.log(options.id)
     var that = this;
     that.setData({
-      ID:options.ID,
+      id:options.id,
     })
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/blshxq.php',
+      //@GetMapping("/findStudentUploadReportById")
+      method:'GET',
+      url:API+'/medicalService/findStudentUploadReportById',
+      // url: 'https://messi10zlj.xyz/tooth/blshxq.php',
       data: {
-        ID:that.data.ID,
+        id:that.data.id,
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -32,9 +37,10 @@ Page({
       success: function (res) {
       console.log(res.data)
       that.setData({
-        name:res.data[0].name,
-        nr:res.data[0].nr,
-        imgList:res.data[0].imgList,
+        name:res.data.name,
+        problem:res.data.problem,
+        imgUrl:res.data.imgUrl,
+        advice:res.data.advice
       })
       }
     })
@@ -47,9 +53,13 @@ Page({
       success (res) {
         if (res.confirm) {
           wx.request({
-            url: 'https://messi10zlj.xyz/tooth/bhg.php',
+            //@PostMapping("/updateStudentUploadReportByIdAndStatus")
+            method:'POST',
+            url:API+'/medicalService/updateStudentUploadReportByIdAndStatus',
+            // url: 'https://messi10zlj.xyz/tooth/bhg.php',
             data: {
-              ID:that.data.ID,
+              id:that.data.id,
+              status:2
             },
             header: {
               'content-type': 'application/x-www-form-urlencoded'
@@ -76,9 +86,12 @@ Page({
       success (res) {
         if (res.confirm) {
           wx.request({
-            url: 'https://messi10zlj.xyz/tooth/hg.php',
+            method:'POST',
+            url:API+'/medicalService/updateStudentUploadReportByIdAndStatus',
+            // url: 'https://messi10zlj.xyz/tooth/bhg.php',
             data: {
-              ID:that.data.ID,
+              id:that.data.id,
+              status:1
             },
             header: {
               'content-type': 'application/x-www-form-urlencoded'
@@ -86,13 +99,16 @@ Page({
             success: function (res) {
             console.log(res.data)
             wx.request({
-              url: 'https://messi10zlj.xyz/tooth/ysshsccheck.php',
+              //insertDisease
+              method:'POST',
+              url:API+'/medicalService/insertDisease',
+              // url: 'https://messi10zlj.xyz/tooth/ysshsccheck.php',
               data: {
                 openid:app.globalData.openid,
-                photo:that.data.imgList,
+                photo:that.data.imgUrl,
                 bname:that.data.name,
-                describe1:that.data.nr,
-                zljy:that.data.zljy,
+                describe:that.data.problem,
+                advice:that.data.advice,
               },
               header: {
                 'content-type': 'application/x-www-form-urlencoded'

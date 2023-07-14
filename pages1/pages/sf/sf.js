@@ -1,11 +1,13 @@
 // pages1/sf/sf.js
-var app = getApp();
+const app = getApp();
+const API = app.globalData.requestHeader;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    identity:'',
     imgList:'',
     sfxx: [{
       id: 1,
@@ -22,9 +24,15 @@ Page({
         sf: e.detail.value
     });
     if(e.detail.value=='学生'){
-      app.globalData.sfpd=1
+      this.setData({
+        identity : 1
+      })
+      // app.globalData.sfpd=1
     }else if(e.detail.value=='医生'){
-      app.globalData.sfpd=2
+      // app.globalData.sfpd=2
+      this.setData({
+        identity : 2
+      })
     }
 
     console.log(e.detail.value)
@@ -96,20 +104,24 @@ Page({
               success (res) {
                 if (res.confirm) {
                   wx.uploadFile({
-                    url: 'https://messi10zlj.xyz/tooth/sfrz.php',
+                    url:API+'/verification/insertEmpowerInfo',
+                    // url: 'https://messi10zlj.xyz/tooth/sfrz.php',
                     filePath: that.data.imgList[0],
-                    name: 'file',
+                    name: 'image',
                     formData: {
                       openid: app.globalData.openid,
-                      nickName:e.detail.value.username,
+                      name:e.detail.value.username,
                       phone:e.detail.value.phone,
                       email:e.detail.value.email,
-                      work:e.detail.value.work,
-                      zw:e.detail.value.zw,
-                      jj:e.detail.value.jj,
+                      workPlace:e.detail.value.work,
+                      position:e.detail.value.zw,
+                      introduction:e.detail.value.jj,
                       skill:e.detail.value.skill,
                       city:app.globalData.txcity,
-                      sfpd:app.globalData.sfpd,
+                      province:app.globalData.txprovince,
+                      country:app.globalData.txcountry,
+                      identityJudge:app.globalData.identityJudge,
+                      identity:that.data.identity
                     },
                     header: {
                       "Content-Type": "multipart/form-data"

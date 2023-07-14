@@ -1,6 +1,6 @@
 {
   "navigationStyle": "custom",
-  "navigationBarBackgroundColor": "#4fc08d",
+  "navigationBarBackgroundColor": "#B0D8E4",
   "navigationBarTitleText": "管理员",
   "usingComponents": {
     "van-picker": "@vant/weapp/picker/index",

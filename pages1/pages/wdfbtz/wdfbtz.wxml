@@ -1,6 +1,6 @@
 <!--pages1/pages/wdfbtz/wdfbtz.wxml-->
 <van-swipe-cell
-  id="{{item.ID}}"
+  id="{{item.entity.id}}"
   right-width="{{ 65 }}"
   async-close
   bind:close="onClose"
@@ -9,11 +9,11 @@
   <van-cell-group>
     <van-card
     bindtap="ltxq"
-    tag="{{item.time}}"
+    tag="{{item.timeFix}}"
     data-index='{{index}}'
-    desc="{{item.nr}}"
-    title="{{item.title}}"
-    thumb="{{item.imgList}}"
+    desc="{{item.entity.content}}"
+    title="{{item.entity.title}}"
+    thumb="{{item.entity.picUrl}}"
 />
   </van-cell-group>
   <view slot="right">删除</view>

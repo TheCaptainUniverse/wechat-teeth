@@ -1,35 +1,41 @@
 // pages1/sfsh/sfsh.js
+var app = getApp();
+const API = app.globalData.requestHeader;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    ID:'',
-    avatarurl:'',
+    id:'',
+    avatarUrl:'',
     name:'',
-    sfpd:'',
-    imgList:'',
+    identityJudge:'',
+    identity:'',
+    imgUrl:'',
     city:'',
-    jj:'',
+    introduction:'',
     openid:'',
     skill:'',
-    work:'',
+    workPlace:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.ID)
+    console.log(options.id)
     var that = this;
     that.setData({
-      ID:options.ID,
+      id:options.id,
     })
     wx.request({
-      url: 'https://messi10zlj.xyz/tooth/sfshxq.php',
+      //@GetMapping("/findEmpowerInfoById")
+      method:'GET',
+      url:API+'/verification/findEmpowerInfoById',
+      // url: 'https://messi10zlj.xyz/tooth/sfshxq.php',
       data: {
-        ID:that.data.ID,
+        id:that.data.id,
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -37,15 +43,16 @@ Page({
       success: function (res) {
       console.log(res.data)
       that.setData({
-        avatarurl:res.data[0].avatarurl,
-        imgList:res.data[0].imgList,
-        name:res.data[0].name,
-        sfpd:res.data[0].sfpd,
-        city:res.data[0].city,
-        jj:res.data[0].jj,
-        openid:res.data[0].openid,
-        skill:res.data[0].skill,
-        work:res.data[0].work,
+        avatarUrl:res.data.avatarUrl,
+        imgUrl:res.data.imgUrl,
+        name:res.data.name,
+        identityJudge:res.data.identityJudge,
+        city:res.data.city,
+        introduction:res.data.introduction,
+        openid:res.data.openid,
+        skill:res.data.skill,
+        workPlace:res.data.workPlace,
+        identity:res.data.identity,
       })
       }
     })
@@ -58,10 +65,14 @@ Page({
       success (res) {
         if (res.confirm) {
           wx.request({
-            url: 'https://messi10zlj.xyz/tooth/jjsq.php',
+            //updateEmpowerInfoByIdAndIdentityAndIdentityJudge
+            method:'POST',
+            url:API+'/verification/updateEmpowerInfoByIdAndIdentityAndIdentityJudge',
+            // url: 'https://messi10zlj.xyz/tooth/jjsq.php',
             data: {
-              ID:that.data.ID,
-              sf:that.data.sfpd,
+              id:that.data.id,
+              identityJudge:-1,
+              identity:that.data.identity,
             },
             header: {
               'content-type': 'application/x-www-form-urlencoded'
@@ -87,17 +98,13 @@ Page({
       success (res) {
         if (res.confirm) {
           wx.request({
-            url: 'https://messi10zlj.xyz/tooth/tysq.php',
+            method:'POST',
+            url:API+'/verification/updateEmpowerInfoByIdAndIdentityAndIdentityJudge',
+            // url: 'https://messi10zlj.xyz/tooth/jjsq.php',
             data: {
-              ID:that.data.ID,
-              sf:that.data.sfpd,
-              avatarurl:that.data.avatarurl,
-              city:that.data.city,
-              jj:that.data.jj,
-              name:that.data.name,
-              openid:that.data.openid,
-              skill:that.data.skill,
-              work:that.data.work,
+              id:that.data.id,
+              identityJudge:1,
+              identity:that.data.identity,
             },
             header: {
               'content-type': 'application/x-www-form-urlencoded'

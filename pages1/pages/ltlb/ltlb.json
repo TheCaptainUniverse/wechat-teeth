@@ -1,6 +1,5 @@
 {
-  "navigationBarBackgroundColor": "#4fc08d",
-  "navigationBarTitleText": "论坛",
+  "navigationStyle": "custom",
   "usingComponents": {
     "van-search": "@vant/weapp/search/index",
     "i-load-more": "../../../dist/load-more/index"

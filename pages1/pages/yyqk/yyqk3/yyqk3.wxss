@@ -7,7 +7,7 @@
 .tb{
   width: 100%;
   height: 15vh;
-  background-color: #4fc08d;
+  background-color: #B0D8E4;
   display: flex;
   justify-content: center;
 }

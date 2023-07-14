@@ -1,27 +1,29 @@
 // pages1/pages/yljgxqym/yljgxqym.js
+var app = getApp();
+const API = app.globalData.requestHeader;
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        yytp:'',
-        yyname:'',
-        hpl:'',
-        yyjs:'',
-        fw:'',
-        yydizhi:'',
-        zixun:'',
-        ID:'',
+      avatarUrl:'',
+      name:'',
+      positiveReviewRate:'',
+      introduce:'',
+        serviceName:[],
+        address:'',
+        consultation:'',
+        id:'',
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        console.log(options.ID)
+        console.log(options.id)
         this.setData({
-            ID:options.ID,
+            id:options.id,
         })
     },
 
@@ -38,31 +40,37 @@ Page({
     onShow: function () {
         var that = this;
         wx.request({
-            url: 'https://messi10zlj.xyz/tooth/yyzyxq.php',	
+          //@GetMapping("/findHospitalById")
+          method:'GET',
+          url:API+'/medicalService/findHospitalById',
+            // url: 'https://messi10zlj.xyz/tooth/yyzyxq.php',	
             data: {
-                ID:that.data.ID,
+                id:that.data.id,
             },
             header: {
               'content-type': 'application/x-www-form-urlencoded'
             },
             success: function (res) {
               console.log(res.data)
-              console.log(res.data[0].hpl)
+              console.log(res.data.positive_review_rate)
               that.setData({
-                yytp:res.data[0].yytp,
-                yyname:res.data[0].yyname,
-                hpl:res.data[0].hpl,
-                yyjs:res.data[0].yyjs,
-                yydizhi:res.data[0].yydizhi,
-                zixun:res.data[0].zixun,
+                avatarUrl:res.data.avatar_url,
+                name:res.data.name,
+                positiveReviewRate:res.data.positive_review_rate,
+                introduce:res.data.introduce,
+                address:res.data.address,
+                consultation:res.data.consultation,
               })
             },
            
           })
           wx.request({
-            url: 'https://messi10zlj.xyz/tooth/yyzyxqfw.php',	
+            //@GetMapping("/findHospitalServiceById")
+            method:'GET',
+            url:API+'/medicalService/findHospitalServiceById',
+            // url: 'https://messi10zlj.xyz/tooth/yyzyxqfw.php',	
             data: {
-                ID:that.data.ID,
+                id:that.data.id,
             },
             header: {
               'content-type': 'application/x-www-form-urlencoded'
@@ -70,7 +78,7 @@ Page({
             success: function (res) {
               console.log(res.data)
               that.setData({
-                fw:res.data
+                serviceName:res.data
               })
             },
            

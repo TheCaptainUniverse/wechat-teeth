@@ -2,8 +2,8 @@
 .TT{
   width: auto;
   height: 100vh;
-  margin-top: 8vh;
-  background-color: rgb(242, 242, 242);
+  margin-top: 15vh;
+  background-color: rgb(245, 244, 244);
 }
 .tb{
   width: 100%;
@@ -20,7 +20,7 @@
   margin-top: 20rpx; 
 }
 .text-1{
-  color: #1efc16;
+  color: #1C9BDC;
 }
 .text-2{
   color: #060407;
@@ -37,13 +37,11 @@
   border-radius: 10px;
 }
 .image-plus-style {
-  height: 150rpx;
-  width: 150rpx;
-  margin-left:85%;
+  position:fixed; 
+  right: 14px;
   width:48px; 
   height: 48px;
   bottom: 200rpx;
-  position:fixed; 
   border-radius: 10px;
 }
 .btn{
