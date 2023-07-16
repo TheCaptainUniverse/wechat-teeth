@@ -23,12 +23,12 @@
     <view class="yyn">
       <view style="width: 100%;height: 0.6em;"></view>
       <view class="yn">
-        <view style="width: 30%;"><text style="font-weight: bold;">所在医院：</text></view>
+        <view style="width: 40%;"><text style="font-weight: bold;">所在医院：</text></view>
         <view><text>{{hospital}}</text></view>
       </view>
       <view style="width: 100%;height: 1em;"></view>
       <view class="yn">
-        <view style="width: 30%;"><text style="font-weight: bold;">医生简介：</text></view>
+        <view style="width: 40%;"><text style="font-weight: bold;">医生简介：</text></view>
         <view><text>{{introduction}}</text></view>
       </view>
       <view style="width: 100%;height: 1em;"></view>
@@ -47,7 +47,7 @@
             <view class="talk_nm"><text>{{item.name}}</text></view>
           </view>
           <view class="talk_nrr">
-            <text>{{item.pl}}</text>
+            <text>{{item.comment}}</text>
           </view>
           <view style="width: 100%;height: 0.6em;"></view>
         </view>

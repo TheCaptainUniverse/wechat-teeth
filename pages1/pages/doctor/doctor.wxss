@@ -102,8 +102,8 @@
 
 }
 .talk_photo{
-  width: 8vh;
-  height: 8vh;
+  width: 7vh;
+  height: 7vh;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -126,7 +126,7 @@
   justify-content: center;
 }
 .talk_nrr{
-  margin-top: 0.6em;
+  margin-top: 1em;
 }
 .cancl{
   width: 100%;

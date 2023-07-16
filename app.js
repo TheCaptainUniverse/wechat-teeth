@@ -117,8 +117,9 @@ App({
   },
   
   globalData: {
-    requestHeader : 'http://localhost:8099/teethAPI',
-    // requestHeader :'https://captainuniverse.top/teethAPI',
+    // requestHeader : 'http://124.220.9.73:8099/teethAPI',
+    requestHeader :'http://127.0.0.1:8099/teethAPI',
+    // requestHeader :'https://ly.lingyahuichi.top/teethAPI',
     userInfo: null,
     isTUIKit: true,
     // 个人信息
