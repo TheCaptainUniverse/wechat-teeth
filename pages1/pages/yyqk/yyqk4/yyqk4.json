@@ -1,6 +1,3 @@
 {
-  "navigationBarBackgroundColor": "#B0D8E4",
-  "usingComponents": {
-    "van-rate": "@vant/weapp/rate/index"
-  }
+  "navigationStyle": "custom"
 }

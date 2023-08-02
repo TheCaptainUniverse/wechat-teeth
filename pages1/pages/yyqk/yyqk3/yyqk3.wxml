@@ -1,5 +1,6 @@
 <!--pages/pages1/yyqk/yyqk3/yyqk3.wxml-->
 <view class="TT">
+  <navigationBar wx:if="{{!showNotice}}" title="我的咨询" showBack="{{true}}" showHome="{{false}}"></navigationBar>
   <view class="tb">
     <view class="yy">
       <text>咨询成功</text>

@@ -1,5 +1,6 @@
 <!--pages/pages1/yyqk/yyqk4/yyqk4.wxml-->
 <view class="TT">
+  <navigationBar wx:if="{{!showNotice}}" title="我的咨询" showBack="{{true}}" showHome="{{false}}"></navigationBar>
   <view class="tb">
     <view class="yy">
       <text>已取消预约</text>
