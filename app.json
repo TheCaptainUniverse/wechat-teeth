@@ -4,7 +4,8 @@
     "pages/login/login",
     "pages/logs/logs",
     "pages/index/index",
-    "pages/web/web"
+    "pages/web/web",
+    "pages/zjlxr/zjlxr"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -86,7 +87,8 @@
         "pages/dcwj/dcwj",
         "pages/rcsc/rcsc",
         "pages/rczpxq/rczpxq",
-        "pages/yljgxqym/yljgxqym"
+        "pages/yljgxqym/yljgxqym",
+        "pages/zjlxr/zjlxr"
       ],
       "independent": false
     },
@@ -101,15 +103,6 @@
         "pages/blsh/blsh",
         "pages/blshxq/blshqx",
         "pages/syys/syys",
-        "pages/zjlxr/zjlxr"
-      ],
-      "independent": false
-    },
-    {
-      "root": "chat",
-      "name": "chat",
-      "pages": [
-        "pages/TUI-Chat/chat",
         "pages/zjlxr/zjlxr"
       ],
       "independent": false

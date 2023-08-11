@@ -43,7 +43,7 @@
       icon="/images/gz1.png"
       title="最近咨询"
       link-type="navigateTo"
-      url="/chat/pages/zjlxr/zjlxr"
+      url="../../../pages/zjlxr/zjlxr"
     />
     <van-cell
       is-link

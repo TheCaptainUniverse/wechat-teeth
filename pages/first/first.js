@@ -95,6 +95,7 @@ Page({
                             userSig,
                             userID,
                           };
+                          // app.initTIM();
                           // setTokenStorage({
                           //   userInfo: app.globalData.userInfo,
                           // }),
